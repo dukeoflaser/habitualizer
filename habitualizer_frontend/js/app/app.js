@@ -1,11 +1,31 @@
 angular
   .module('app', ['Devise'])
-  .controller('myCtrl', function(Auth) {
-        Auth.currentUser().then(function(user) {
-            // User was logged in, or Devise returned
-            // previously authenticated session.
+  .config(function(AuthProvider){
+    AuthProvider.baseUrl('http://localhost:3000');
+  });
+
+angular
+  .module('app')
+  .controller('myCtrl', function(Auth, $scope) {
+        var credentials = {
+            email: 'palu@email.com',
+            password: 'password'
+        };
+
+
+        $scope.test = 'Test';
+
+        Auth.login(credentials).then(function(user) {
             console.log(user); // => {id: 1, ect: '...'}
         }, function(error) {
-            // unauthenticated error
+            // Authentication failed...
         });
-      });
+
+        $scope.$on('devise:login', function(event, currentUser) {
+            // after a login, a hard refresh, a new tab
+        });
+
+        $scope.$on('devise:new-session', function(event, currentUser) {
+            // user logged in by Auth.login({...})
+        });
+    });
