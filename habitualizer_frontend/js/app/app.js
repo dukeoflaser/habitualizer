@@ -5,6 +5,10 @@ angular
   })
   .config(function ($stateProvider) {
         $stateProvider
+            .state('home', {
+                url: '/',
+                templateUrl: 'js/app/views/home.html'
+            })
             .state('login', {
                 url: '/users/sign_in',
                 templateUrl: 'js/angular-devise/views/login.html',
