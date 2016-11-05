@@ -3,7 +3,7 @@ angular
   .config(function(AuthProvider){
     AuthProvider.baseUrl('http://localhost:3000');
   })
-  .config(function ($stateProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('home', {
                 url: '/',
@@ -19,4 +19,6 @@ angular
                 templateUrl: 'js/angular-devise/views/registration.html',
                 controller: 'RegistrationController'
             });
+
+            $urlRouterProvider.otherwise('/');
     });
