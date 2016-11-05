@@ -1,13 +1,13 @@
 angular
   .module('app')
-  .controller('RegistrationController', function(Auth, $scope) {
+  .controller('RegistrationController', function(Auth, $scope, $state) {
 
     this.submit = function(user){
       var credentials = user;
-      console.log(user);
 
       Auth.register(credentials).then(function(registeredUser) {
           console.log(registeredUser); // => {id: 1, ect: '...'}
+          $state.go('home');
       }, function(error) {
           // Registration failed...
       });
