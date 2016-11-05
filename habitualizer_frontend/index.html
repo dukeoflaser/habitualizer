@@ -9,9 +9,8 @@
 <body>
 
     <a href="" ui-sref="login">Go to the login page.</a>
-    <div ui-view></div>
-  <div ng-controller="RegistrationController as registration">
-    {{registration.controller}}
+
+  <div>
     <a href="" ui-sref="register">Go to the registration page.</a>
   </div>
   <div>
@@ -20,6 +19,7 @@
   <div ng-controller="LogoutController as logout">
     <a href="" ng-click="logout.logout()">Logout.</a>
   </div>
+  <div ui-view></div>
 
   <script src="/js/angular.js" charset="utf-8"></script>
   <script src="/js/ui-router/angular-ui-router.js" charset="utf-8"></script>
