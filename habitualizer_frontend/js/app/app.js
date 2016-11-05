@@ -7,7 +7,8 @@ angular
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'js/app/views/home.html'
+                templateUrl: 'js/app/views/home.html',
+                controller: 'HomeController'
             })
             .state('login', {
                 url: '/users/sign_in',
