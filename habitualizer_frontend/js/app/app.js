@@ -6,9 +6,15 @@ angular
   .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('home', {
-                url: '/',
+                url: '/home',
                 templateUrl: 'js/app/views/home.html',
-                controller: 'HomeController'
+                controller: 'HomeController',
+                controllerAs: 'user',
+                resolve: {
+                  user: ['Auth', function(Auth){
+                    return Auth.currentUser();
+                  }]
+                }
             })
             .state('login', {
                 url: '/users/sign_in',
