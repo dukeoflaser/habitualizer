@@ -23,13 +23,13 @@ sub1 = Reward.create(craving:'Cookie', experiment_id:1)
 sub2 = Reward.create(craving:'Social Interaction', experiment_id:2)
 sub3 = Reward.create(craving:'Flavored Water', experiment_id:2)
 
-action1 = Action.new(description:'Get a cookie from the vending machine')
-action2 = Action.new(description:'Go for a walk outside')
-action3 = Action.new(description:'Put a few drops of Mio in a glass of ice. Put on bedside table.')
-action4 = Action.new(description:'Have a cookie eating contest.')
+activity1 = Activity.new(description:'Get a cookie from the vending machine')
+activity2 = Activity.new(description:'Go for a walk outside')
+activity3 = Activity.new(description:'Put a few drops of Mio in a glass of ice. Put on bedside table.')
+activity4 = Activity.new(description:'Have a cookie eating contest.')
 
-sub1.actions << action1
-sub2.actions << action2
-sub3.actions << action3
-sub1.actions << action4
-sub2.actions << action4
+sub1.activities << activity1
+sub2.activities << activity2
+sub3.activities << activity3
+sub1.activities << activity4
+sub2.activities << activity4
