@@ -1,4 +1,4 @@
-class RewardController < ApplicationController
+class ActivitiesController < ApplicationController
   def index
   end
 

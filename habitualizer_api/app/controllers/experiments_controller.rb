@@ -1,4 +1,4 @@
-class HabitController < ApplicationController
+class ExperimentsController < ApplicationController
   def index
   end
 

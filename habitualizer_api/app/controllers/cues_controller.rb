@@ -1,4 +1,4 @@
-class CueController < ApplicationController
+class CuesController < ApplicationController
   def index
   end
 
