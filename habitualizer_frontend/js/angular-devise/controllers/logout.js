@@ -7,11 +7,14 @@ angular
             }
         };
 
-        Auth.logout(config).then(function(oldUser) {
-            // alert(oldUser.name + "you're signed out now.");
-        }, function(error) {
-            // An error occurred logging out.
-        });
+        this.logout = function(){
+          Auth.logout(config).then(function() {
+              alert("You're signed out now.");
+          }, function(error) {
+              // An error occurred logging out.
+          });
+        }
+
 
         $scope.$on('devise:logout', function(event, oldCurrentUser) {
             // ...
