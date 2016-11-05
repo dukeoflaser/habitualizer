@@ -1,9 +1,28 @@
 Possible Models:
 
 User
-Area/Category
+Area/Category/Tag
 Routine
 Habit
+
+user.routines
+user.habits
+
+
+habit.cue
+habit.reward
+habit.actions
+
+
+
+
+routine => An ordered list referencing the ids of actions, habits, and other routines.
+
+
+
+
+
+
 
 Pages
   -Login
