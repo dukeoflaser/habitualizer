@@ -1,0 +1,2 @@
+class CueController < ApplicationController
+end
