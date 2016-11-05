@@ -7,7 +7,7 @@ angular
         $stateProvider
             .state('login', {
                 url: '/users/sign_up',
-                template: '<div>This is the login page.</div>',
+                templateUrl: 'js/angular-devise/views/login.html',
                 controller: 'LoginController'
             });
     });
