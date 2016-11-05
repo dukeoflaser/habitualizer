@@ -6,8 +6,13 @@ angular
   .config(function ($stateProvider) {
         $stateProvider
             .state('login', {
-                url: '/users/sign_up',
+                url: '/users/sign_in',
                 templateUrl: 'js/angular-devise/views/login.html',
                 controller: 'LoginController'
+            })
+            .state('register', {
+                url: '/users/sign_up',
+                templateUrl: 'js/angular-devise/views/registration.html',
+                controller: 'RegistrationController'
             });
     });
