@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('LogoutController', function(Auth, $scope) {
+  .controller('LogoutController', function(Auth, $scope, $state) {
     var config = {
             headers: {
                 'X-HTTP-Method-Override': 'DELETE'
@@ -10,6 +10,7 @@ angular
         this.logout = function(){
           Auth.logout(config).then(function() {
               alert("You're signed out now.");
+              $state.go('root');
           }, function(error) {
               // An error occurred logging out.
           });
