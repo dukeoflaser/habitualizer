@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('LoginController', function(Auth, $scope) {
+  .controller('LoginController', function(Auth, $scope, $state) {
 
     this.submit = function(user) {
       var credentials = user;
@@ -8,6 +8,7 @@ angular
 
       Auth.login(credentials).then(function(user) {
           console.log(user); // => {id: 1, ect: '...'}
+           $state.go('home');
       }, function(error) {
           // Authentication failed...
       });
