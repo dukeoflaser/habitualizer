@@ -9,6 +9,16 @@ angular
         url: '/',
         templateUrl: 'js/app/views/welcome.html'
       })
+      .state('login', {
+        url: '/users/sign_in',
+        templateUrl: 'js/angular-devise/views/login.html',
+        controller: 'LoginController'
+      })
+      .state('register', {
+        url: '/users/sign_up',
+        templateUrl: 'js/angular-devise/views/registration.html',
+        controller: 'RegistrationController'
+      })
       .state('home', {
         url: '/home',
         templateUrl: 'js/app/views/home.html',
@@ -20,15 +30,62 @@ angular
           }]
         }
       })
-      .state('login', {
-        url: '/users/sign_in',
-        templateUrl: 'js/angular-devise/views/login.html',
-        controller: 'LoginController'
+      .state('complete', {
+        url: '/complete'
       })
-      .state('register', {
-        url: '/users/sign_up',
-        templateUrl: 'js/angular-devise/views/registration.html',
-        controller: 'RegistrationController'
+      .state('experiments', {
+        url: '/experiments'
+      })
+      .state('habit', {
+        url: '/habit/:id'
+      })
+      .state('experiment', {
+        url: '/experiment/:id'
+      })
+
+
+      
+      .state('new', {
+        abstract: true,
+        url: '/new',
+        template: '<div ui-view></div>'
+      })
+      .state('new.habit', {
+        url: '/habit'
+      })
+      .state('new.cue', {
+        url: '/cue'
+      })
+      .state('new.reward', {
+        url: '/reward'
+      })
+      .state('new.experiment', {
+        url: '/experiment'
+      })
+      .state('new.activity', {
+        url: '/activity'
+      })
+
+
+      .state('edit', {
+        abstract: true,
+        url: '/edit',
+        template: '<div ui-view></div>'
+      })
+      .state('edit.habit', {
+        url: '/habit'
+      })
+      .state('edit.cue', {
+        url: '/cue'
+      })
+      .state('edit.reward', {
+        url: '/reward'
+      })
+      .state('edit.experiment', {
+        url: '/experiment'
+      })
+      .state('edit.activity', {
+        url: '/activity'
       });
 
       $urlRouterProvider.otherwise('/');
