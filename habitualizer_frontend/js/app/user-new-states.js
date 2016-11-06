@@ -10,11 +10,13 @@ angular
     })
 
     .state('user.new.habit', {
-      url: '/habit'
+      url: '/habit',
+      templateUrl: 'js/app/views/habits/new.html'
     })
 
     .state('user.new.experiment', {
-      url: '/experiment'
+      url: '/experiment',
+      templateUrl: 'js/app/views/experiments/new.html'
     });
 
   });
