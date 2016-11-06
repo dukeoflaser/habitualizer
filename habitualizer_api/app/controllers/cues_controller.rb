@@ -1,5 +1,7 @@
 class CuesController < ApplicationController
   def index
+    @cues = Cue.all
+    render json: @cues
   end
 
   def show
