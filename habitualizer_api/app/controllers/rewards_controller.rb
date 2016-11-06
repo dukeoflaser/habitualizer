@@ -5,6 +5,8 @@ class RewardsController < ApplicationController
   end
 
   def show
+    @reward = Reward.find(params[:id])
+    render json: @reward
   end
 
   def create

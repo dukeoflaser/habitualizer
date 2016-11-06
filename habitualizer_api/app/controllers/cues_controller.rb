@@ -5,6 +5,8 @@ class CuesController < ApplicationController
   end
 
   def show
+    @cue = Cue.find(params[:id])
+    render json: @cue    
   end
 
   def create

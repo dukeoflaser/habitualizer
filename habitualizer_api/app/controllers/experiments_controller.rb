@@ -5,6 +5,8 @@ class ExperimentsController < ApplicationController
   end
 
   def show
+    @experiment = Experiment.find(params[:id])
+    render json: @experiment    
   end
 
   def create
