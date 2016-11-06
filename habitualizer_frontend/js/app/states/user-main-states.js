@@ -14,11 +14,9 @@ angular
           return Auth.currentUser();
         }],
         userHabits: function($http, user){
-          var userID = user.id;
-          // return userID;
           return $http({
             method: 'GET',
-            url: baseUrl + '/user/' + userID + '/habits'
+            url: baseUrl + '/user/' + user.id + '/habits'
           });
         }
       }
@@ -31,7 +29,19 @@ angular
 
     .state('user.experiments', {
       url: '/experiments',
-      templateUrl: 'js/app/views/experiments/experiments.html'
+      templateUrl: 'js/app/views/experiments/experiments.html',
+      controller: 'ExperimentController',
+      resolve: {
+        user: ['Auth', function(Auth){
+          return Auth.currentUser();
+        }],
+        userExperiments: function($http, user){
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/user/' + user.id + '/experiments'
+          });
+        }
+      }
     });
 
   });
