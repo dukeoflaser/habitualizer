@@ -3,11 +3,6 @@ angular
   .config(function ($stateProvider) {
   $stateProvider
 
-    .state('user', {
-      url: '/user',
-      templateUrl: 'js/app/views/user.html'
-    })
-
     .state('user.home', {
       url: '/home',
       templateUrl: 'js/app/views/home.html',
@@ -29,5 +24,5 @@ angular
       url: '/experiments',
       templateUrl: 'js/app/views/experiments/experiments.html'
     });
-    
+
   });
