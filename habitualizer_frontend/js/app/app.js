@@ -19,7 +19,14 @@ angular
         templateUrl: 'js/angular-devise/views/registration.html',
         controller: 'RegistrationController'
       })
-      .state('home', {
+
+
+
+      .state('user', {
+        url: '/user',
+        templateUrl: 'js/app/views/user.html'
+      })
+      .state('user.home', {
         url: '/home',
         templateUrl: 'js/app/views/home.html',
         controller: 'HomeController',
@@ -30,11 +37,11 @@ angular
           }]
         }
       })
-      .state('complete', {
+      .state('user.complete', {
         url: '/complete',
         templateUrl: 'js/app/views/habits/complete.html'
       })
-      .state('experiments', {
+      .state('user.experiments', {
         url: '/experiments',
         templateUrl: 'js/app/views/experiments/experiments.html'
       });

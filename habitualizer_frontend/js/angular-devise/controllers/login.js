@@ -8,7 +8,7 @@ angular
 
       Auth.login(credentials).then(function(user) {
           console.log(user); // => {id: 1, ect: '...'}
-           $state.go('home');
+           $state.go('user.home');
       }, function(error) {
           // Authentication failed...
       });

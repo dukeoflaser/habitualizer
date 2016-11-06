@@ -7,7 +7,7 @@ angular
 
       Auth.register(credentials).then(function(registeredUser) {
           console.log(registeredUser); // => {id: 1, ect: '...'}
-          $state.go('home');
+          $state.go('user.home');
       }, function(error) {
           // Registration failed...
       });
