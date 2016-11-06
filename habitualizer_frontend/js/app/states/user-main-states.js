@@ -1,7 +1,8 @@
 angular
   .module('app')
   .config(function ($stateProvider) {
-  $stateProvider
+    var baseUrl = 'http://localhost:3000'
+    $stateProvider
 
     .state('user.home', {
       url: '/home',
@@ -11,7 +12,15 @@ angular
       resolve: {
         user: ['Auth', function(Auth){
           return Auth.currentUser();
-        }]
+        }],
+        userHabits: function($http, user){
+          var userID = user.id;
+          // return userID;
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/user/' + userID + '/habits'
+          });
+        }
       }
     })
 
