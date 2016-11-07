@@ -24,7 +24,19 @@ angular
 
     .state('user.complete', {
       url: '/complete',
-      templateUrl: 'js/app/views/habits/complete.html'
+      templateUrl: 'js/app/views/habits/complete.html',
+      controller: 'CompleteController',
+      resolve: {
+        user: ['Auth', function(Auth){
+          return Auth.currentUser();
+        }],
+        userCompleteHabits: function($http, user){
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/user/' + user.id + '/habits?complete=true'
+          });
+        }
+      }
     })
 
     .state('user.experiments', {
