@@ -1,3 +1,14 @@
+New Habit:
+  -Create new habit name
+  -Select
+New Experiment:
+  -Select a habit from a list of some kind.
+  -Select/create a substitute reward.
+  -Successful attribute needs to be changed to default to false.
+  -Edit to change it to true -> Update activity here. (Should have default activity)
+
+
+
 Possible Models:
 
 User
