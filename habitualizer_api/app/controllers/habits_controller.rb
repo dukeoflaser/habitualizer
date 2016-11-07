@@ -7,7 +7,7 @@ class HabitsController < ApplicationController
     else
       @habits = @user.habits
     end
-    binding.pry
+
     render json: @habits
   end
 
