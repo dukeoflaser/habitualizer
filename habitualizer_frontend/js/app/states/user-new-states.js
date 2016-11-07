@@ -39,7 +39,27 @@ angular
     .state('user.new.experiment', {
       url: '/experiment',
       templateUrl: 'js/app/views/experiments/new.html',
-      controller: 'NewExperimentController'
+      controller: 'NewExperimentController',
+      resolve: {
+        cues: function($http){
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/cues'
+          });
+        },
+        rewards: function($http){
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/rewards'
+          });
+        },
+        activities: function($http){
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/activities'
+          });
+        }
+      }
     });
 
   });
