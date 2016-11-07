@@ -32,7 +32,7 @@ angular
         experiment: function($http, $stateParams){
           return $http({
             method: 'GET',
-            url: baseUrl + '/habits/' + $stateParams.id
+            url: baseUrl + '/experiments/' + $stateParams.id
           });
         }
       }
