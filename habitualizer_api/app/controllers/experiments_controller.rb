@@ -6,15 +6,24 @@ class ExperimentsController < ApplicationController
 
   def show
     @experiment = Experiment.find(params[:id])
-    render json: @experiment    
+    render json: @experiment
   end
 
   def create
+    @experiment = Experiment.create(experiment_params)
+    render json: @experiment
   end
 
   def update
   end
 
   def destroy
+  end
+
+  def experiment_params
+    params.require(:experiment)
+      .permit(:habit_id, :successful,
+        {:substitute_attributes => [:id, :craving]}
+      )
   end
 end
