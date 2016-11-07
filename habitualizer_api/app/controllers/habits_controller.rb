@@ -17,8 +17,9 @@ class HabitsController < ApplicationController
   end
 
   def create
+    @habit = Habit.new(habit_params)
     binding.pry
-    Habit.new(habits_params)
+    render json: @habit
   end
 
   def update
@@ -27,8 +28,13 @@ class HabitsController < ApplicationController
   def destroy
   end
 
-  def habits_params
-    params.require(:habit).permit(:name, :complete);
-    binding.pry
+  def habit_params
+    params.require(:habit)
+      .permit(:user_id, :name, :complete,
+        {:cues_attributes => [:id, :name, :nature]},
+        {:rewards_attributes => [:id, :craving]},
+        {:activities_attributes => [:id, :description]}
+      )
+
   end
 end
