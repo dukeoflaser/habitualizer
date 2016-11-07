@@ -1,7 +1,8 @@
 angular
   .module('app')
   .config(function ($stateProvider) {
-  $stateProvider
+    var baseUrl = 'http://localhost:3000'
+    $stateProvider
 
     .state('user.show', {
       abstract: true,
@@ -10,8 +11,17 @@ angular
     })
 
     .state('user.show.habit', {
-      url: '/habit',
-      templateUrl: 'js/app/views/habits/show.html'
+      url: '/habit/:id',
+      templateUrl: 'js/app/views/habits/show.html',
+      controller: 'ShowHabitController',
+      resolve: {
+        habit: function($http, $stateParams){
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/habits/' + $stateParams.id
+          });
+        }
+      }
     })
 
     .state('user.show.experiment', {
