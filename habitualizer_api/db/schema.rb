@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20161107215314) do
 
   create_table "experiments", force: :cascade do |t|
     t.integer  "habit_id"
-    t.boolean  "successful",    default: true
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "successful",    default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "substitute_id"
   end
 
