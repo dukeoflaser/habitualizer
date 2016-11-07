@@ -17,6 +17,8 @@ class HabitsController < ApplicationController
   end
 
   def create
+    binding.pry
+    Habit.new(habits_params)
   end
 
   def update
@@ -26,6 +28,7 @@ class HabitsController < ApplicationController
   end
 
   def habits_params
-    params.permit(:complete);
+    params.require(:habit).permit(:name, :complete);
+    binding.pry
   end
 end
