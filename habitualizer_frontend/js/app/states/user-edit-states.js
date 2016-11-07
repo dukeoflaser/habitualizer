@@ -25,8 +25,17 @@ angular
     })
 
     .state('user.edit.experiment', {
-      url: '/experiment',
-      templateUrl: 'js/app/views/experiments/edit.html'
+      url: '/experiment/:id',
+      templateUrl: 'js/app/views/experiments/edit.html',
+      controller: 'EditExperimentController',
+      resolve: {
+        experiment: function($http, $stateParams){
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/habits/' + $stateParams.id
+          });
+        }
+      }
     });
 
   });
