@@ -1,12 +1,19 @@
 class HabitsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    render json: @user.habits
+
+    if params[:complete] == 'true'
+      @habits = @user.habits.select{ |habit| habit.complete == true }
+    else
+      @habits = @user.habits
+    end
+    binding.pry
+    render json: @habits
   end
 
   def show
     @habit = Habit.find(params[:id])
-    render json: @habit    
+    render json: @habit
   end
 
   def create
@@ -16,5 +23,9 @@ class HabitsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def habits_params
+    params.permit(:complete);
   end
 end
