@@ -12,30 +12,28 @@ angular
     var data = {
       "habit": {
         "user_id": 1,
-        "name": 'Test Habit',
+        "name": 'TEST Habit',
         "complete": false,
         "cues_attributes": {
           "0": {
             "id": '',
-            "name": 'Getting Home From Work',
+            "name": 'TEST Getting Home From Work',
             "nature": '3'
           },
           "1": {
             "id": '',
-            "name": 'Friends',
+            "name": 'TEST Friends',
             "nature": '5'
           }
         },
-        "rewards_attributes": {
-          "0": {
+        "reward_attributes": {
             "id": '',
-            "craving": "Relaxation"
-          }
+            "craving": "TEST Relaxation"
         },
         "activities_attributes": {
           "0": {
             "id": '',
-            "description": "Jump on a trampoline."
+            "description": "TEST Jump on a trampoline."
           }
         }
       } //habit
