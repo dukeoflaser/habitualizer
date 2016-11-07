@@ -17,7 +17,8 @@ angular
 
     .state('user.new.experiment', {
       url: '/experiment',
-      templateUrl: 'js/app/views/experiments/new.html'
+      templateUrl: 'js/app/views/experiments/new.html',
+      controller: 'NewExperimentController'
     });
 
   });
