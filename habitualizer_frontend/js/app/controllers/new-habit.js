@@ -9,20 +9,37 @@ angular
     console.log('Habit Activities');
     console.log(activities);
 
-
-    // var data = {
-    //   user_id: //curentUserId,
-    //   name: 'Test Habit',
-    //   complete: false,
-    //   //create attributes in model that correspond with these.
-    //   //They take in the hash, for each, find or create by id
-    //   //then assign current habit (self?) cue_id equal to current cue's id.
-    //   cues_attributes={
-    //     {0: {id:, name:, :nature }}
-    //   },
-    //   rewards_attributes={}
-    // }
-
+    var data = {
+      "habit": {
+        "user_id": 1,
+        "name": 'Test Habit',
+        "complete": false,
+        "cues_attributes": {
+          "0": {
+            "id": '',
+            "name": 'Getting Home From Work',
+            "nature": '3'
+          },
+          "1": {
+            "id": '',
+            "name": 'Friends',
+            "nature": '5'
+          }
+        },
+        "rewards_attributes": {
+          "0": {
+            "id": '',
+            "craving": "Relaxation"
+          }
+        },
+        "activities_attributes": {
+          "0": {
+            "id": '',
+            "description": "Jump on a trampoline."
+          }
+        }
+      } //habit
+    };
 
     (function(){
       console.log('Postingg to habits#create.');
@@ -30,11 +47,7 @@ angular
       $http({
         method: 'POST',
         url: 'http://localhost:3000/habits',
-        data: {
-          name: 'Test Habit',
-          user_id: 1,
-          complete: false
-        }
+        data: data
       });
 
     })();
