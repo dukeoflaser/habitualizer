@@ -1,7 +1,7 @@
 user = User.new
 user.email = 'a@a.com'
 user.password = 'aaaaaa'
-user.password_confirmation = 'valid_password'
+user.password_confirmation = 'aaaaaa'
 user.save!
 
 Habit.create(name:'Smoking', user_id:1)
