@@ -1,11 +1,11 @@
 user = User.new
-user.email = 'nathaniel@example.com'
-user.password = 'valid_password'
+user.email = 'a@a.com'
+user.password = 'aaaaaa'
 user.password_confirmation = 'valid_password'
 user.save!
 
 Habit.create(name:'Smoking', user_id:1)
-Habit.create(name:'Drinking Water', user_id:1)
+Habit.create(name:'Drinking Water', user_id:1, complete:true)
 
 Cue.create(name:'Work', nature:'Location', habit_id:1)
 Cue.create(name:'Smoker Friends', nature:'Company', habit_id:1)
