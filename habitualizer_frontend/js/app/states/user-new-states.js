@@ -11,7 +11,8 @@ angular
 
     .state('user.new.habit', {
       url: '/habit',
-      templateUrl: 'js/app/views/habits/new.html'
+      templateUrl: 'js/app/views/habits/new.html',
+      controller: 'NewHabitController'
     })
 
     .state('user.new.experiment', {
