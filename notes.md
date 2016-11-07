@@ -3,7 +3,7 @@ New Habit:
   -Select/create cue
   -Select/create reward/craving.
   -Add to 'active habit' variable and set as default for creating experiment/edit habit.
-  ----Note: need to get rid of habit_id on cue(gives us cue.habit which we don't need, only need habit.cue -> guess habit needs a cue id.)
+  ----Note: need to get rid of habit_id on cue(gives us cue.habit which we don't need, only need habit.cue -> guess habit needs a cue id.) Same for reward.
 
 New Experiment:
   -Select a habit from a list of some kind.
