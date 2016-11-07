@@ -1,3 +1,3 @@
 class Cue < ApplicationRecord
-  belongs_to :habit
+  has_and_belongs_to_many :habits
 end

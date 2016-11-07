@@ -4,24 +4,29 @@ user.password = 'aaaaaa'
 user.password_confirmation = 'aaaaaa'
 user.save!
 
-Habit.create(name:'Smoking', user_id:1)
-Habit.create(name:'Drinking Water', user_id:1, complete:true)
+habit1 = Habit.create(name:'Smoking', user_id:1)
+habit2 = Habit.create(name:'Drinking Water', user_id:1, complete:true)
 
-Cue.create(name:'Work', nature:'Location', habit_id:1)
-Cue.create(name:'Smoker Friends', nature:'Company', habit_id:1)
-Cue.create(name:'Waking Up In the Moring', nature:'Time', habit_id:2)
+habit1.cues << Cue.create(name:'Work', nature:'Location')
+habit1.cues << Cue.create(name:'Smoker Friends', nature:'Company')
+habit2.cues << Cue.create(name:'Waking Up In the Moring', nature:'Time')
 
-Reward.create(craving:'Cigarette', habit_id:1)
-Reward.create(craving:'Hydration', habit_id:2)
+habit1.reward = Reward.create(craving:'Cigarette')
+habit2.reward = Reward.create(craving:'Hydration')
 
-Experiment.create(habit_id:1, successful:false)
-Experiment.create(habit_id:1)
-Experiment.create(habit_id:2)
+exp1 = Experiment.create(habit_id:1, successful:false)
+exp2 = Experiment.create(habit_id:1)
+exp3 = Experiment.create(habit_id:2)
 
 # Note: The following rewards represent subsitutions.
-sub1 = Reward.create(craving:'Cookie', experiment_id:1)
-sub2 = Reward.create(craving:'Social Interaction', experiment_id:2)
-sub3 = Reward.create(craving:'Flavored Water', experiment_id:2)
+sub1 = Reward.create(craving:'Cookie')
+exp1.substitute = sub1
+
+sub2 = Reward.create(craving:'Social Interaction')
+exp2.substitute = sub2
+
+sub3 = Reward.create(craving:'Flavored Water')
+exp3.substitute = sub3
 
 activity1 = Activity.new(description:'Get a cookie from the vending machine')
 activity2 = Activity.new(description:'Go for a walk outside')
