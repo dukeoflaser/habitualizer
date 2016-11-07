@@ -5,7 +5,7 @@ class HabitsController < ApplicationController
     if params[:complete] == 'true'
       @habits = @user.habits.select{ |habit| habit.complete == true }
     else
-      @habits = @user.habits
+      @habits = @user.habits.select{ |habit| habit.complete == false }
     end
 
     render json: @habits
