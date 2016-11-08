@@ -13,6 +13,13 @@ angular
     $scope.rewards = rewards.data.rewards;
     $scope.activities = activities.data.activities;
 
+    $scope.select = function(cue){
+      console.log('You chose:');
+      console.log(cue);
+
+      $scope.habit.cue_attributes.name = cue.name;
+    }
+
     var data = {
       "habit": {
         "user_id": 1,

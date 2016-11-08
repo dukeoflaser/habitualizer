@@ -28,7 +28,7 @@
 <label>Type <input ng-model="search.nature"></label><br>
 <table id="searchCues">
   <tr><th>Name</th><th>Type</th></tr>
-  <tr ng-repeat="cue in cues | filter:search" ng-show="$index < 3">
+  <tr ng-repeat="cue in cues | filter:search" ng-show="$index < 3" ng-click="select(cue)">
     <td>{{cue.name}}</td>
     <td>{{cue.nature}}</td>
   </tr>
