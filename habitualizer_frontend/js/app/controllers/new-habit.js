@@ -9,6 +9,10 @@ angular
     console.log('Habit Activities');
     console.log(activities);
 
+    $scope.cues = cues.data.cues;
+    $scope.rewards = rewards.data.rewards;
+    $scope.activities = activities.data.activities;
+
     var data = {
       "habit": {
         "user_id": 1,
