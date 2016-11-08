@@ -26,6 +26,7 @@ angular
       url: '/complete',
       templateUrl: 'js/app/views/habits/complete.html',
       controller: 'CompleteController',
+      controllerAs: 'user',
       resolve: {
         user: ['Auth', function(Auth){
           return Auth.currentUser();

@@ -1,3 +1,5 @@
 
 <h1>This is the complete habits page.</h1>
-<a ui-sref="user.show.habit">Go to the show habit page.</a>
+<div ng-repeat="habit in user.habits">
+  <a ui-sref="user.show.habit({ id: {{ habit.id }} })">Go to the show habit({{ habit.id }}) page.</a>
+</div>
