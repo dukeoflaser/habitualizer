@@ -2,6 +2,7 @@ angular
   .module('app')
   .controller('LoginController', function(Auth, $scope, $state) {
 
+//////////////////////////////////////////
     this.submit = function(user) {
       var credentials = user;
 
@@ -12,6 +13,7 @@ angular
       });
 
     };
+//////////////////////////////////////////
 
     $scope.$on('devise:login', function(event, currentUser) {
         // after a login, a hard refresh, a new tab
