@@ -4,9 +4,13 @@ class Habit < ApplicationRecord
   has_many :experiments
   belongs_to :reward
 
-  accepts_nested_attributes_for :cue
   accepts_nested_attributes_for :reward
 
-  # attr_accessor :cues_attributes, :rewards_attributes, :activities_attributes
+
+  def cue_attributes=(atts)
+    # atts = => {"name"=>"Work", "nature"=>"0"}
+    @cue = Cue.find_or_create_by(name: atts['name'])
+    self.cue = @cue
+  end
 
 end
