@@ -1,1 +1,24 @@
 <h1>This is the new habits view.</h1>
+<div>
+  <form>
+    User ID: <input type="text" ng-model="habit.user_id" /><br />
+    Habit Name: <input type="text" ng-model="habit.name" /><br />
+    Complete?: <input type="checkbox" ng-model="habit.complete" /><br />
+
+    Cue: <input type="text" ng-model="habit.cue_attributes.name"/><br />
+    <label for="cueType"> Cue Type: </label><br>
+    <select name="cueTypet" ng-model="habit.cue_attributes.nature" ng-init="habit.cue_attributes.nature='0'">
+      <option value="0">Location</option>
+      <option value="1">Time</option>
+      <option value="2">People</option>
+      <option value="3">Emotion</option>
+      <option value="4">Action</option>
+    </select><br>
+
+    What do you crave? <input type="text" ng-model="habit.reward_attributes.craving" /><br />
+
+
+    <input type="submit" ng-click="submit(habit)" value="Save" />
+  </form>
+  <pre>habit = {{habit | json}}</pre>
+</div>

@@ -30,8 +30,8 @@ class HabitsController < ApplicationController
   def habit_params
     params.require(:habit)
       .permit(:user_id, :name, :complete,
-        {:cues_attributes => [:id, :name, :nature]},
-        {:reward_attributes => [:id, :craving]}
+        {:cue_attributes => [:name, :nature]},
+        {:reward_attributes => [:craving]}
       )
   end
 end
