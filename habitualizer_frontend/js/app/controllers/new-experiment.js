@@ -1,6 +1,28 @@
 angular
   .module('app')
-  .controller('NewExperimentController', function($http, cues, rewards, activities) {
+  .controller('NewExperimentController', function($http, $scope, cues, rewards, activities) {
+
+
+
+
+//////////////////////////////////////////
+    $scope.submit = function(exp) {
+      var experiment = { experiment: exp };
+
+      console.log('Posting to experiments#create.');
+
+      $http({
+        method: 'POST',
+        url: 'http://localhost:3000/experiments',
+        data: experiment
+      });
+
+    };
+///////////////////////////////////////////
+
+
+
+
 
     console.log('Cues');
     console.log(cues);
@@ -9,27 +31,16 @@ angular
     console.log('Activities');
     console.log(activities);
 
+///////////////////////DATA FORMAT///////////////////////
+    // var data = {
+    //   "experiment": {
+    //     "habit_id": 2, //active_habit.id
+    //     "successful": false,
+    //     "substitute_attributes": {
+    //       "craving": 'TEST BANANAS'
+    //     }
+    //   }
+    // };
 
-    var data = {
-      "experiment": {
-        "habit_id": 2, //active_habit.id
-        "successful": false,
-        "substitute_attributes": {
-          "id": '',
-          "craving": 'TEST Biscuits'
-        }
-      } //habit
-    };
-
-    (function(){
-      console.log('Postingg to experiments#create.');
-
-      $http({
-        method: 'POST',
-        url: 'http://localhost:3000/experiments',
-        data: data
-      });
-
-    })();
 
   });

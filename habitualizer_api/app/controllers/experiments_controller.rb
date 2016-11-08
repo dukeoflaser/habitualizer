@@ -23,7 +23,7 @@ class ExperimentsController < ApplicationController
   def experiment_params
     params.require(:experiment)
       .permit(:habit_id, :successful,
-        {:substitute_attributes => [:id, :craving]}
+        {:substitute_attributes => [:craving]}
       )
   end
 end

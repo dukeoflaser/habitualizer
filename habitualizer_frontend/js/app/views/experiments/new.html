@@ -1,1 +1,11 @@
 <h1>This is the new experiments view.</h1>
+<div>
+  <form>
+    Habit ID: <input type="text" ng-model="experiment.habit_id" /><br />
+    Successful?: <input type="checkbox" ng-model="experiment.successful" /><br />
+    Substitute Reward<input type="text" ng-model="experiment.substitute_attributes.craving"/><br />
+    <input type="submit" ng-click="submit(experiment)" value="Save" />
+  </form>
+  <pre>experiment = {{experiment | json}}</pre>
+  <pre>master = {{master | json}}</pre>
+</div>
