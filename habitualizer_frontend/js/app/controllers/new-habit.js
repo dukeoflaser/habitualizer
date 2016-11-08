@@ -18,6 +18,7 @@ angular
       console.log(cue);
 
       $scope.habit.cue_attributes.name = cue.name;
+      $scope.habit.cue_attributes.nature = cue.nature;
     }
 
     var data = {
