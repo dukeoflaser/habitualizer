@@ -1,3 +1,5 @@
 
 <h1>This is the experiments page.</h1>
-<a ui-sref="user.show.experiment({ id:2 })">Go to show experiment(2) page.</a>
+<div ng-repeat="exp in user.experiments">
+  <a ui-sref="user.show.experiment({ id: {{ exp.id }} })">Go to show experiment({{ exp.id }}) page.</a>
+</div>

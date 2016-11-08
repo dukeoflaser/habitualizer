@@ -43,6 +43,7 @@ angular
       url: '/experiments',
       templateUrl: 'js/app/views/experiments/experiments.html',
       controller: 'ExperimentController',
+      controllerAs: 'user',
       resolve: {
         user: ['Auth', function(Auth){
           return Auth.currentUser();
