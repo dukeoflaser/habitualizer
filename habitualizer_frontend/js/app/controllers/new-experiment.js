@@ -15,6 +15,8 @@ angular
         method: 'POST',
         url: 'http://localhost:3000/experiments',
         data: experiment
+      }).then(function(response){
+        console.log(response);
       });
 
     };

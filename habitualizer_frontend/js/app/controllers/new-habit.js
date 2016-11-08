@@ -41,6 +41,8 @@ $scope.submit = function(hbt) {
     method: 'POST',
     url: 'http://localhost:3000/habits',
     data: habit
+  }).then(function(response){
+    console.log(response);
   });
 
 }
