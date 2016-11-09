@@ -5,11 +5,7 @@ angular
     var exp = experiment.data.experiment;
 
     $scope.experiment = exp;
-    $scope.experiment.habit_id = exp.habit_id;
-    $scope.experiment.successful = exp.successful;
     $scope.experiment.substitute_attributes = exp.substitute;
-    $scope.experiment.substitute_attributes.craving = exp.substitute.craving;
-
 
 
     console.log('The editing experiment:');

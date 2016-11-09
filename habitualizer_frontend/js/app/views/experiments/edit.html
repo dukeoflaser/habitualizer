@@ -1,7 +1,7 @@
-<h1>This is the EDIT experiments view.</h1>
+<pre>This is the EDIT experiments view.</pre>
+{{ experiment }}
 <div>
   <form>
-    Habit ID: <input type="text" ng-model="experiment.habit_id" /><br />
     Successful?: <input type="checkbox" ng-model="experiment.successful" /><br />
     Substitute Reward<input type="text" ng-model="experiment.substitute_attributes.craving"/><br />
     <input type="submit" ng-click="submit(experiment)" value="Save" />
