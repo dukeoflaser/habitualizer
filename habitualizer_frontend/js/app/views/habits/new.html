@@ -24,22 +24,24 @@
 </div>
 
 <h4>Cues</h4>
-<label>Name<input ng-model="search.name"></label><br>
-<label>Type <input ng-model="search.nature"></label><br>
+<label>Name<input ng-model="searchCue.name"></label><br>
+<label>Type <input ng-model="searchCue.nature"></label><br>
 <table id="searchCues">
   <tr><th>Name</th><th>Type</th></tr>
-  <tr ng-repeat="cue in cues | filter:search" ng-show="$index < 3" ng-click="select(cue)">
+  <tr ng-repeat="cue in cues | filter:searchCue" ng-show="$index < 3" ng-click="selectCue(cue)">
     <td>{{cue.name}}</td>
     <td>{{cue.nature}}</td>
   </tr>
 </table>
-<!-- <div ng-repeat="cue in cues">
-  {{ cue.name }} - {{ cue.nature }}
-</div> -->
+
 <h4>Rewards</h4>
-<div ng-repeat="reward in rewards">
-  {{ reward.craving }}
-</div>
+<label>Craving:<input ng-model="searchReward.craving"></label><br>
+<table id="searchCues">
+  <tr><th>Name</th><th>Type</th></tr>
+  <tr ng-repeat="reward in rewards | filter:searchReward" ng-show="$index < 3" ng-click="selectReward(reward)">
+    <td>{{reward.craving}}</td>
+  </tr>
+</table>
 <h4>Activities</h4>
 <div ng-repeat="activity in activities">
   {{ activity.description }}

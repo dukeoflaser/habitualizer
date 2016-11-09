@@ -13,12 +13,20 @@ angular
     $scope.rewards = rewards.data.rewards;
     $scope.activities = activities.data.activities;
 
-    $scope.select = function(cue){
+    $scope.selectCue = function(cue){
       console.log('You chose:');
       console.log(cue);
 
       $scope.habit.cue_attributes.name = cue.name;
       $scope.habit.cue_attributes.nature = cue.nature;
+    }
+
+    $scope.selectReward = function(reward){
+      console.log('You chose:');
+      console.log(reward);
+
+      $scope.habit.reward_attributes = reward;
+      $scope.habit.reward_attributes.craving = reward.craving;
     }
 
     var data = {
