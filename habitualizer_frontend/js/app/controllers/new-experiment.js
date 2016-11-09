@@ -2,8 +2,7 @@ angular
   .module('app')
   .controller('NewExperimentController', function($http, $scope, cues, rewards, activities) {
 
-
-
+    $scope.rewards = rewards.data.rewards;
 
 //////////////////////////////////////////
     $scope.submit = function(exp) {
