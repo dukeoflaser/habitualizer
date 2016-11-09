@@ -4,7 +4,7 @@ class Habit < ApplicationRecord
   has_many :experiments
   belongs_to :reward
 
-  accepts_nested_attributes_for :reward
+  # accepts_nested_attributes_for :reward
 
 
   def cue_attributes=(atts)
