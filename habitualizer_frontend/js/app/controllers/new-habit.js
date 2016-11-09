@@ -36,8 +36,7 @@ angular
       }).then(function(response){
         var habit = response.data.habit;
         //change this to success/error in case something goes wrong.
-        // $state.go("user.show.habit({ id:{{ habit.id }} })");
-        $scope.newHabit = habit;
+        $state.go('user.show.habit', { id: habit.id });
       });
 
     }
