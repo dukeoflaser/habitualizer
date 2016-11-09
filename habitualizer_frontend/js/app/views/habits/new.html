@@ -1,5 +1,5 @@
 <pre>This is the new habits view.</pre>
-<div>
+<div ng-if="!newHabit">
   <form>
 
     <label for="habitName">Habit Name:</label><br />
@@ -42,6 +42,10 @@
   <!-- <pre>habit = {{habit | json}}</pre> -->
 </div>
 
+<div ng-if="newHabit">
+  <!-- This needs to be the habit component here. -->
+  {{ newHabit }}
+</div>
 
 
 <!-- <h4>Activities</h4>

@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('NewHabitController', function($http, $scope, user, cues, rewards, activities) {
+  .controller('NewHabitController', function($http, $scope, $state, user, cues, rewards, activities) {
 
     $scope.habit = {}
     $scope.habit.user_id = user.id
@@ -34,7 +34,10 @@ angular
         url: 'http://localhost:3000/habits',
         data: habit
       }).then(function(response){
-        console.log(response);
+        var habit = response.data.habit;
+        //change this to success/error in case something goes wrong.
+        // $state.go("user.show.habit({ id:{{ habit.id }} })");
+        $scope.newHabit = habit;
       });
 
     }
