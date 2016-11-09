@@ -1,3 +1,26 @@
+New Habit data structure:
+
+var data = {
+  "habit": {
+    "user_id": 1,
+    "name": 'TEST Habit',
+    "complete": false,
+    "cue_attributes": {
+      "name": 'TEST Getting Home From Work',
+      "nature": '3'
+    },
+    "reward_attributes": {
+        "craving": "TEST Relaxation"
+    },
+    "activities_attributes": {
+      "0": {
+        "description": "TEST Jump on a trampoline."
+      }
+    }
+  }
+};
+
+
 New Habit:
   -Create new habit name
   -Select/create cue
