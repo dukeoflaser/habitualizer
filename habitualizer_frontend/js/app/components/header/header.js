@@ -1,6 +1,12 @@
 var Header = {
-  templateUrl: 'js/app/components/header/header.html'
+  templateUrl: 'js/app/components/header/header.html',
+  controller: HeaderController
 };
+
+
+// function HeaderController() {
+//
+// }
 
 
 angular

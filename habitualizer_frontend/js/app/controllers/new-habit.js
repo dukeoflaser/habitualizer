@@ -29,15 +29,17 @@ angular
 
       console.log('Posting to habits#create.');
 
-      $http({
+      var req = {
         method: 'POST',
         url: 'http://localhost:3000/habits',
         data: habit
-      }).then(function(response){
-        var habit = response.data.habit;
-        //change this to success/error in case something goes wrong.
-        $state.go('user.show.habit', { id: habit.id });
-      });
+      }
+
+      $http(req)
+        .then(function(response){
+          //change this to success/error in case something goes wrong.
+          $state.go('user.show.habit', { id: response.data.habit.id });
+        });
 
     }
     //////////////////////////////////////////

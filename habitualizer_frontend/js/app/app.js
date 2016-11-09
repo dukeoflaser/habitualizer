@@ -3,6 +3,8 @@ angular
   .config(function(AuthProvider){
     AuthProvider.baseUrl('http://localhost:3000');
   });
+
+
       // .state('habit', {
       //   url: '/habit/:id'
       // })

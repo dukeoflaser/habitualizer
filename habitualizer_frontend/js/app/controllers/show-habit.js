@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('ShowHabitController', function($scope, habit) {
+  .controller('ShowHabitController', function($scope, habit, $stateParams) {
 
     $scope.habit = habit.data.habit;
 

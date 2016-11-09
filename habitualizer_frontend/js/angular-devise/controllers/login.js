@@ -3,14 +3,19 @@ angular
   .controller('LoginController', function(Auth, $scope, $state) {
 
 //////////////////////////////////////////
-    this.submit = function(user) {
-      var credentials = user;
+    $scope.submit = function(credentials) {
 
-      Auth.login(credentials).then(function(user) {
-          console.log(user); // => {id: 1, ect: '...'}
-      }, function(error) {
-          // Authentication failed...
-      });
+      Auth.login(credentials)
+          .then(logResponse, logError)
+          .catch(logError)
+
+      function logResponse(response){
+        console.log(response)
+      }
+
+      function logError(error){
+        console.log(error);
+      }
 
     };
 //////////////////////////////////////////
