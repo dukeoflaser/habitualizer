@@ -1,2 +1,16 @@
-<h1>This is the SHOW habits view.</h1>
-<h4><a ui-sref="user.edit.habit({ id:4 })">Go to edit habit(4) page.</a></h4>
+<pre>This is the SHOW habits view.</pre>
+<h3>Habit Info:</h3>
+<ul>
+  <li>Complete? {{  habit.complete }}</li>
+  <li>Name: {{  habit.name }}</li>
+  <li>Cue: {{  habit.cue.name }}</li>
+  <li>Cue Type: {{  habit.cue.nature }}</li>
+  <li>Reward: {{  habit.reward.craving }}</li>
+</ul>
+<h3>Habit Experiments:</h3>
+<ul ng-repeat="experiment in habit.experiments">
+  <li>Substitute: {{ experiment.substitute_id }}</li>
+  <li>Successful? {{ experiment.successful }}</li>
+</ul>
+
+<h4><a ui-sref="user.edit.habit({ id:{{ habit.id }} })">Edit this habit.</a></h4>
