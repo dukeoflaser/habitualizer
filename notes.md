@@ -1,3 +1,16 @@
+///////////////////////DATA FORMAT///////////////////////
+for new experiment
+    // var data = {
+    //   "experiment": {
+    //     "habit_id": 2, //active_habit.id
+    //     "successful": false,
+    //     "substitute_attributes": {
+    //       "craving": 'TEST BANANAS'
+    //     }
+    //   }
+    // };
+
+
 New Habit data structure:
 
 var data = {
