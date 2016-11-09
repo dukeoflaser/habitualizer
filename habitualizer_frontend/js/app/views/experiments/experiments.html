@@ -2,6 +2,9 @@
 <pre>This is the experiments page.</pre>
 <h3>Email: {{ user.email }}</h3>
 <ul ng-repeat="exp in user.experiments">
-  <li>{{ exp.substitute.craving }}</li>
-  <li><a ui-sref="user.show.experiment({ id: {{ exp.id }} })">View Experiment Show( {{ exp.id }} ).</a></li>
+  <!-- <li>{{ exp }}</li> -->
+  <li><a ui-sref="user.show.experiment({ id: {{ exp.id }} })">Habit: {{ exp.habit.name }}</a></li>
+  <li>Substitution: {{ exp.substitute.craving }}</li>
+  <li>Successful? {{ exp.successful }}</li>
+
 </ul>
