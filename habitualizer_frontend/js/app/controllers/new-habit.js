@@ -1,72 +1,44 @@
 angular
   .module('app')
-  .controller('NewHabitController', function($http, $scope, cues, rewards, activities) {
+  .controller('NewHabitController', function($http, $scope, user, cues, rewards, activities) {
 
-    console.log('Habit Cues');
-    console.log(cues);
-    console.log('Habit Rewards');
-    console.log(rewards);
-    console.log('Habit Activities');
-    console.log(activities);
+    $scope.habit = {}
+    $scope.habit.user_id = user.id
 
     $scope.cues = cues.data.cues;
     $scope.rewards = rewards.data.rewards;
     $scope.activities = activities.data.activities;
 
     $scope.selectCue = function(cue){
-      console.log('You chose:');
-      console.log(cue);
 
       $scope.habit.cue_attributes.name = cue.name;
       $scope.habit.cue_attributes.nature = cue.nature;
+
     }
 
     $scope.selectReward = function(reward){
-      console.log('You chose:');
-      console.log(reward);
 
-      $scope.habit.reward_attributes = reward;
+      $scope.habit.reward_attributes = {};
       $scope.habit.reward_attributes.craving = reward.craving;
+
     }
 
-    var data = {
-      "habit": {
-        "user_id": 1,
-        "name": 'TEST Habit',
-        "complete": false,
-        "cue_attributes": {
-          "name": 'TEST Getting Home From Work',
-          "nature": '3'
-        },
-        "reward_attributes": {
-            "craving": "TEST Relaxation"
-        },
-        "activities_attributes": {
-          "0": {
-            "description": "TEST Jump on a trampoline."
-          }
-        }
-      } //habit
-    };
+    //////////////////////////////////////////
+    $scope.submit = function(hbt) {
+      var habit = { habit: hbt }
 
-//////////////////////////////////////////
-$scope.submit = function(hbt) {
-  var habit = { habit: hbt }
+      console.log('Posting to habits#create.');
 
-  console.log('Posting to habits#create.');
-  // console.log(habit);
-  // console.log(data);
+      $http({
+        method: 'POST',
+        url: 'http://localhost:3000/habits',
+        data: habit
+      }).then(function(response){
+        console.log(response);
+      });
 
-  $http({
-    method: 'POST',
-    url: 'http://localhost:3000/habits',
-    data: habit
-  }).then(function(response){
-    console.log(response);
-  });
-
-}
-//////////////////////////////////////////
+    }
+    //////////////////////////////////////////
 
 
 

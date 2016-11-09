@@ -1,48 +1,50 @@
-<h1>This is the new habits view.</h1>
+<pre>This is the new habits view.</pre>
 <div>
   <form>
-    User ID: <input type="text" ng-model="habit.user_id" /><br />
-    Habit Name: <input type="text" ng-model="habit.name" /><br />
-    Complete?: <input type="checkbox" ng-model="habit.complete" /><br />
 
-    Cue: <input type="text" ng-model="habit.cue_attributes.name"/><br />
-    <label for="cueType"> Cue Type: </label><br>
-    <select name="cueTypet" ng-model="habit.cue_attributes.nature" ng-init="habit.cue_attributes.nature='0'">
+    <label for="habitName">Habit Name:</label><br />
+    <input name="habitName" type="text" ng-model="habit.name" /><br /><br />
+
+    <input type="hidden" ng-model="habit.user_id" />
+
+    <label for="cueName">Cue: </label><br />
+    <input name="cueName" type="text" ng-model="habit.cue_attributes.name" placeholder="Search or Create..."/><br /><br />
+
+    <label for="cueType">Select Type: </label>
+    <select name="cueType" ng-model="habit.cue_attributes.nature" ng-init="habit.cue_attributes.nature='Location'">
       <option value="Location">Location</option>
       <option value="Time">Time</option>
       <option value="People">People</option>
       <option value="Emotion">Emotion</option>
       <option value="Activity">Activity</option>
-    </select><br>
+    </select><br /><br />
 
-    What do you crave? <input type="text" ng-model="habit.reward_attributes.craving" /><br />
+    <table id="searchCues">
+      <tr><th>Name</th><th>Type</th></tr>
+      <tr ng-repeat="cue in cues | filter:habit.cue_attributes" ng-show="$index < 10" ng-click="selectCue(cue)">
+        <td>{{cue.name}}</td>
+        <td>{{cue.nature}}</td>
+      </tr>
+    </table><br /><br />
 
+    <label for="reward">What do you hope to get out of this?</label><br />
+    <input name="reward" type="text" ng-model="habit.reward_attributes.craving" placeholder="Search or Create..."/><br /><br />
+
+    <table id="searchRewards">
+      <tr ng-repeat="reward in rewards | filter:habit.reward_attributes" ng-show="$index < 10" ng-click="selectReward(reward)">
+        <td>{{reward.craving}}</td>
+      </tr>
+    </table><br />
 
     <input type="submit" ng-click="submit(habit)" value="Save" />
+
   </form>
-  <pre>habit = {{habit | json}}</pre>
+  <!-- <pre>habit = {{habit | json}}</pre> -->
 </div>
 
-<h4>Cues</h4>
-<label>Name<input ng-model="searchCue.name"></label><br>
-<label>Type <input ng-model="searchCue.nature"></label><br>
-<table id="searchCues">
-  <tr><th>Name</th><th>Type</th></tr>
-  <tr ng-repeat="cue in cues | filter:searchCue" ng-show="$index < 3" ng-click="selectCue(cue)">
-    <td>{{cue.name}}</td>
-    <td>{{cue.nature}}</td>
-  </tr>
-</table>
 
-<h4>Rewards</h4>
-<label>Craving:<input ng-model="searchReward.craving"></label><br>
-<table id="searchRewards">
-  <tr><th>Name</th><th>Type</th></tr>
-  <tr ng-repeat="reward in rewards | filter:searchReward" ng-show="$index < 3" ng-click="selectReward(reward)">
-    <td>{{reward.craving}}</td>
-  </tr>
-</table>
-<h4>Activities</h4>
+
+<!-- <h4>Activities</h4>
 <div ng-repeat="activity in activities">
   {{ activity.description }}
-</div>
+</div> -->

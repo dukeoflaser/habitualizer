@@ -15,6 +15,9 @@ angular
       templateUrl: 'js/app/views/habits/new.html',
       controller: 'NewHabitController',
       resolve: {
+        user: ['Auth', function(Auth){
+          return Auth.currentUser();
+        }],
         cues: function($http){
           return $http({
             method: 'GET',
