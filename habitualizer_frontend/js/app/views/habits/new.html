@@ -36,7 +36,7 @@
 
 <h4>Rewards</h4>
 <label>Craving:<input ng-model="searchReward.craving"></label><br>
-<table id="searchCues">
+<table id="searchRewards">
   <tr><th>Name</th><th>Type</th></tr>
   <tr ng-repeat="reward in rewards | filter:searchReward" ng-show="$index < 3" ng-click="selectReward(reward)">
     <td>{{reward.craving}}</td>
