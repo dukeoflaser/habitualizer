@@ -1,20 +1,19 @@
 angular
   .module('app')
-  .controller('NewExperimentController', function($http, $scope, cues, rewards, activities, userHabits) {
+  .controller('NewExperimentController', function($http, $scope, $state, cues, rewards, activities, userHabits) {
 
     var habits = userHabits.data.habits;
     $scope.experiment = {};
     $scope.habits = habits;
 
-
-    $scope.habit_name = habits[habits.length - 1].name;
-    $scope.experiment.habit_id = habits[habits.length - 1].id;
-
-    console.log('$scope.habits');
-    console.log($scope.habits);
+    var lastHabit = habits[habits.length - 1];
+    $scope.habit_name = lastHabit.name;
+    $scope.experiment.habit_id = lastHabit.id;
+    $scope.currentReward = lastHabit.reward.craving;
 
     $scope.selectHabit = function(habit){
-
+      $scope.currentReward = habit.reward.craving;
+      $scope.searchHabit.name = habit.name;
       $scope.habit_name = habit.name;
       $scope.experiment.habit_id = habit.id;
     }
@@ -26,7 +25,7 @@ angular
       $scope.experiment.substitute_attributes.craving = reward.craving;
     }
 
-//////////////////////////////////////////
+    //////////////////////////////////////////
     $scope.submit = function(exp) {
       var experiment = { experiment: exp };
 
@@ -37,35 +36,14 @@ angular
         url: 'http://localhost:3000/experiments',
         data: experiment
       }).then(function(response){
-        console.log(response);
+        //change this to success/fail.
+        var exp = response.data.experiment;
+
+        $state.go('user.show.experiment', { id: exp.id })
       });
 
     };
-//////////////////////////////////////////
-
-
-
-
-
-    console.log('Cues');
-    console.log(cues);
-    console.log('Rewards');
-    console.log(rewards);
-    console.log('Activities');
-    console.log(activities);
-    console.log('Users Habits');
-    console.log(userHabits);
-
-///////////////////////DATA FORMAT///////////////////////
-    // var data = {
-    //   "experiment": {
-    //     "habit_id": 2, //active_habit.id
-    //     "successful": false,
-    //     "substitute_attributes": {
-    //       "craving": 'TEST BANANAS'
-    //     }
-    //   }
-    // };
+    //////////////////////////////////////////
 
 
   });
