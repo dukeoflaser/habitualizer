@@ -1,6 +1,12 @@
 angular
   .module('app')
-  .controller('NewExperimentController', function($http, $scope, cues, rewards, activities) {
+  .controller('NewExperimentController', function($http, $scope, cues, rewards, activities, userHabits) {
+
+    $scope.habits = userHabits.data.habits;
+    console.log('$scope.habits');
+    console.log($scope.habits);
+
+    
 
     $scope.rewards = rewards.data.rewards;
     $scope.selectReward = function(reward){
@@ -36,6 +42,8 @@ angular
     console.log(rewards);
     console.log('Activities');
     console.log(activities);
+    console.log('Users Habits');
+    console.log(userHabits);
 
 ///////////////////////DATA FORMAT///////////////////////
     // var data = {

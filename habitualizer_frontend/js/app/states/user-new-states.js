@@ -58,6 +58,15 @@ angular
             method: 'GET',
             url: baseUrl + '/activities'
           });
+        },
+        user: ['Auth', function(Auth){
+          return Auth.currentUser();
+        }],
+        userHabits: function($http, user){
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/user/' + user.id + '/habits'
+          });
         }
       }
     });
