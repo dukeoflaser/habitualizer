@@ -2,19 +2,26 @@ angular
   .module('app')
   .controller('NewExperimentController', function($http, $scope, cues, rewards, activities, userHabits) {
 
-    $scope.habits = userHabits.data.habits;
+    var habits = userHabits.data.habits;
+    $scope.experiment = {};
+    $scope.habits = habits;
+
+
+    $scope.habit_name = habits[habits.length - 1].name;
+    $scope.experiment.habit_id = habits[habits.length - 1].id;
+
     console.log('$scope.habits');
     console.log($scope.habits);
 
     $scope.selectHabit = function(habit){
-      $scope.experiment = {}
-      $scope.experiment.habit_name = habit.name;
+
+      $scope.habit_name = habit.name;
       $scope.experiment.habit_id = habit.id;
     }
 
     $scope.rewards = rewards.data.rewards;
     $scope.selectReward = function(reward){
-      $scope.experiment = {};
+
       $scope.experiment.substitute_attributes = reward;
       $scope.experiment.substitute_attributes.craving = reward.craving;
     }
