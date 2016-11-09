@@ -9,11 +9,13 @@ class Habit < ApplicationRecord
 
   def cue_attributes=(atts)
     @cue = Cue.find_or_create_by(name: atts['name'])
+    @cue.habits << self
     self.cue = @cue
   end
 
   def reward_attributes=(atts)
     @reward = Reward.find_or_create_by(craving: atts['craving'])
+    @reward.habits << self
     self.reward = @reward
   end
 
