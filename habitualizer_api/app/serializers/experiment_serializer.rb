@@ -1,3 +1,3 @@
 class ExperimentSerializer < ActiveModel::Serializer
-  attributes :id, :substitute, :successful, :habit
+  attributes :id, :substitute, :successful, :habit, :created_at
 end
