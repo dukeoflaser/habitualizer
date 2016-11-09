@@ -1,5 +1,7 @@
 
-<h1>This is the experiments page.</h1>
-<div ng-repeat="exp in user.experiments">
-  <a ui-sref="user.show.experiment({ id: {{ exp.id }} })">Go to show experiment({{ exp.id }}) page.</a>
-</div>
+<pre>This is the experiments page.</pre>
+<h3>Email: {{ user.email }}</h3>
+<ul ng-repeat="exp in user.experiments">
+  <li>{{ exp.substitute.craving }}</li>
+  <li><a ui-sref="user.show.experiment({ id: {{ exp.id }} })">View Experiment Show( {{ exp.id }} ).</a></li>
+</ul>
