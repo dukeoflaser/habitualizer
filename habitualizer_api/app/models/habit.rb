@@ -9,8 +9,6 @@ class Habit < ApplicationRecord
 
   def cue_attributes=(atts)
     @cue = Cue.find_or_create_by(name: atts['name'])
-    @cue.habits << self
-    # @cue.save I don't think I need this, but if there are problems, check this.
     self.cue = @cue
   end
 
