@@ -9,6 +9,7 @@ class Habit < ApplicationRecord
 
   def cue_attributes=(atts)
     @cue = Cue.find_or_create_by(name: atts['name'])
+    @cue.update(nature: atts['nature'])
     self.cue = @cue
   end
 
