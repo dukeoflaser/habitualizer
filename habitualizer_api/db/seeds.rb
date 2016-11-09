@@ -8,7 +8,7 @@ habit1 = Habit.create(name:'Smoking', user_id:1)
 habit2 = Habit.create(name:'Drinking Water', user_id:1, complete:true)
 
 habit1.cues << Cue.create(name:'Work', nature:'Location')
-habit1.cues << Cue.create(name:'Smoker Friends', nature:'Company')
+habit1.cues << Cue.create(name:'Smoker Friends', nature:'People')
 habit2.cues << Cue.create(name:'Waking Up In the Moring', nature:'Time')
 
 habit1.reward = Reward.create(craving:'Cigarette')
