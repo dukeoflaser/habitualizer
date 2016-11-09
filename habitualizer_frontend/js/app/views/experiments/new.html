@@ -3,14 +3,15 @@
 <h4>Your Habits</h4>
 <label>Search existing habits:<input ng-model="searchHabit.name"></label><br>
 <table id="searchHabits">
-  <tr ng-repeat="habit in habits | filter:searchHabit" ng-show="$index < 5">
+  <tr ng-repeat="habit in habits | filter:searchHabit" ng-show="$index < 5" ng-click="selectHabit(habit)">
     <td>{{habit.name}}</td>
   </tr>
 </table>
 
 <div>
   <form>
-    Habit ID: <input type="text" ng-model="experiment.habit_id" /><br />
+    Habit Name: <input type="text" ng-model="experiment.habit_name" disabled/><br />
+    habit id<input type="text" ng-model="experiment.habit_id"/><br />
     Successful?: <input type="checkbox" ng-model="experiment.successful" /><br />
     Substitute Reward<input type="text" ng-model="experiment.substitute_attributes.craving"/><br />
     <input type="submit" ng-click="submit(experiment)" value="Save" />

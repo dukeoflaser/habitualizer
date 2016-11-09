@@ -6,7 +6,11 @@ angular
     console.log('$scope.habits');
     console.log($scope.habits);
 
-    
+    $scope.selectHabit = function(habit){
+      $scope.experiment = {}
+      $scope.experiment.habit_name = habit.name;
+      $scope.experiment.habit_id = habit.id;
+    }
 
     $scope.rewards = rewards.data.rewards;
     $scope.selectReward = function(reward){
