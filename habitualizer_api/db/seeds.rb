@@ -21,12 +21,15 @@ exp3 = Experiment.create(habit_id:2)
 # Note: The following rewards represent subsitutions.
 sub1 = Reward.create(craving:'Cookie')
 exp1.substitute = sub1
+exp1.save!
 
 sub2 = Reward.create(craving:'Social Interaction')
 exp2.substitute = sub2
+exp2.save!
 
 sub3 = Reward.create(craving:'Flavored Water')
 exp3.substitute = sub3
+exp3.save!
 
 activity1 = Activity.create(description:'Get a cookie from the vending machine')
 activity2 = Activity.create(description:'Go for a walk outside')
