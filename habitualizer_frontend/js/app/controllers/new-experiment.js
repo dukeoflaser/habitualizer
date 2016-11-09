@@ -3,6 +3,11 @@ angular
   .controller('NewExperimentController', function($http, $scope, cues, rewards, activities) {
 
     $scope.rewards = rewards.data.rewards;
+    $scope.selectReward = function(reward){
+      $scope.experiment = {};
+      $scope.experiment.substitute_attributes = reward;
+      $scope.experiment.substitute_attributes.craving = reward.craving;
+    }
 
 //////////////////////////////////////////
     $scope.submit = function(exp) {
