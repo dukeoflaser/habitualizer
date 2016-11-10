@@ -8,18 +8,12 @@ angular
       url: '/home',
       templateUrl: 'js/app/views/home.html',
       controller: 'HomeController',
-      controllerAs: 'user',
       resolve: {
         user: ['Auth', function(Auth){
           return Auth.currentUser();
         }],
         userHabits: function($http, habitFactory, user){
-          // var url = baseUrl + '/user/' + user.id + '/habits'
-          return habitFactory.getHabits();
-          // return $http({
-          //   method: 'GET',
-          //   url: baseUrl + '/user/' + user.id + '/habits'
-          // });
+          return habitFactory.getHabits(user);
         }
       }
     })
