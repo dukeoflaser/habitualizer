@@ -34,6 +34,12 @@ angular
             method: 'GET',
             url: baseUrl + '/experiments/' + $stateParams.id
           });
+        },
+        activity: function($http, experiment){
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/activities/' + experiment.data.experiment.habit.activity_id
+          })
         }
       }
     });
