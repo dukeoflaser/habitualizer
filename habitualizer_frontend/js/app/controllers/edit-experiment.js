@@ -1,9 +1,9 @@
 angular
   .module('app')
-  .controller('EditExperimentController', function($scope, $http, $state, experiment, activity) {
+  .controller('EditExperimentController', function($scope, $http, $state, experimentData, activityData) {
 
-    var exp = experiment.data.experiment;
-    var activity = activity.data.activity;
+    var exp = experimentData.experiment;
+    if (activityData) var activity = activityData.activity;
 
 
 
@@ -22,7 +22,7 @@ angular
 
 
     console.log('The Initial editing experiment:');
-    console.log(experiment);
+    console.log(experimentData);
 
     // if(exp.habit.activity_id){
     //   var activity_req = {

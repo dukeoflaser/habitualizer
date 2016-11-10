@@ -1,8 +1,8 @@
 angular
   .module('app')
-  .controller('EditHabitController', function($scope, $state, $http, habit) {
+  .controller('EditHabitController', function($scope, $state, $http, habitData) {
 
-    var hbt = habit.data.habit;
+    var hbt = habitData.habit;
 
     $scope.habit = hbt;
     $scope.habit.cue_attributes = hbt.cue;
