@@ -15,4 +15,4 @@
   <li>Successful? {{ experiment.successful }}</li>
 </ul>
 
-<h4><a ui-sref="user.edit.habit({ id:{{ habit.id }} })">Edit this habit.</a></h4>
+<h4 ng-if="!habit.complete"><a ui-sref="user.edit.habit({ id:{{ habit.id }} })">Edit this habit.</a></h4>
