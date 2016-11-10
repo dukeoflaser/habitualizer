@@ -29,6 +29,11 @@ class Habit < ApplicationRecord
     end
   end
 
+  def activity_attributes=(atts)
+      @activity = Activity.find_or_create_by(id: atts['id'])
+      @activity.update(description: atts['description'])
+  end
+
 
 
 end

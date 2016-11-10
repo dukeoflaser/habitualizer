@@ -22,7 +22,7 @@ class HabitsController < ApplicationController
   end
 
   def update
-    @habit = Habit.find(params[:id])
+    @habit = Habit.find(params[:habit][:id])
     @habit.update(habit_params)
     render json: @habit
   end
@@ -34,7 +34,8 @@ class HabitsController < ApplicationController
     params.require(:habit)
       .permit(:id, :user_id, :name, :complete,
         {:cue_attributes => [:id, :name, :nature, :has_been_updated]},
-        {:reward_attributes => [:id, :craving, :has_been_updated]}
+        {:reward_attributes => [:id, :craving, :has_been_updated]},
+        {:activity_attributes => [:id, :description]}
       )
   end
 end
