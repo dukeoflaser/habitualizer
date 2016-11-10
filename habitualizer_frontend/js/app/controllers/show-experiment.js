@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('ShowExperimentController', function($scope, $state, $http, experiment, activity) {
+  .controller('ShowExperimentController', function($scope, $state, $http, experimentData, activity) {
 
     $scope.experiment = experiment.data.experiment
     if (activity) $scope.activity = activity.data.activity
