@@ -1,9 +1,9 @@
 angular
   .module('app')
-  .controller('ShowExperimentController', function($scope, $state, $http, experimentData, activity) {
+  .controller('ShowExperimentController', function($scope, $state, $http, experimentData, activityData) {
 
     $scope.experiment = experimentData.experiment
-    if (activity) $scope.activity = activity.data.activity
+    if (activityData) $scope.activity = activityData.activity
 
     console.log('The experimentData:');
     console.log(experimentData);

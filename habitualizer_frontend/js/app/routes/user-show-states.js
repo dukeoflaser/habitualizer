@@ -1,7 +1,6 @@
 angular
   .module('app')
   .config(function ($stateProvider) {
-    var baseUrl = 'http://localhost:3000'
     $stateProvider
 
     .state('user.show', {
@@ -15,7 +14,7 @@ angular
       templateUrl: 'js/app/views/habits/show.html',
       controller: 'ShowHabitController',
       resolve: {
-        habitData: function($http, $stateParams, habitFactory){
+        habitData: function($stateParams, habitFactory){
           return habitFactory.getHabit($stateParams.id);
         }
       }
@@ -26,17 +25,12 @@ angular
       templateUrl: 'js/app/views/experiments/show.html',
       controller: 'ShowExperimentController',
       resolve: {
-        experimentData: function($http, $stateParams, experimentFactory){
+        experimentData: function($stateParams, experimentFactory){
           return experimentFactory.getExperiment($stateParams.id);
         },
-        activity: function($http, experimentData){
-          //note error here if no activity. Can't find URL activies/null
-          if (experimentData.experiment.habit.activity_id != null) {
-            return $http({
-              method: 'GET',
-              url: baseUrl + '/activities/' + experiment.data.experiment.habit.activity_id
-            })
-          }
+        activityData: function(experimentData){
+          var id = experimentData.experiment.habit.activity_id;
+          if (id) return activityFactory.getActivity(id);
         }
       }
     });
