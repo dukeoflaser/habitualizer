@@ -11,15 +11,11 @@ function experimentFactory($http) {
   return factory;
 
   function getExperiments(user) {
-
-    return $http.get(baseUrl + '/user/' + user.id + '/experiments')
-            .then(function(response){
-              return response.data
-            });
+    return $http.get(baseUrl + '/user/' + user.id + '/experiments').then(returnData);
   }
 
-  function getExperiment() {
-
+  function getExperiment(id) {
+    return $http.get(baseUrl + '/experiments/' + id).then(returnData);
   }
 
   function createExperiment() {
@@ -32,6 +28,9 @@ function experimentFactory($http) {
 
   function deleteExperiment() {
 
+  }
+  function returnData(response){
+    return response.data;
   }
 
 }

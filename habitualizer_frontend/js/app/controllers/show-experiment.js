@@ -2,11 +2,11 @@ angular
   .module('app')
   .controller('ShowExperimentController', function($scope, $state, $http, experimentData, activity) {
 
-    $scope.experiment = experiment.data.experiment
+    $scope.experiment = experimentData.experiment
     if (activity) $scope.activity = activity.data.activity
 
-    console.log('The Experiment:');
-    console.log(experiment);
+    console.log('The experimentData:');
+    console.log(experimentData);
 
     $scope.delete = function(expId){
       var confirmDelete = confirm("Are you certain you want to delete this experiment?")

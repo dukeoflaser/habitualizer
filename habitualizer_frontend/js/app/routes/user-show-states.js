@@ -30,15 +30,12 @@ angular
       templateUrl: 'js/app/views/experiments/show.html',
       controller: 'ShowExperimentController',
       resolve: {
-        experimentData: function($http, $stateParams){
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/experiments/' + $stateParams.id
-          });
+        experimentData: function($http, $stateParams, experimentFactory){
+          return experimentFactory.getExperiment($stateParams.id);
         },
         activity: function($http, experimentData){
           //note error here if no activity. Can't find URL activies/null
-          if (experimentData.data.experiment.habit.activity_id != null) {
+          if (experimentData.experiment.habit.activity_id != null) {
             return $http({
               method: 'GET',
               url: baseUrl + '/activities/' + experiment.data.experiment.habit.activity_id
