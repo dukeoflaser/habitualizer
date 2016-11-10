@@ -41,11 +41,8 @@ angular
         user: ['Auth', function(Auth){
           return Auth.currentUser();
         }],
-        userExperiments: function($http, user){
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/user/' + user.id + '/experiments'
-          });
+        experimentData: function($http, experimentFactory, user){
+          return experimentFactory.getExperiments(user);
         }
       }
     });
