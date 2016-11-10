@@ -1,3 +1,9 @@
+Note: A habit can have multiple successful experiments.
+If any experiment is changed from successful to not, it will set the activity to empty.
+It would be better, in the future, to look for a successful experiment and add it's activity and change it.
+That will require changing activity associations.
+
+
 ///////////////////////DATA FORMAT///////////////////////
 for new experiment
     // var data = {
