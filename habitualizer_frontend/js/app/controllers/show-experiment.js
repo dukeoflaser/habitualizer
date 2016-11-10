@@ -3,7 +3,7 @@ angular
   .controller('ShowExperimentController', function($scope, $state, $http, experiment, activity) {
 
     $scope.experiment = experiment.data.experiment
-    $scope.activity = activity.data.activity
+    if (activity) $scope.activity = activity.data.activity
 
     console.log('The Experiment:');
     console.log(experiment);

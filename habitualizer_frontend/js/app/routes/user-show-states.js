@@ -38,10 +38,12 @@ angular
         },
         activity: function($http, experiment){
           //note error here if no activity. Can't find URL activies/null
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/activities/' + experiment.data.experiment.habit.activity_id
-          })
+          if (experiment.data.experiment.habit.activity_id != null) {
+            return $http({
+              method: 'GET',
+              url: baseUrl + '/activities/' + experiment.data.experiment.habit.activity_id
+            })
+          }
         }
       }
     });
