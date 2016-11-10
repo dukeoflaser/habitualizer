@@ -1,11 +1,11 @@
 angular
   .module('app')
-  .controller('ExperimentController', function(user, userExperiments) {
+  .controller('ExperimentController', function($scope, user, userExperiments) {
 
     var exps = userExperiments.data.experiments;
 
-    this.email = user.email;
-    this.experiments = exps;
+    $scope.email = user.email;
+    $scope.experiments = exps;
     // this.experiments.substitute.name = exps.substitute.name;
     console.log('experiments.substitute:');
     console.log(exps);
