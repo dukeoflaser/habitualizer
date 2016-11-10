@@ -1,6 +1,5 @@
 function habitFactory($http) {
   var baseUrl = 'http://localhost:3000';
-  // var user = Auth.currentUser();
 
   var factory = {
     getHabits: getHabits,
@@ -14,7 +13,7 @@ function habitFactory($http) {
   function getHabits(user, params) {
 
     params ? ps = '?' + params : ps = '';
-    
+
     return $http.get(baseUrl + '/user/' + user.id + '/habits' + ps)
             .then(function(response){
               return response.data
