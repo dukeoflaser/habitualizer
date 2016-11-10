@@ -1,7 +1,6 @@
 angular
   .module('app')
   .config(function ($stateProvider) {
-    var baseUrl = 'http://localhost:3000'
     $stateProvider
 
     .state('user.home', {
