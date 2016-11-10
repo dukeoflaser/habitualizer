@@ -4,19 +4,23 @@ user.password = 'aaaaaa'
 user.password_confirmation = 'aaaaaa'
 user.save!
 
-habit1 = Habit.create(name:'Smoking', user_id:1)
-habit2 = Habit.create(name:'Drinking Water', user_id:1, complete:true)
+habit1 = Habit.create(name: 'Smoking', user_id: 1)
+habit2 = Habit.create(name: 'Drinking Water', user_id: 1, complete: true)
 
-habit1.cue = Cue.create(name:'Work', nature:'Location')
-habit1.cue = Cue.create(name:'Smoker Friends', nature:'People')
-habit2.cue = Cue.create(name:'Waking Up In the Moring', nature:'Time')
+cue1 = Cue.create(name: 'Work', nature: 'Location')
+cue2 = Cue.create(name: 'Waking Up In The Moring', nature: 'Time')
 
-habit1.reward = Reward.create(craving:'Cigarette')
-habit2.reward = Reward.create(craving:'Hydration')
 
-exp1 = Experiment.create(habit_id:1, successful:false)
-exp2 = Experiment.create(habit_id:1)
-exp3 = Experiment.create(habit_id:2)
+
+reward1 = Reward.create(craving: 'Cigarette')
+reward2 = Reward.create(craving: 'Hydration')
+
+habit1.update(cue: cue1, reward: reward1)
+habit2.update(cue: cue2, reward: reward2)
+
+exp1 = Experiment.create(habit_id: 1, successful: false)
+exp2 = Experiment.create(habit_id: 1)
+exp3 = Experiment.create(habit_id: 2)
 
 # Note: The following rewards represent subsitutions.
 sub1 = Reward.create(craving:'Cookie')
@@ -53,7 +57,6 @@ Cue.create(name:'Back Yard', nature:'Location')
 Cue.create(name:"McDonald's", nature:'Location')
 Cue.create(name:'Home', nature:'Location')
 Cue.create(name:'Garage', nature:'Location')
-Cue.create(name:'Work', nature:'Location')
 Cue.create(name:'School', nature:'Location')
 Cue.create(name:'Gym', nature:'Location')
 Cue.create(name:"Girlfriend's House", nature:'Location')
