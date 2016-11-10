@@ -2,9 +2,11 @@
 <h3>Experiment Info</h3>
 <ul>
   <li>Experiment for: {{ experiment.habit.name }}</li>
+  <li ng-if="activity.description">Current Associated Activity: {{ activity.description }}</li>
   <li>Substitute: {{ experiment.substitute.craving }}</li>
-  <li ng-if="activity.description">Activity: {{ activity.description }}</li>
+
   <li>Successful?: {{ experiment.successful }}</li>
   <li>Created: {{ experiment.created_at | date : mediumDate }}</li>
 </ul>
 <a ui-sref="user.edit.experiment({ id:{{ experiment.id }} })">Edit this experiment</a>
+<a href="" ng-click="delete(experiment.id)">Delete this experiment.</a></h4>
