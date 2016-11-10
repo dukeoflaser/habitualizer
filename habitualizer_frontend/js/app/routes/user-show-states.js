@@ -17,10 +17,6 @@ angular
       resolve: {
         habitData: function($http, $stateParams, habitFactory){
           return habitFactory.getHabit($stateParams.id);
-          // return $http({
-          //   method: 'GET',
-          //   url: baseUrl + '/habits/' + $stateParams.id
-          // });
         }
       }
     })
