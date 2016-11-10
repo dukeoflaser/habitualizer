@@ -7,7 +7,7 @@ angular
     .state('user.show', {
       abstract: true,
       url: '/show',
-      template: '<div ui-view></div>'
+      template: '<ui-view></ui-view>'
     })
 
     .state('user.show.habit', {
@@ -15,11 +15,12 @@ angular
       templateUrl: 'js/app/views/habits/show.html',
       controller: 'ShowHabitController',
       resolve: {
-        habit: function($http, $stateParams){
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/habits/' + $stateParams.id
-          });
+        habitData: function($http, $stateParams, habitFactory){
+          return habitFactory.getHabit($stateParams.id);
+          // return $http({
+          //   method: 'GET',
+          //   url: baseUrl + '/habits/' + $stateParams.id
+          // });
         }
       }
     })

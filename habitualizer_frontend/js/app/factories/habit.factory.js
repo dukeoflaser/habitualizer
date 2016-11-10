@@ -11,17 +11,13 @@ function habitFactory($http) {
   return factory;
 
   function getHabits(user, params) {
-
     params ? ps = '?' + params : ps = '';
-
-    return $http.get(baseUrl + '/user/' + user.id + '/habits' + ps)
-            .then(function(response){
-              return response.data
-            });
+    var url = baseUrl + '/user/' + user.id + '/habits' + ps
+    return $http.get(url).then(returnData);
   }
 
-  function getHabit() {
-
+  function getHabit(id) {
+    return $http.get(baseUrl + '/habits/' + id).then(returnData);
   }
 
   function createHabit() {
@@ -34,6 +30,10 @@ function habitFactory($http) {
 
   function deleteHabit() {
 
+  }
+
+  function returnData(response){
+    return response.data;
   }
 
 }
