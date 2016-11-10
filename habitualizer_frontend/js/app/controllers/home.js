@@ -1,8 +1,8 @@
 angular
   .module('app')
-  .controller('HomeController', function($scope, user, userHabitData) {
+  .controller('HomeController', function($scope, user, habitData) {
 
     $scope.email = user.email;
-    $scope.habits = userHabitData.habits
+    $scope.habits = habitData.habits
 
   });

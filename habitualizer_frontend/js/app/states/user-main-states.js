@@ -12,7 +12,7 @@ angular
         user: ['Auth', function(Auth){
           return Auth.currentUser();
         }],
-        userHabitData: function($http, habitFactory, user){
+        habitData: function($http, habitFactory, user){
           return habitFactory.getHabits(user);
         }
       }
@@ -26,11 +26,9 @@ angular
         user: ['Auth', function(Auth){
           return Auth.currentUser();
         }],
-        userCompleteHabits: function($http, user){
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/user/' + user.id + '/habits?complete=true'
-          });
+        completeHabitData: function($http, habitFactory, user){
+          var params = 'complete=true';
+          return habitFactory.getHabits(user, params);
         }
       }
     })
