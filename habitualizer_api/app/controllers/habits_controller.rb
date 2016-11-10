@@ -22,7 +22,9 @@ class HabitsController < ApplicationController
   end
 
   def update
-    binding.pry
+    @habit = Habit.find(params[:id])
+    @habit.update(habit_params)
+    render json: @habit
   end
 
   def destroy
