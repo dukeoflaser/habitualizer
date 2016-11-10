@@ -3,7 +3,8 @@
 <ul>
   <li>Experiment for: {{ experiment.habit.name }}</li>
   <li>Substitute: {{ experiment.substitute.craving }}</li>
+  <li ng-if="activity.description">Activity: {{ activity.description }}</li>
   <li>Successful?: {{ experiment.successful }}</li>
-  <li>Created: {{ experiment.created_at | date : mediumDate }}</li>  
+  <li>Created: {{ experiment.created_at | date : mediumDate }}</li>
 </ul>
 <a ui-sref="user.edit.experiment({ id:{{ experiment.id }} })">Edit this experiment</a>
