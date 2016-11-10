@@ -11,9 +11,11 @@ function habitFactory($http) {
   };
   return factory;
 
-  function getHabits(user) {
+  function getHabits(user, params) {
 
-    return $http.get(baseUrl + '/user/' + user.id + '/habits')
+    params ? ps = '?' + params : ps = '';
+    
+    return $http.get(baseUrl + '/user/' + user.id + '/habits' + ps)
             .then(function(response){
               return response.data
             });
