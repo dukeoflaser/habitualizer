@@ -28,6 +28,8 @@ class HabitsController < ApplicationController
   end
 
   def destroy
+    @habit = Habit.find(params[:id])
+    @habit.destroy
   end
 
   def habit_params
