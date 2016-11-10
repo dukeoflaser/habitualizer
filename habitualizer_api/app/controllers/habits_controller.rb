@@ -22,6 +22,7 @@ class HabitsController < ApplicationController
   end
 
   def update
+    binding.pry
   end
 
   def destroy
@@ -29,9 +30,9 @@ class HabitsController < ApplicationController
 
   def habit_params
     params.require(:habit)
-      .permit(:user_id, :name, :complete,
-        {:cue_attributes => [:name, :nature]},
-        {:reward_attributes => [:craving]}
+      .permit(:id, :user_id, :name, :complete,
+        {:cue_attributes => [:id, :name, :nature, :has_been_updated]},
+        {:reward_attributes => [:id, :craving, :has_been_updated]}
       )
   end
 end

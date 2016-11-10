@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108031353) do
+ActiveRecord::Schema.define(version: 20161110011353) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "description"
@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(version: 20161108031353) do
   create_table "cues", force: :cascade do |t|
     t.string   "name"
     t.string   "nature"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "has_been_updated", default: false
   end
 
   create_table "experiments", force: :cascade do |t|
@@ -50,8 +51,9 @@ ActiveRecord::Schema.define(version: 20161108031353) do
 
   create_table "rewards", force: :cascade do |t|
     t.string   "craving"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "has_been_updated", default: false
   end
 
   create_table "users", force: :cascade do |t|
