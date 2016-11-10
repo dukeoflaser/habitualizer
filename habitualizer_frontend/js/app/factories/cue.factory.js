@@ -1,7 +1,7 @@
-function habitFactory($http) {
+function cueFactory($http) {
 
 }
 
 angular
   .module('app')
-  .factory('habitFactory', habitFactory)
+  .factory('cueFactory', cueFactory)
