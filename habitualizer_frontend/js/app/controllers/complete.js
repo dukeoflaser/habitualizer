@@ -1,10 +1,10 @@
 angular
   .module('app')
-  .controller('CompleteController', function(user, userCompleteHabits) {
+  .controller('CompleteController', function($scope, user, userCompleteHabits) {
     var habits = userCompleteHabits.data.habits;
 
-    this.email = user.email;
-    this.habits = habits;
+    $scope.email = user.email;
+    $scope.habits = habits;
 
 
     console.log('The user:');

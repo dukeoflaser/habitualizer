@@ -12,7 +12,7 @@ angular
         user: ['Auth', function(Auth){
           return Auth.currentUser();
         }],
-        userHabits: function($http, habitFactory, user){
+        userHabitData: function($http, habitFactory, user){
           return habitFactory.getHabits(user);
         }
       }
@@ -22,7 +22,6 @@ angular
       url: '/complete',
       templateUrl: 'js/app/views/habits/complete.html',
       controller: 'CompleteController',
-      controllerAs: 'user',
       resolve: {
         user: ['Auth', function(Auth){
           return Auth.currentUser();
