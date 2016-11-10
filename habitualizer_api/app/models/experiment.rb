@@ -6,4 +6,5 @@ class Experiment < ApplicationRecord
     @sub = Reward.find_or_create_by(craving: atts['craving'])
     self.substitute = @sub
   end
+
 end
