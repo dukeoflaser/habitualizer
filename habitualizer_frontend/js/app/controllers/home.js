@@ -1,13 +1,8 @@
 angular
   .module('app')
-  .controller('HomeController', function($scope, user, userHabits) {
-    console.log(userHabits)
+  .controller('HomeController', function($scope, user, userHabitData) {
 
     $scope.email = user.email;
-    $scope.habits = userHabits;
+    $scope.habits = userHabitData.habits
 
-    console.log('The user:');
-    console.log(user);
-    console.log('habits');
-    console.log(this.habits);
   });
