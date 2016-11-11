@@ -2,9 +2,11 @@ angular
   .module('app')
   .controller('ShowExperimentController', function($scope, $state, $http, experimentData, activityData) {
 
+    console.log('The activityData');
+    console.log(activityData);
     $scope.experiment = experimentData.experiment
     if (activityData) $scope.activity = activityData.activity
-
+    
     console.log('The experimentData:');
     console.log(experimentData);
 

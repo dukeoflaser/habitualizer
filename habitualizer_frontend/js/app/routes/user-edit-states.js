@@ -30,7 +30,7 @@ angular
         },
         activityData: function(experimentData, activityFactory){
           var id = experimentData.experiment.habit.activity_id;
-          return activityFactory.getActivity(1); //hardcoded value for debugging.
+          if (id) return activityFactory.getActivity(id);
         }
       }
     });
