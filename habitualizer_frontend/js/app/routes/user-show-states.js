@@ -28,10 +28,11 @@ angular
         experimentData: function($stateParams, experimentFactory){
           return experimentFactory.getExperiment($stateParams.id);
         },
-        activityData: function(experimentData){
+        activityData: function(experimentData, activityFactory){
           var id = experimentData.experiment.habit.activity_id;
-          if (id) return activityFactory.getActivity(id);
+          return activityFactory.getActivity(1); //hardcoded id for debugging.
         }
+
       }
     });
 

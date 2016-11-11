@@ -17,6 +17,7 @@ function activityFactory($http) {
 
   function getActivity(id) {
     return $http.get(baseUrl + '/activities/' + id).then(returnData);
+
   }
 
   function createActivity() {
