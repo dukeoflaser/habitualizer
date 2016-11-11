@@ -1,27 +1,32 @@
-<pre>This is the new experiments view.</pre>
+<!-- <pre>This is the new experiments view.</pre> -->
 <h4>Most recently created habit: {{ lastHabit.name }}</h4>
+<form name="newExpForm">
+  Currently Selected Habit: <br />
+  <input type="text" name="habitName" required="required" ng-model="habitName" disabled/><br />
+  <input type="hidden" ng-model="experiment.habit_id"/><br />
 
-Currently Selected Habit: <br />
-<input type="text" ng-model="habitName" disabled/><br />
-<input type="hidden" ng-model="experiment.habit_id"/><br />
+  Select A Different Habit: <br />
+  <input ng-model="searchHabit.name" placeholder="Search..."><br /><br />
 
-Select A Different Habit: <br />
-<input ng-model="searchHabit.name" placeholder="Search For Different Habits..."><br /><br />
+  <table id="searchHabits" ng-if="searchHabit">
+    <tr ng-repeat="habit in habits | filter:searchHabit" ng-show="$index < 10" ng-click="selectHabit(habit)">
+      <td>{{habit.name}}</td>
+    </tr>
+  </table><br />
 
-<table id="searchHabits" ng-if="searchHabit">
-  <tr ng-repeat="habit in habits | filter:searchHabit" ng-show="$index < 10" ng-click="selectHabit(habit)">
-    <td>{{habit.name}}</td>
-  </tr>
-</table><br />
+  <h4>Current Reward: {{ currentReward }}</h4>
+  Substitute Reward: <br />
+  <input type="text" name="substitute" required="required" ng-model="experiment.substitute_attributes.craving" placeholder="Search or Create..."/>
+  <br /><br />
+  <div ng-if="newExpForm.substitute.$touched && newExpForm.substitute.$error.required">
+    You need to experiment with different motivators. You'll find one that drives you.
+  </div><br />
 
-<h4>Current Reward: {{ currentReward }}</h4>
-Substitute Reward: <br />
-<input type="text" ng-model="experiment.substitute_attributes.craving" placeholder="Search or Create..."/><br />
+  <table id="searchRewards" ng-if="experiment.substitute_attributes">
+    <tr ng-repeat="reward in rewards | filter:experiment.substitute_attributes" ng-show="$index < 10" ng-click="selectReward(reward)">
+      <td>{{reward.craving}}</td>
+    </tr>
+  </table><br />
 
-<table id="searchRewards" ng-if="experiment.substitute_attributes">
-  <tr ng-repeat="reward in rewards | filter:experiment.substitute_attributes" ng-show="$index < 10" ng-click="selectReward(reward)">
-    <td>{{reward.craving}}</td>
-  </tr>
-</table><br />
-
-<input type="submit" ng-click="submit(experiment)" value="Save" />
+  <input type="submit" ng-click="submit(experiment)" value="Save" ng-disabled="newExpForm.$invalid" class="btn btn-theme03"/>
+</form>
