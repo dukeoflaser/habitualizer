@@ -1,6 +1,12 @@
-<hr>
-<pre>This is the header template.</pre>
-<div ng-controller="LogoutController as logout">
-  <a href="" ng-click="logout.logout()">Logout.</a>
-</div>
-<hr>
+<!-- This is the header template -->
+<header class="header black-bg">
+    <!--logo start-->
+    <a href="" ui-sref="user.home" class="logo"><b>HABIT@</b></a>
+    <!--logo end-->
+
+    <div class="top-menu">
+      <ul class="nav pull-right top-menu" ng-controller="LogoutController as logout">
+          <li><a class="logout" href="" ng-click="logout.logout()">Logout</a></li>
+      </ul>
+    </div>
+</header>
