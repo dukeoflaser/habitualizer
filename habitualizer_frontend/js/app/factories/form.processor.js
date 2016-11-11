@@ -27,9 +27,14 @@ function formProcessor(habitFactory, experimentFactory, $state) {
     if (certain) {
       habitFactory.deleteHabit(hbt.id)
       .then(function(res){
-        hbt.experiments.forEach(function(exp){
-          experimentFactory.deleteExperiment(exp.id);
-        });
+
+        function deleteLastExp(){
+          var exps = hbt.experiments;
+          var lastExperiment = exps[exps.length - 1];
+
+          experimentFactory.deleteExperiment(lastExperiment.id)
+            .then(deleteLastExp());
+        }
 
         goHome();
       });
