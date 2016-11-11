@@ -1,26 +1,17 @@
 angular
   .module('app')
-  .controller('ShowExperimentController', function($scope, $state, $http, experimentData, activityData) {
+  .controller('ShowExperimentController', function($scope, $state, $http, experimentData, activityData, experimentFactory) {
 
-    console.log('The activityData');
-    console.log(activityData);
     $scope.experiment = experimentData.experiment
     if (activityData) $scope.activity = activityData.activity
-    
-    console.log('The experimentData:');
-    console.log(experimentData);
 
     $scope.delete = function(expId){
       var confirmDelete = confirm("Are you certain you want to delete this experiment?")
 
       if (confirmDelete) {
 
-        var req = {
-          method: 'DELETE',
-          url: 'http://localhost:3000/experiments/' + expId
-        }
+          experimentFactory.deleteExperiment(expId)
 
-        $http(req)
           .then(function(res){
             $state.go('user.home');
           });
