@@ -8,8 +8,6 @@ function formProcessor(habitFactory, experimentFactory, $state) {
     processExpDelete: processExpDelete
   }
 
-
-
   function processHabitUpdate(h){
     h.cue_attributes.has_been_updated = true;
     h.reward_attributes.has_been_updated = true;
@@ -45,18 +43,13 @@ function formProcessor(habitFactory, experimentFactory, $state) {
   };
 
   function processExpDelete(id){
-    var confirmDelete = confirm("Are you certain you want to delete this experiment?")
-
-    if (confirmDelete) {
-
-        experimentFactory.deleteExperiment(id)
-
-        .then(function(res){
-          $state.go('user.home');
-        });
-    }
+    var certain = confirm("Are you certain you want to delete this experiment?")
+    if (certain) experimentFactory.deleteExperiment(id).then(goHome);
   }
 
+  function goHome() {
+    $state.go('user.home');
+  }
 
   function gotoHabit(data) {
     $state.go('user.show.habit', { id: data.habit.id });
@@ -66,13 +59,7 @@ function formProcessor(habitFactory, experimentFactory, $state) {
     $state.go('user.show.experiment', { id: data.experiment.id })
   }
 
-
 }
-
-
-
-
-
 
 angular
   .module('app')
