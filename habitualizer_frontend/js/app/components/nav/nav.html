@@ -1,6 +1,14 @@
-<hr>
-<pre>This is the nav component.<pre>
-<a href="" ui-sref="user.home" ui-sref-active="active">Go to today's habits page.</a>
-<a href="" ui-sref="user.complete" ui-sref-active="active">Go to the completed habits page.</a>
-<a href="" ui-sref="user.experiments" ui-sref-active="active">Go to the experiments page.</a>
-<hr>
+<!-- This is the nav component. -->
+<div class="showback">
+  <div class="btn-group btn-group-justified">
+    <div class="btn-group">
+      <button type="button" class="btn btn-theme" ui-sref="user.home" ui-sref-active="active">Current</button>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-theme" ui-sref="user.complete" ui-sref-active="active">Completed</button>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-theme" ui-sref="user.experiments" ui-sref-active="active">Experiments</button>
+    </div>
+  </div>
+</div>
