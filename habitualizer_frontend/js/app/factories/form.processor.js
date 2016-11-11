@@ -2,6 +2,7 @@ function formProcessor(habitFactory, experimentFactory, $state) {
 
   return {
     processHabitUpdate: processHabitUpdate,
+    processHabitCreate: processHabitCreate,
     processExpUpdate: processExpUpdate,
     processExpCreate: processExpCreate
   }
@@ -13,6 +14,16 @@ function formProcessor(habitFactory, experimentFactory, $state) {
     h.reward_attributes.has_been_updated = true;
 
     habitFactory.updateHabit(h.id, { habit: h }).then(gotoHabit);
+  }
+
+
+  function processHabitCreate(hbt) {
+    habitFactory.createHabit({ habit: hbt })
+
+    .then(function(data){
+      var habit = data.habit;
+      $state.go('user.show.habit', { id: habit.id });
+    });
   }
 
 

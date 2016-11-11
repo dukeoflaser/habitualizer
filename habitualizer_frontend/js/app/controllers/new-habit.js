@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('NewHabitController', function($http, $scope, $state, user, cuesData, rewardsData, habitFactory) {
+  .controller('NewHabitController', function($scope, user, cuesData, rewardsData, habitFactory, formProcessor) {
 
     $scope.habit = {}
     $scope.habit.user_id = user.id
@@ -18,23 +18,7 @@ angular
       $scope.habit.reward_attributes.craving = reward.craving;
     }
 
-    //////////////////////////////////////////
-    $scope.submit = function(hbt) {
-
-      habitFactory.createHabit({ habit: hbt })
-
-      .then(function(data){
-        var habit = data.habit;
-        $state.go('user.show.habit', { id: habit.id });
-      });
-
+    $scope.submit = function(submission){
+      formProcessor.processHabitCreate(submission);
     }
-    //////////////////////////////////////////
-
-
-
-
-
-
-
   });
