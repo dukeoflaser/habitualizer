@@ -9,7 +9,7 @@ function formProcessor(habitFactory, experimentFactory, $state) {
     processExpDelete: processExpDelete
   }
 
-  function processHabitUpdate(h){
+  function processHabitUpdate(h) {
     h.cue_attributes.has_been_updated = true;
     h.reward_attributes.has_been_updated = true;
 
@@ -22,30 +22,27 @@ function formProcessor(habitFactory, experimentFactory, $state) {
   }
 
 
-  function processHabitDelete(hbt){
-    var confirmDelete = confirm("Are you certain you want to delete this habit along with it's experiments?")
-    if (confirmDelete) {
-
+  function processHabitDelete(hbt) {
+    var certain = confirm("Are you certain you want to delete this habit along with its experiments?")
+    if (certain) {
       habitFactory.deleteHabit(hbt.id)
       .then(function(res){
+        hbt.experiments.forEach(function(exp){
+          experimentFactory.deleteExperiment(exp.id);
+        });
 
-          hbt.experiments.forEach(function(exp, index){
-            //need to refactor and use delete exp method here.
-
-          });
-
-          $state.go('user.home');
+        goHome();
       });
     }
   }
 
-  function processExpUpdate(sub, exp, habit){
+  function processExpUpdate(sub, exp, habit) {
     experimentFactory.updateExperiment(sub.id, { experiment: sub })
     .then(checkForActivity);
 
     function checkForActivity(data) {
-      if(habit.activity_attributes){
-        if(exp.successful == false){
+      if(habit.activity_attributes) {
+        if(exp.successful == false) {
           habit.activity_attributes.description = "";
         }
         habitFactory.updateHabit(habit.id, { habit: habit })
@@ -60,7 +57,7 @@ function formProcessor(habitFactory, experimentFactory, $state) {
     experimentFactory.createExperiment({ experiment: exp }).then(gotoExp);
   };
 
-  function processExpDelete(id){
+  function processExpDelete(id) {
     var certain = confirm("Are you certain you want to delete this experiment?")
     if (certain) experimentFactory.deleteExperiment(id).then(goHome);
   }
