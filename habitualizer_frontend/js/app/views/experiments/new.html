@@ -1,11 +1,11 @@
 <pre>This is the new experiments view.</pre>
+<h4>Most recently created habit: {{ lastHabit.name }}</h4>
 
-<h4>Most recently created habit: {{ habits[habits.length - 1].name }}</h4>
-
-Selected Habit: <br />
-<input type="text" ng-model="habit_name" disabled/><br />
+Currently Selected Habit: <br />
+<input type="text" ng-model="habitName" disabled/><br />
 <input type="hidden" ng-model="experiment.habit_id"/><br />
 
+Select A Different Habit: <br />
 <input ng-model="searchHabit.name" placeholder="Search For Different Habits..."><br /><br />
 
 <table id="searchHabits" ng-if="searchHabit">
@@ -13,6 +13,7 @@ Selected Habit: <br />
     <td>{{habit.name}}</td>
   </tr>
 </table><br />
+
 <h4>Current Reward: {{ currentReward }}</h4>
 Substitute Reward: <br />
 <input type="text" ng-model="experiment.substitute_attributes.craving" placeholder="Search or Create..."/><br />
