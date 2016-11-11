@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('EditExperimentController', function($scope, $http, $state, experimentData, activityData) {
+  .controller('EditExperimentController', function($scope, $http, $state, experimentData, activityData, experimentFactory) {
 
     var exp = experimentData.experiment;
     if (activityData) var activity = activityData.activity;
@@ -15,14 +15,17 @@ angular
       console.log('From submit experiment update - exp')
       console.log(exp);
       var experiment = { experiment: exp };
-      var req = {
-        method: 'PATCH',
-        url: 'http://localhost:3000/experiments/' + exp.id,
-        data: experiment
-      }
+
+      experimentFactory.updateExperiment(exp.id, experiment)
+
+      // var req = {
+      //   method: 'PATCH',
+      //   url: 'http://localhost:3000/experiments/' + exp.id,
+      //   data: experiment
+      // }
 
 
-      $http(req)
+      // $http(req)
         .then(function(expRes){
           console.log(expRes);
           //add catch method. Break into named functions

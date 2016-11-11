@@ -21,8 +21,8 @@ function experimentFactory($http, baseFactory) {
 
   }
 
-  function updateExperiment() {
-
+  function updateExperiment(id, data) {
+    return $http.patch(baseFactory.url + '/experiments/' + id, data);
   }
 
   function deleteExperiment() {
