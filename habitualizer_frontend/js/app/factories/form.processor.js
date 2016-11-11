@@ -18,12 +18,7 @@ function formProcessor(habitFactory, experimentFactory, $state) {
 
 
   function processHabitCreate(hbt) {
-    habitFactory.createHabit({ habit: hbt })
-
-    .then(function(data){
-      var habit = data.habit;
-      $state.go('user.show.habit', { id: habit.id });
-    });
+    habitFactory.createHabit({ habit: hbt }).then(gotoHabit);
   }
 
 
