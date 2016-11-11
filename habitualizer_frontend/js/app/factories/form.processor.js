@@ -3,6 +3,7 @@ function formProcessor(habitFactory, experimentFactory, $state) {
   return {
     processHabitUpdate: processHabitUpdate,
     processHabitCreate: processHabitCreate,
+    processHabitDelete: processHabitDelete,
     processExpUpdate: processExpUpdate,
     processExpCreate: processExpCreate,
     processExpDelete: processExpDelete
@@ -20,6 +21,23 @@ function formProcessor(habitFactory, experimentFactory, $state) {
     habitFactory.createHabit({ habit: hbt }).then(gotoHabit);
   }
 
+
+  function processHabitDelete(hbt){
+    var confirmDelete = confirm("Are you certain you want to delete this habit along with it's experiments?")
+    if (confirmDelete) {
+
+      habitFactory.deleteHabit(hbt.id)
+      .then(function(res){
+
+          hbt.experiments.forEach(function(exp, index){
+            //need to refactor and use delete exp method here.
+
+          });
+
+          $state.go('user.home');
+      });
+    }
+  }
 
   function processExpUpdate(sub, exp, habit){
     experimentFactory.updateExperiment(sub.id, { experiment: sub })
