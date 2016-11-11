@@ -7,7 +7,6 @@ angular
 
     $scope.cues = cuesData.cues;
     $scope.rewards = rewardsData.rewards;
-    $scope.activities = activities.data.activities;
 
     $scope.selectCue = function(cue){
 
