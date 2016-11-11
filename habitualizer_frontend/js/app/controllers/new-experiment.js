@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('NewExperimentController', function($http, $scope, $state, cues, rewards, activities, userHabits) {
+  .controller('NewExperimentController', function($http, $scope, $state, cues, rewards, activities, userHabits, experimentFactory) {
 
     var habits = userHabits.data.habits;
     $scope.experiment = {};
@@ -25,25 +25,15 @@ angular
       $scope.experiment.substitute_attributes.craving = reward.craving;
     }
 
-    //////////////////////////////////////////
     $scope.submit = function(exp) {
-      var experiment = { experiment: exp };
 
-      console.log('Posting to experiments#create.');
+      experimentFactory.createExperiment({ experiment: exp })
 
-      $http({
-        method: 'POST',
-        url: 'http://localhost:3000/experiments',
-        data: experiment
-      }).then(function(response){
-        //change this to success/fail.
-        var exp = response.data.experiment;
-
-        $state.go('user.show.experiment', { id: exp.id })
+      .then(function(data){
+        $state.go('user.show.experiment', { id: data.experiment.id })
       });
 
     };
-    //////////////////////////////////////////
 
 
   });

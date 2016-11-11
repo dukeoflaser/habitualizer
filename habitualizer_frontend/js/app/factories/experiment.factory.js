@@ -1,13 +1,13 @@
 function experimentFactory($http, baseFactory) {
 
-  var factory = {
+  return {
     getExperiments: getExperiments,
     getExperiment: getExperiment,
     createExperiment: createExperiment,
     updateExperiment: updateExperiment,
     deleteExperiment: deleteExperiment
   };
-  return factory;
+
 
   function getExperiments(user) {
     return $http.get(baseFactory.url + '/user/' + user.id + '/experiments').then(returnData);
@@ -17,8 +17,8 @@ function experimentFactory($http, baseFactory) {
     return $http.get(baseFactory.url + '/experiments/' + id).then(returnData);
   }
 
-  function createExperiment() {
-
+  function createExperiment(data) {
+    return $http.post(baseFactory.url + '/experiments', data).then(returnData);
   }
 
   function updateExperiment(id, data) {
