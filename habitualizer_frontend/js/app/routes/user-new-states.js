@@ -1,7 +1,6 @@
 angular
   .module('app')
   .config(function ($stateProvider) {
-    var baseUrl = 'http://localhost:3000'
     $stateProvider
 
     .state('user.new', {
@@ -38,11 +37,8 @@ angular
         user: ['Auth', function(Auth){
           return Auth.currentUser();
         }],
-        userHabits: function($http, user){
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/user/' + user.id + '/habits'
-          });
+        habitData: function(habitFactory, user){
+          return habitFactory.getHabits(user);
         }
       }
     });

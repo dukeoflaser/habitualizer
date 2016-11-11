@@ -1,10 +1,11 @@
 angular
   .module('app')
-  .controller('NewExperimentController', function($scope, rewardsData, userHabits, experimentFactory, formProcessor) {
+  .controller('NewExperimentController', function($scope, rewardsData, habitData, experimentFactory, formProcessor) {
 
-    var habits = userHabits.data.habits;
-    $scope.experiment = {};
+    var habits = habitData.habits;
     $scope.habits = habits;
+
+    $scope.experiment = {};
 
     var lastHabit = habits[habits.length - 1];
     $scope.habit_name = lastHabit.name;
