@@ -11,7 +11,7 @@ angular
         user: ['Auth', function(Auth){
           return Auth.currentUser();
         }],
-        habitData: function($http, habitFactory, user){
+        habitData: function(habitFactory, user){
           return habitFactory.getHabits(user);
         }
       }
@@ -25,7 +25,7 @@ angular
         user: ['Auth', function(Auth){
           return Auth.currentUser();
         }],
-        completeHabitData: function($http, habitFactory, user){
+        completeHabitData: function(habitFactory, user){
           var params = 'complete=true';
           return habitFactory.getHabits(user, params);
         }
@@ -40,7 +40,7 @@ angular
         user: ['Auth', function(Auth){
           return Auth.currentUser();
         }],
-        experimentData: function($http, experimentFactory, user){
+        experimentData: function(experimentFactory, user){
           return experimentFactory.getExperiments(user);
         }
       }
