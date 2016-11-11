@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('EditExperimentController', function($scope, $http, $state, experimentData, activityData, experimentFactory) {
+  .controller('EditExperimentController', function($scope, $http, $state, experimentData, activityData, experimentFactory, habitFactory) {
 
     var exp = experimentData.experiment;
     if (activityData) var activity = activityData.activity;
@@ -14,18 +14,10 @@ angular
     $scope.submit = function(exp){
       console.log('From submit experiment update - exp')
       console.log(exp);
-      var experiment = { experiment: exp };
+      // var experiment = { experiment: exp };
 
-      experimentFactory.updateExperiment(exp.id, experiment)
+      experimentFactory.updateExperiment(exp.id, { experiment: exp })
 
-      // var req = {
-      //   method: 'PATCH',
-      //   url: 'http://localhost:3000/experiments/' + exp.id,
-      //   data: experiment
-      // }
-
-
-      // $http(req)
         .then(function(expRes){
           console.log(expRes);
           //add catch method. Break into named functions
@@ -41,17 +33,18 @@ angular
                     exp.habit.activity_attributes.description = "";
                   }
 
-                  var habit = { habit: exp.habit }
-                  console.log('Patching Activity to Habit#update');
-                  console.log(habit)
+                  // var habit = { habit: exp.habit }
+                  // console.log('Patching Activity to Habit#update');
+                  // console.log(habit)
 
-                  var req = {
-                    method: 'PATCH',
-                    url: 'http://localhost:3000/habits/' + exp.habit.id,
-                    data: habit
-                  }
+                  // var req = {
+                  //   method: 'PATCH',
+                  //   url: 'http://localhost:3000/habits/' + exp.habit.id,
+                  //   data: habit
+                  // }
 
-                  $http(req)
+                  // $http(req)
+                  habitFactory.updateHabit(exp.habit.id, { habit: exp.habit })
                     .then(function(habitRes){
                       console.log(habitRes);
                       //add catch method.
