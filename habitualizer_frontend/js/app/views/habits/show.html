@@ -6,7 +6,7 @@
   <li>Cue: {{  habit.cue.name }}</li>
   <li>Cue Type: {{  habit.cue.nature }}</li>
   <li>Reward: {{  habit.reward.craving }}</li>
-  <li ng-if="habit.activity">Activity: {{  habit.activity.description }}</li>
+  <li ng-if="validActivity">Activity: {{  habit.activity.description }}</li>
   <li>Created: {{ habit.created_at | date : mediumDate }}</li>
 </ul>
 <h3>Habit Experiments:</h3>

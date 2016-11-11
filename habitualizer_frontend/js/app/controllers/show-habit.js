@@ -3,6 +3,9 @@ angular
   .controller('ShowHabitController', function($scope, $state, $http, habitData) {
 
     $scope.habit = habitData.habit;
+    if($scope.habit.activity && $scope.habit.activity.description != "") {
+      $scope.validActivity = true;
+    }
 
     console.log('The habit:');
     console.log($scope.habit);
