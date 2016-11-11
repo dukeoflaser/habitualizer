@@ -1,13 +1,18 @@
-<pre>This is the EDIT experiments view.</pre>
-<!-- {{ experiment }} -->
+<!-- <pre>This is the EDIT experiments view.</pre> -->
 <div>
-  <form>
+  <form name="editExpForm">
     Successful?: <input type="checkbox" ng-model="experiment.successful" /><br />
-    Substitute Reward:<br /><input type="text" ng-model="experiment.substitute_attributes.craving"/><br />
-    <div ng-if="experiment.successful">
-      Activity:<br /><textarea rows="8" cols="25" ng-model="experiment.habit.activity_attributes.description"/></textarea><br />
+    Substitute Reward:<br /><input type="text" name="substitute" required="required" ng-model="experiment.substitute_attributes.craving"/><br />
+    <div ng-if="editExpForm.substitute.$touched && editExpForm.substitute.$error.required">
+      You need to experiment with different motivators. You'll find one that drives you.
     </div><br />
-    <input type="submit" ng-click="submit(experiment)" value="Save" />
+    <div ng-if="experiment.successful">
+      Activity:<br /><textarea rows="8" cols="25" name="activity" required="required" ng-model="experiment.habit.activity_attributes.description"/></textarea><br />
+    </div><br />
+    <div ng-if="editExpForm.activity.$touched && editExpForm.activity.$error.required">
+      Give an activity that you feel will provide the kind of reward you are looking for.
+    </div><br />
+    <input type="submit" ng-click="submit(experiment)" value="Save" ng-disabled="editExpForm.$invalid" class="btn btn-theme03" />
   </form>
   <!-- <pre>experiment = {{experiment | json}}</pre> -->
 </div>
