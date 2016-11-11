@@ -45,10 +45,10 @@
       <tr ng-repeat="reward in rewards | filter:habit.reward_attributes" ng-show="$index < 10" ng-click="selectReward(reward)">
         <td>{{reward.craving}}</td>
       </tr>
-    </table><br />
+    </table>
 
-    <input type="submit" ng-click="submit(habit)" value="Save" ng-disabled="newHabitForm.$invalid"/>
+    <input type="submit" ng-click="submit(habit)" value="Save" ng-disabled="newHabitForm.$invalid" class="btn btn-theme03"/>
 
   </form>
-
+  <br />
 </div>
