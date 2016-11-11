@@ -4,7 +4,8 @@ function formProcessor(habitFactory, experimentFactory, $state) {
     processHabitUpdate: processHabitUpdate,
     processHabitCreate: processHabitCreate,
     processExpUpdate: processExpUpdate,
-    processExpCreate: processExpCreate
+    processExpCreate: processExpCreate,
+    processExpDelete: processExpDelete
   }
 
 
@@ -42,6 +43,19 @@ function formProcessor(habitFactory, experimentFactory, $state) {
   function processExpCreate(exp) {
     experimentFactory.createExperiment({ experiment: exp }).then(gotoExp);
   };
+
+  function processExpDelete(id){
+    var confirmDelete = confirm("Are you certain you want to delete this experiment?")
+
+    if (confirmDelete) {
+
+        experimentFactory.deleteExperiment(id)
+
+        .then(function(res){
+          $state.go('user.home');
+        });
+    }
+  }
 
 
   function gotoHabit(data) {
