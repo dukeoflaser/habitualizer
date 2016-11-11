@@ -11,11 +11,9 @@ angular
 
 
 
-    $scope.submit = function(exp){
-
-      experimentFactory.updateExperiment(exp.id, { experiment: exp })
+    $scope.submit = function(x){
+      experimentFactory.updateExperiment(x.id, { experiment: x })
       .then(checkForActivity);
-
     }
 
     function checkForActivity(expRes) {
