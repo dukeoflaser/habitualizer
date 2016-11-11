@@ -11,7 +11,8 @@ angular
     .state('login', {
       url: '/users/sign_in',
       templateUrl: 'js/angular-devise/views/login.html',
-      controller: 'LoginController'
+      controller: 'LoginController',
+      controllerAs: 'login'
     })
 
     .state('register', {
