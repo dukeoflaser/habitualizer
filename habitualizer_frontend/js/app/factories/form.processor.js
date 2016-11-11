@@ -1,8 +1,9 @@
 function formProcessor(habitFactory, experimentFactory, $state) {
 
   return {
+    processHabitUpdate: processHabitUpdate,
     processExpUpdate: processExpUpdate,
-    processHabitUpdate: processHabitUpdate
+    processExpCreate: processExpCreate
   }
 
 
@@ -31,6 +32,11 @@ function formProcessor(habitFactory, experimentFactory, $state) {
       }
     }
   }
+
+  function processExpCreate(exp) {
+    experimentFactory.createExperiment({ experiment: exp }).then(gotoExp);
+  };
+
 
   function gotoHabit(data) {
     $state.go('user.show.habit', { id: data.habit.id });

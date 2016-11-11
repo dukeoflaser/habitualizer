@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('NewExperimentController', function($scope, $state, cues, rewards, activities, userHabits, experimentFactory) {
+  .controller('NewExperimentController', function($scope, cues, rewards, userHabits, experimentFactory, formProcessor) {
 
     var habits = userHabits.data.habits;
     $scope.experiment = {};
@@ -26,15 +26,8 @@ angular
     }
 
     $scope.submit = function(submission){
-      processExpCreate(submission);
+      formProcessor.processExpCreate(submission);
     }
-
-    function processExpCreate(exp) {
-      experimentFactory.createExperiment({ experiment: exp })
-        .then(function(data){
-          $state.go('user.show.experiment', { id: data.experiment.id })
-        });
-    };
 
 
   });
