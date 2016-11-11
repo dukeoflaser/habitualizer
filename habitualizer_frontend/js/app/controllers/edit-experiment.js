@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('EditExperimentController', function($scope, $http, $state, experimentData, activityData, experimentFactory, habitFactory) {
+  .controller('EditExperimentController', function($scope, $state, experimentData, activityData, formProcessor) {
 
     var exp = experimentData.experiment;
     var habit = exp.habit;
@@ -10,27 +10,12 @@ angular
     $scope.experiment.substitute_attributes = exp.substitute;
     if (activityData) $scope.experiment.habit.activity_attributes = activity;
 
-
-
-    $scope.submit = function(x){
-      experimentFactory.updateExperiment(x.id, { experiment: x })
-      .then(checkForActivity);
+    $scope.submit = function(submission){
+      formProcessor.processExpUpdate(submission, exp, habit);
     }
 
-    function checkForActivity(data) {
-        if(habit.activity_attributes){
-          if(exp.successful == false){
-            habit.activity_attributes.description = "";
-          }
-          habitFactory.updateHabit(habit.id, { habit: habit })
-            .then(gotoExp(data));
-        } else {
-          gotoExp(data);
-        }
-    }
 
-    function gotoExp(data) {
-      $state.go('user.show.experiment', { id: data.experiment.id })
-    }
+
+
 
   });
