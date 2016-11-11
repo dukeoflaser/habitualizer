@@ -1,6 +1,7 @@
 <!-- <pre>This is the EDIT habits view.</pre> -->
-<form name="editHabitForm">
+<h4>Update a Habit. Good or Bad.</h4><br />
 
+<form name="editHabitForm">
   <label for="habitName">Habit Name: </label><br />
   <input type="text" name="habitName" required="required" ng-model="habit.name" /><br /><br />
   <div ng-if="editHabitForm.habitName.$touched && editHabitForm.habitName.$error.required">
@@ -30,6 +31,7 @@
   <div ng-if="editHabitForm.reward.$touched && editHabitForm.reward.$error.required">
     What motivates you? What do you think is the driving force behind this habit? You MUST have one.
   </div><br />
-  
+
   <input type="submit" ng-click="submit(habit)" value="Save" ng-disabled="editHabitForm.$invalid" class="btn btn-theme03" />
 </form>
+<br />
