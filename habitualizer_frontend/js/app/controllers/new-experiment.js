@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('NewExperimentController', function($http, $scope, $state, cues, rewards, activities, userHabits, experimentFactory) {
+  .controller('NewExperimentController', function($scope, $state, cues, rewards, activities, userHabits, experimentFactory) {
 
     var habits = userHabits.data.habits;
     $scope.experiment = {};
@@ -25,14 +25,15 @@ angular
       $scope.experiment.substitute_attributes.craving = reward.craving;
     }
 
-    $scope.submit = function(exp) {
+    $scope.submit = function(submission){
+      processExpCreate(submission);
+    }
 
+    function processExpCreate(exp) {
       experimentFactory.createExperiment({ experiment: exp })
-
-      .then(function(data){
-        $state.go('user.show.experiment', { id: data.experiment.id })
-      });
-
+        .then(function(data){
+          $state.go('user.show.experiment', { id: data.experiment.id })
+        });
     };
 
 
