@@ -1,13 +1,9 @@
 function activityFactory($http, baseFactory) {
 
-  var factory = {
+  return {
     getActivities: getActivities,
     getActivity: getActivity,
-    createActivity: createActivity,
-    updateActivity: updateActivity,
-    deleteActivity: deleteActivity
   };
-  return factory;
 
   function getActivities(user) {
     var url = baseFactory.url + '/user/' + user.id + '/activities'
@@ -19,19 +15,7 @@ function activityFactory($http, baseFactory) {
 
   }
 
-  function createActivity() {
-
-  }
-
-  function updateActivity() {
-
-  }
-
-  function deleteActivity() {
-
-  }
-
-  function returnData(response){
+  function returnData(response) {
     return response.data;
   }
 
