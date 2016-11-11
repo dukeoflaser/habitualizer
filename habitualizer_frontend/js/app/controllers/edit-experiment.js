@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('EditExperimentController', function($scope, $state, experimentData, activityData, formProcessor) {
+  .controller('EditExperimentController', function($scope, experimentData, activityData, formProcessor) {
 
     var exp = experimentData.experiment;
     var habit = exp.habit;
@@ -13,9 +13,4 @@ angular
     $scope.submit = function(submission){
       formProcessor.processExpUpdate(submission, exp, habit);
     }
-
-
-
-
-
   });
