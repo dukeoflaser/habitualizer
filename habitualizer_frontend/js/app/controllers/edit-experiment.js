@@ -14,40 +14,29 @@ angular
     $scope.submit = function(exp){
 
       experimentFactory.updateExperiment(exp.id, { experiment: exp })
-
       .then(checkForActivity);
 
-      function checkForActivity(expRes) {
+    }
 
-          //add catch method. Break into named functions
+    function checkForActivity(expRes) {
 
-          if(exp.habit.activity_attributes){
-            /////////////////////// - Submit to Habit - Activity - ///////////////////////
-            //Submit activity after experiment is finished submission to prevent database lockup.
+        if(exp.habit.activity_attributes){
 
-            //check to make sure that exp is successful
-            if(exp.successful == false){
-              exp.habit.activity_attributes.description = "";
-            }
-
-            // $http(req)
-            habitFactory.updateHabit(exp.habit.id, { habit: exp.habit })
-                .then(gotoExp);
-
-                function gotoExp() {
-                  // .then(function(habitRes){
-                    //add catch method.
-                    $state.go('user.show.experiment', { id: expRes.data.experiment.id })
-                  // });
-                }
-
-            /////////////////////////////////////////////////////////////////
-          } else {
-            $state.go('user.show.experiment', { id: expRes.data.experiment.id })
+          if(exp.successful == false){
+            exp.habit.activity_attributes.description = "";
           }
 
-      }
+          habitFactory.updateHabit(exp.habit.id, { habit: exp.habit })
+              .then(gotoExp(expRes.data.experiment.id));
 
+        } else {
+          gotoExp(expRes.data.experiment.id);
+        }
+
+    }
+
+    function gotoExp(id) {
+      $state.go('user.show.experiment', { id: id })
     }
 
   });
