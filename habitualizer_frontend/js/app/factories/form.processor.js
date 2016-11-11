@@ -11,11 +11,7 @@ function formProcessor(habitFactory, experimentFactory, $state) {
     h.cue_attributes.has_been_updated = true;
     h.reward_attributes.has_been_updated = true;
 
-    habitFactory.updateHabit(h.id, { habit: h })
-
-      .then(function(data){
-        $state.go('user.show.habit', { id: data.habit.id });
-      });
+    habitFactory.updateHabit(h.id, { habit: h }).then(gotoHabit);
   }
 
 
@@ -34,12 +30,21 @@ function formProcessor(habitFactory, experimentFactory, $state) {
         gotoExp(data);
       }
     }
-
-    function gotoExp(data) {
-      $state.go('user.show.experiment', { id: data.experiment.id })
-    }
   }
+
+  function gotoHabit(data) {
+    $state.go('user.show.habit', { id: data.habit.id });
+  }
+
+  function gotoExp(data) {
+    $state.go('user.show.experiment', { id: data.experiment.id })
+  }
+
+
 }
+
+
+
 
 
 
