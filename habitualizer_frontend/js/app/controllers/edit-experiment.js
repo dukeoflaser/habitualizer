@@ -3,6 +3,7 @@ angular
   .controller('EditExperimentController', function($scope, $http, $state, experimentData, activityData, experimentFactory, habitFactory) {
 
     var exp = experimentData.experiment;
+    var habit = exp.habit;
     if (activityData) var activity = activityData.activity;
 
     $scope.experiment = exp;
@@ -17,24 +18,19 @@ angular
     }
 
     function checkForActivity(data) {
-
-        if(exp.habit.activity_attributes){
-
+        if(habit.activity_attributes){
           if(exp.successful == false){
-            exp.habit.activity_attributes.description = "";
+            habit.activity_attributes.description = "";
           }
-
-          habitFactory.updateHabit(exp.habit.id, { habit: exp.habit })
-              .then(gotoExp(data.experiment.id));
-
+          habitFactory.updateHabit(habit.id, { habit: habit })
+            .then(gotoExp(data));
         } else {
-          gotoExp(data.experiment.id);
+          gotoExp(data);
         }
-
     }
 
-    function gotoExp(id) {
-      $state.go('user.show.experiment', { id: id })
+    function gotoExp(data) {
+      $state.go('user.show.experiment', { id: data.experiment.id })
     }
 
   });
