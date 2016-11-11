@@ -23,8 +23,8 @@ angular
 
 
       $http(req)
-        .then(function(response){
-          console.log(response);
+        .then(function(expRes){
+          console.log(expRes);
           //add catch method. Break into named functions
 
 
@@ -49,29 +49,19 @@ angular
                   }
 
                   $http(req)
-                    .then(function(response){
-                      console.log(response);
+                    .then(function(habitRes){
+                      console.log(habitRes);
                       //add catch method.
+                      $state.go('user.show.experiment', { id: expRes.data.experiment.id })
                     });
 
-                  
-                  $state.go('user.show.experiment', { id: response.data.experiment.id })
+
+
 
                   /////////////////////////////////////////////////////////////////
                 } else {
-                  $state.go('user.show.experiment', { id: response.data.experiment.id })
+                  $state.go('user.show.experiment', { id: expRes.data.experiment.id })
                 }
-
-
-
-
-
-
-
-
-
-
-          $state.go('user.show.experiment', { id: response.data.experiment.id })
         });
 
 
