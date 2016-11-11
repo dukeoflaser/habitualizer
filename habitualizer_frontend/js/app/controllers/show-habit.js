@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('ShowHabitController', function($scope, $state, $http, habitData, habitFactory, formProcessor) {
+  .controller('ShowHabitController', function($scope, habitData, habitFactory, formProcessor) {
 
     $scope.habit = habitData.habit;
     console.log(habitData);
