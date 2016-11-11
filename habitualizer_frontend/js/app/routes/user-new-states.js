@@ -32,23 +32,8 @@ angular
       templateUrl: 'js/app/views/experiments/new.html',
       controller: 'NewExperimentController',
       resolve: {
-        cues: function($http){
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/cues'
-          });
-        },
-        rewards: function($http){
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/rewards'
-          });
-        },
-        activities: function($http){
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/activities'
-          });
+        rewardsData: function(rewardFactory){
+          return rewardFactory.getRewards();
         },
         user: ['Auth', function(Auth){
           return Auth.currentUser();

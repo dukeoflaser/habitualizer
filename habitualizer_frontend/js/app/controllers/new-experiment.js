@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('NewExperimentController', function($scope, cues, rewards, userHabits, experimentFactory, formProcessor) {
+  .controller('NewExperimentController', function($scope, rewardsData, userHabits, experimentFactory, formProcessor) {
 
     var habits = userHabits.data.habits;
     $scope.experiment = {};
@@ -18,7 +18,7 @@ angular
       $scope.experiment.habit_id = habit.id;
     }
 
-    $scope.rewards = rewards.data.rewards;
+    $scope.rewards = rewardsData.rewards;
     $scope.selectReward = function(reward){
 
       $scope.experiment.substitute_attributes = reward;
