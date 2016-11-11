@@ -7,7 +7,7 @@ angular
     .state('user.new', {
       abstract: true,
       url: '/new',
-      template: '<div ui-view></div>'
+      template: '<ui-view></ui-view>'
     })
 
     .state('user.new.habit', {
@@ -18,11 +18,8 @@ angular
         user: ['Auth', function(Auth){
           return Auth.currentUser();
         }],
-        cues: function($http){
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/cues'
-          });
+        cuesData: function(cueFactory){
+          return cueFactory.getCues();
         },
         rewards: function($http){
           return $http({
