@@ -1,0 +1,54 @@
+<pre>This is the new habits view.</pre>
+<div>
+  <form name="newHabitForm">
+
+    <label for="habitName">Habit Name:</label><br />
+    <input name="habitName" required="require" type="text" ng-model="habit.name" /><br /><br />
+
+    <div ng-if="newHabitForm.habitName.$touched && newHabitForm.habitName.$error.required">
+      Good or bad, you must give your habit a name.
+    </div><br />
+
+    <input type="hidden" ng-model="habit.user_id" />
+
+    <label for="cueName">Cue: </label><br />
+    <input name="cueName" required="require" type="text" ng-model="habit.cue_attributes.name" placeholder="Search or Create..."/><br /><br />
+
+    <div ng-if="newHabitForm.cueName.$touched && newHabitForm.cueName.$error.required">
+      You need to provide a cue for your habit. That's the whole point of this app . . . .
+    </div><br />
+
+    <label for="cueType">Select Type: </label>
+    <select name="cueType" ng-model="habit.cue_attributes.nature" ng-init="habit.cue_attributes.nature='Location'">
+      <option value="Location">Location</option>
+      <option value="Time">Time</option>
+      <option value="People">People</option>
+      <option value="Emotion">Emotion</option>
+      <option value="Activity">Activity</option>
+    </select><br /><br />
+
+    <table id="searchCues" ng-if="habit.cue_attributes.name">
+      <tr ng-repeat="cue in cues | filter:habit.cue_attributes" ng-show="$index < 10" ng-click="selectCue(cue)">
+        <td>{{cue.name}}</td>
+        <td>{{cue.nature}}</td>
+      </tr>
+    </table><br /><br />
+
+    <label for="reward">What do you hope to get out of this?</label><br />
+    <input name="reward" required="required" type="text" ng-model="habit.reward_attributes.craving" placeholder="Search or Create..."/><br /><br />
+
+    <div ng-if="newHabitForm.reward.$touched && newHabitForm.reward.$error.required">
+      What motivates you? What do you think is the driving force behind this habit? You MUST have one.
+    </div><br />
+
+    <table id="searchRewards" ng-if="habit.reward_attributes.craving">
+      <tr ng-repeat="reward in rewards | filter:habit.reward_attributes" ng-show="$index < 10" ng-click="selectReward(reward)">
+        <td>{{reward.craving}}</td>
+      </tr>
+    </table><br />
+
+    <input type="submit" ng-click="submit(habit)" value="Save" ng-disabled="newHabitForm.$invalid"/>
+
+  </form>
+
+</div>
