@@ -24,7 +24,7 @@ function habitFactory($http, baseFactory) {
   }
 
   function updateHabit(id, data) {
-    return $http.patch(baseFactory.url + '/habits/' + id, data);
+    return $http.patch(baseFactory.url + '/habits/' + id, data).then(returnData);
   }
 
   function deleteHabit() {

@@ -22,7 +22,7 @@ function experimentFactory($http, baseFactory) {
   }
 
   function updateExperiment(id, data) {
-    return $http.patch(baseFactory.url + '/experiments/' + id, data);
+    return $http.patch(baseFactory.url + '/experiments/' + id, data).then(returnData);
   }
 
   function deleteExperiment() {

@@ -16,7 +16,7 @@ angular
       .then(checkForActivity);
     }
 
-    function checkForActivity(expRes) {
+    function checkForActivity(data) {
 
         if(exp.habit.activity_attributes){
 
@@ -25,10 +25,10 @@ angular
           }
 
           habitFactory.updateHabit(exp.habit.id, { habit: exp.habit })
-              .then(gotoExp(expRes.data.experiment.id));
+              .then(gotoExp(data.experiment.id));
 
         } else {
-          gotoExp(expRes.data.experiment.id);
+          gotoExp(data.experiment.id);
         }
 
     }
