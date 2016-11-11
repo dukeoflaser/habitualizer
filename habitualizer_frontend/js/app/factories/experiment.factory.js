@@ -1,5 +1,4 @@
-function experimentFactory($http) {
-  var baseUrl = 'http://localhost:3000';
+function experimentFactory($http, baseFactory) {
 
   var factory = {
     getExperiments: getExperiments,
@@ -11,11 +10,11 @@ function experimentFactory($http) {
   return factory;
 
   function getExperiments(user) {
-    return $http.get(baseUrl + '/user/' + user.id + '/experiments').then(returnData);
+    return $http.get(baseFactory.url + '/user/' + user.id + '/experiments').then(returnData);
   }
 
   function getExperiment(id) {
-    return $http.get(baseUrl + '/experiments/' + id).then(returnData);
+    return $http.get(baseFactory.url + '/experiments/' + id).then(returnData);
   }
 
   function createExperiment() {

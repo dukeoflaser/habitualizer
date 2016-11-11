@@ -1,5 +1,4 @@
-function habitFactory($http) {
-  var baseUrl = 'http://localhost:3000';
+function habitFactory($http, baseFactory) {
 
   var factory = {
     getHabits: getHabits,
@@ -12,12 +11,12 @@ function habitFactory($http) {
 
   function getHabits(user, params) {
     params ? ps = '?' + params : ps = '';
-    var url = baseUrl + '/user/' + user.id + '/habits' + ps
+    var url = baseFactory.url + '/user/' + user.id + '/habits' + ps
     return $http.get(url).then(returnData);
   }
 
   function getHabit(id) {
-    return $http.get(baseUrl + '/habits/' + id).then(returnData);
+    return $http.get(baseFactory.url + '/habits/' + id).then(returnData);
   }
 
   function createHabit() {

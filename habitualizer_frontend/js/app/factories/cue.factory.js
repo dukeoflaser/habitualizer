@@ -1,5 +1,4 @@
-function cueFactory($http) {
-  var baseUrl = 'http://localhost:3000';
+function cueFactory($http, baseFactory) {
 
   var factory = {
     getCues: getCues
@@ -8,7 +7,7 @@ function cueFactory($http) {
   return factory;
 
   function getCues(){
-    return $http.get(baseUrl + '/cues').then(returnData);
+    return $http.get(baseFactory.url + '/cues').then(returnData);
   }
 
   function returnData(response){
