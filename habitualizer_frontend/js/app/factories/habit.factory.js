@@ -19,8 +19,8 @@ function habitFactory($http, baseFactory) {
     return $http.get(baseFactory.url + '/habits/' + id).then(returnData);
   }
 
-  function createHabit() {
-
+  function createHabit(data) {
+    return $http.post(baseFactory.url + '/habits', data).then(returnData);
   }
 
   function updateHabit(id, data) {
