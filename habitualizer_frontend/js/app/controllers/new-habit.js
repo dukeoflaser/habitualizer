@@ -1,12 +1,12 @@
 angular
   .module('app')
-  .controller('NewHabitController', function($http, $scope, $state, user, cuesData, rewards, activities) {
+  .controller('NewHabitController', function($http, $scope, $state, user, cuesData, rewardsData, activities) {
 
     $scope.habit = {}
     $scope.habit.user_id = user.id
 
     $scope.cues = cuesData.cues;
-    $scope.rewards = rewards.data.rewards;
+    $scope.rewards = rewardsData.rewards;
     $scope.activities = activities.data.activities;
 
     $scope.selectCue = function(cue){

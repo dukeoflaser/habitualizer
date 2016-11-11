@@ -21,11 +21,8 @@ angular
         cuesData: function(cueFactory){
           return cueFactory.getCues();
         },
-        rewards: function($http){
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/rewards'
-          });
+        rewardsData: function(rewardFactory){
+          return rewardFactory.getRewards();
         },
         activities: function($http){
           return $http({
