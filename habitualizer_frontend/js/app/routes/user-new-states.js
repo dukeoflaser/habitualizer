@@ -23,12 +23,6 @@ angular
         },
         rewardsData: function(rewardFactory){
           return rewardFactory.getRewards();
-        },
-        activities: function($http){
-          return $http({
-            method: 'GET',
-            url: baseUrl + '/activities'
-          });
         }
       }
     })

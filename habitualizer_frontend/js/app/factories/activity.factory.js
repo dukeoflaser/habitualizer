@@ -10,7 +10,7 @@ function activityFactory($http, baseFactory) {
   return factory;
 
   function getActivities(user) {
-    var url = baseFactory.url + '/user/' + user.id + '/activitys'
+    var url = baseFactory.url + '/user/' + user.id + '/activities'
     return $http.get(url).then(returnData);
   }
 

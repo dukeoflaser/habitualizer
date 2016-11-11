@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('NewHabitController', function($http, $scope, $state, user, cuesData, rewardsData, activities) {
+  .controller('NewHabitController', function($http, $scope, $state, user, cuesData, rewardsData) {
 
     $scope.habit = {}
     $scope.habit.user_id = user.id
