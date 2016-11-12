@@ -6,14 +6,15 @@
 
       <form name="registerForm" class="form-inline">
 
-          <div class="form-group">
+          <div class="form-group" ng-class="{'has-error': register.hasEmailError}">
+
             <label class="sr-only" for="email">Email Address</label>
 
             <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched">
               <span class="help-block" ng-message="required">An email address is required to register.</span>
               <span class="help-block" ng-message="email">This needs to be a VALID email address.</span>
             </div>
-            <span class="help-block">{{register.emailError}} {{register.messageError}}</span>
+            <span ng-if="register.hasEmailError" class="help-block">{{register.emailError}} {{register.messageError}}.</span>
 
             <input type="email" name="email" ng-model="user.email"
                    required="require"
@@ -40,7 +41,7 @@
             <div ng-messages="registerForm.confirmPassword.$error" ng-if="registerForm.confirmPassword.$touched">
               <span class="help-block" ng-message="required">A password is required to register.</span>
               <span class="help-block" ng-message="minlength">This needs to be at least 6 charcters.</span>
-              <span class="help-block" ng-message="compare-to">This needs to match the previous password.</span>
+              <span class="help-block" ng-message="compareTo">This needs to match the previous password.</span>
             </div>
 
             <input type="password" name="confirmPassword"
