@@ -1,22 +1,24 @@
 angular
   .module('app')
   .controller('LoginController', function(Auth, $scope, $state) {
+    var vm = this;
 
-//////////////////////////////////////////
-    this.submit = function(user) {
-      var credentials = user;
+    vm.submit = function(credentials) {
 
       Auth.login(credentials).then(function(user) {
-          console.log(user); // => {id: 1, ect: '...'}
+          // console.log(user); // => {id: 1, ect: '...'}
       }, function(error) {
           // Authentication failed...
+          if (error.status == 401) {
+            var email = error.config.data.user.email;
+            vm.hasErrorMessage = "Either '" + email +
+            "' has not been registered or your password was entered incorrectly."
+          }
       });
 
     };
-//////////////////////////////////////////
 
     $scope.$on('devise:login', function(event, currentUser) {
-        // after a login, a hard refresh, a new tab
          $state.go('user.home');
     });
 

@@ -5,6 +5,7 @@
       <h4 class="mb"><i class="fa fa-angle-right"></i> Sign In</h4>
       <form class="form-inline">
           <div class="form-group">
+              <span ng-if="login.hasErrorMessage" class="help-block">{{login.hasErrorMessage}}</span>
               <label class="sr-only" for="email">Email address</label>
               <input type="email" name="email" ng-model="user.email" class="form-control" placeholder="Enter email"/>
           </div>
