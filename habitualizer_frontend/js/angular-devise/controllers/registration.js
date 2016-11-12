@@ -3,12 +3,9 @@ angular
   .controller('RegistrationController', function(Auth, $scope, $state) {
     var vm = this;
 
-    vm.submit = function(user){
-      var credentials = user;
-
+    vm.submit = function(credentials){
       Auth.register(credentials).then(function(registeredUser) {
-
-          $state.go('user.home');
+          // Registration succeeded...
       }, function(error) {
           // Registration failed...
           vm.hasEmailError = true;
@@ -17,9 +14,7 @@ angular
       });
     }
 
-
-
     $scope.$on('devise:new-registration', function(event, user) {
-        // ...
+        $state.go('user.home');
     });
   });
