@@ -9,7 +9,7 @@
             <label class="sr-only" for="email">Email Address</label>
             <input type="email" name="email" ng-model="user.email"
                    class="form-control" placeholder="Enter email" />
-
+            <span class="help-block">{{register.emailError}} {{register.messageError}}</span>
           </div>
           <div class="form-group">
             <label class="sr-only" for="password">Password</label>
