@@ -5,26 +5,45 @@
       <h4 class="mb"><i class="fa fa-angle-right"></i> Register</h4>
 
       <form name="registerForm" class="form-inline">
+
           <div class="form-group">
             <label class="sr-only" for="email">Email Address</label>
             <input type="email" name="email" ng-model="user.email"
                    required="require"
                    class="form-control" placeholder="Enter email" />
+
+            <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched">
+              <span class="help-block" ng-message="required">An email address is required to register.</span>
+              <span class="help-block" ng-message="email">This needs to be a VALID email address.</span>
+            </div>
+            
             <span class="help-block">{{register.emailError}} {{register.messageError}}</span>
           </div>
+
           <div class="form-group">
             <label class="sr-only" for="password">Password</label>
             <input type="password" name="password" ng-model="user.password"
-                   required="required"
+                   required="required" minlength="6"
                    class="form-control" placeholder="Password" />
+
+            <div ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
+              <span class="help-block" ng-message="required">A password is required to register.</span>
+              <span class="help-block" ng-message="minlength">This needs to be at least 6 charcters.</span>
+            </div>
 
           </div>
           <div class="form-group">
             <label class="sr-only" for="confirmPassword">Confirm Password</label>
             <input type="password" name="confirmPassword"
                    ng-model="user.confirmPassword" required="required"
-                   compare-to="user.password" required="require"
+                   compare-to="user.password" minlength="6"
                    class="form-control" placeholder="Confirm Password" />
+
+            <div ng-messages="registerForm.confirmPassword.$error" ng-if="registerForm.confirmPassword.$touched">
+              <span class="help-block" ng-message="required">A password is required to register.</span>
+              <span class="help-block" ng-message="minlength">This needs to be at least 6 charcters.</span>
+              <span class="help-block" ng-message="compare-to">This needs to match the previous password.</span>
+            </div>
           </div>
 
           <button type="submit" ng-click="register.submit(user)"
