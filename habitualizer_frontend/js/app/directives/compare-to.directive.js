@@ -1,4 +1,5 @@
 function compareTo() {
+
   return {
     require: 'ngModel',
     scope: {
@@ -15,6 +16,7 @@ function compareTo() {
     }
   };
 };
+
 
 angular
   .module('app')
