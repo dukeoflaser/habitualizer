@@ -18,7 +18,8 @@ angular
     .state('register', {
       url: '/users/sign_up',
       templateUrl: 'js/angular-devise/views/registration.html',
-      controller: 'RegistrationController'
+      controller: 'RegistrationController',
+      controllerAs: 'register'
     });
 
     $urlRouterProvider.otherwise('/');

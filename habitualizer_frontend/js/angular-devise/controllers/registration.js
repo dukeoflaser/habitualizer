@@ -1,8 +1,9 @@
 angular
   .module('app')
   .controller('RegistrationController', function(Auth, $scope, $state) {
+    var vm = this;
 
-    this.submit = function(user){
+    vm.submit = function(user){
       var credentials = user;
 
       Auth.register(credentials).then(function(registeredUser) {
