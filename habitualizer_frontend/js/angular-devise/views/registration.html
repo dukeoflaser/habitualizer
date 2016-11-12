@@ -3,8 +3,8 @@
     <div class="form-panel">
 
       <h4 class="mb"><i class="fa fa-angle-right"></i> Register</h4>
-      
-      <form class="form-inline">
+
+      <form name="registerForm" class="form-inline">
           <div class="form-group">
             <label class="sr-only" for="email">Email Address</label>
             <input type="email" name="email" ng-model="user.email"
@@ -19,13 +19,16 @@
           </div>
           <div class="form-group">
             <label class="sr-only" for="confirmPassword">Confirm Password</label>
-            <input type="password" name="condfirmPassword"
-                   ng-model="user.confirmPassword"
+            <input type="password" name="confirmPassword"
+                   ng-model="user.confirmPassword" required="required"
+                   compare-to="user.password"
                    class="form-control" placeholder="Confirm Password" />
           </div>
 
           <button type="submit" ng-click="register.submit(user)"
+                  ng-disabled="registerForm.$invalid"
                   class="btn btn-theme03"/>Sign Up</button>
+
           <br /><br />
           <a href="" ui-sref="login">Sign In</a>
       </form>
