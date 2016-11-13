@@ -25,6 +25,7 @@ angular
       url: '/experiment/:id',
       templateUrl: 'js/app/views/experiments/edit.html',
       controller: 'EditExperimentController',
+      controllerAs: 'user',
       resolve: {
         experimentData: function($stateParams, experimentFactory){
           return experimentFactory.getExperiment($stateParams.id);
