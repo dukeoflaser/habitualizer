@@ -1,8 +1,10 @@
+function HomeController($scope, habitData) {
+  var vm = this;
+
+  vm.email = $scope.$parent.currentUser.email;
+  vm.habits = habitData.habits
+}
+
 angular
   .module('app')
-  .controller('HomeController', function($scope, user, habitData) {
-
-    $scope.email = user.email;
-    $scope.habits = habitData.habits
-
-  });
+  .controller('HomeController', HomeController);

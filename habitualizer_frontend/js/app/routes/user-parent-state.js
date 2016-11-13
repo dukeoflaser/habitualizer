@@ -6,7 +6,12 @@ angular
     .state('user', {
       url: '/user',
       templateUrl: 'js/app/views/user.html',
-      controller: 'UserController'
+      controller: 'UserController',
+      resolve: {
+        user: function($cookies){
+          return $cookies.getObject('currentUser');
+        }
+      }
     });
 
   });
