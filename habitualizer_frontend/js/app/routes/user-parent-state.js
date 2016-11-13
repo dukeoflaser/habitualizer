@@ -5,7 +5,8 @@ angular
 
     .state('user', {
       url: '/user',
-      templateUrl: 'js/app/views/user.html'
+      templateUrl: 'js/app/views/user.html',
+      controller: 'UserController'
     });
 
   });
