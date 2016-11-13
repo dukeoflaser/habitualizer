@@ -5,7 +5,7 @@ angular
 
     .state('user.home', {
       url: '/home',
-      templateUrl: 'js/app/views/home.html',
+      templateUrl: 'js/app/views/habits/home.html',
       controller: 'HomeController',
       controllerAs: 'user',
       resolve: {
@@ -19,13 +19,11 @@ angular
       url: '/complete',
       templateUrl: 'js/app/views/habits/complete.html',
       controller: 'CompleteController',
+      controllerAs: 'user',
       resolve: {
-        user: ['Auth', function(Auth){
-          return Auth.currentUser();
-        }],
-        completeHabitData: function(habitFactory, user){
+        completeHabitData: function(habitFactory){
           var params = 'complete=true';
-          return habitFactory.getHabits(user, params);
+          return habitFactory.getHabits(params);
         }
       }
     })
