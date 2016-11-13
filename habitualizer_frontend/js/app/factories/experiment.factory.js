@@ -1,4 +1,4 @@
-function experimentFactory($http, baseFactory) {
+function experimentFactory($http, $cookies, baseFactory) {
 
   return {
     getExperiments: getExperiments,
@@ -9,7 +9,8 @@ function experimentFactory($http, baseFactory) {
   };
 
 
-  function getExperiments(user) {
+  function getExperiments() {
+    var user = $cookies.getObject('currentUser');
     return $http.get(baseFactory.url + '/user/' + user.id + '/experiments').then(returnData);
   }
 

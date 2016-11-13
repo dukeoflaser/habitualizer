@@ -34,11 +34,8 @@ angular
       controller: 'ExperimentController',
       controllerAs: 'user',
       resolve: {
-        user: ['Auth', function(Auth){
-          return Auth.currentUser();
-        }],
-        experimentData: function(experimentFactory, user){
-          return experimentFactory.getExperiments(user);
+        experimentData: function(experimentFactory){
+          return experimentFactory.getExperiments();
         }
       }
     });
