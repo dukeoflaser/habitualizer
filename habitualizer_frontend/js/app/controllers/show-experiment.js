@@ -1,11 +1,14 @@
+function ShowExperimentController(experimentData, activityData, formProcessor) {
+  var vm = this;
+
+  vm.experiment = experimentData.experiment
+  if (activityData) vm.activity = activityData.activity
+
+  vm.delete = function(submission) {
+    formProcessor.processExpDelete(submission);
+  }
+}
+
 angular
   .module('app')
-  .controller('ShowExperimentController', function($scope, experimentData, activityData, experimentFactory, formProcessor) {
-
-    $scope.experiment = experimentData.experiment
-    if (activityData) $scope.activity = activityData.activity
-
-    $scope.delete = function(submission) {
-      formProcessor.processExpDelete(submission);
-    }
-  });
+  .controller('ShowExperimentController', ShowExperimentController);
