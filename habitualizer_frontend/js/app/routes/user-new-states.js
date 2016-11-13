@@ -13,10 +13,8 @@ angular
       url: '/habit',
       templateUrl: 'js/app/views/habits/new.html',
       controller: 'NewHabitController',
+      controllerAs: 'user',
       resolve: {
-        user: ['Auth', function(Auth){
-          return Auth.currentUser();
-        }],
         cuesData: function(cueFactory){
           return cueFactory.getCues();
         },
@@ -30,15 +28,13 @@ angular
       url: '/experiment',
       templateUrl: 'js/app/views/experiments/new.html',
       controller: 'NewExperimentController',
+      controllerAs: 'user',
       resolve: {
         rewardsData: function(rewardFactory){
           return rewardFactory.getRewards();
         },
-        user: ['Auth', function(Auth){
-          return Auth.currentUser();
-        }],
-        habitData: function(habitFactory, user){
-          return habitFactory.getHabits(user);
+        habitData: function(habitFactory){
+          return habitFactory.getHabits();
         }
       }
     });
