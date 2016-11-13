@@ -1,15 +1,15 @@
-function habitFactory($http, baseFactory) {
+function habitFactory($http, $cookies, baseFactory) {
 
-  var factory = {
+  return {
     getHabits: getHabits,
     getHabit: getHabit,
     createHabit: createHabit,
     updateHabit: updateHabit,
     deleteHabit: deleteHabit
   };
-  return factory;
 
-  function getHabits(user, params) {
+  function getHabits(params) {
+    var user = $cookies.getObject('currentUser');
     params ? ps = '?' + params : ps = '';
     var url = baseFactory.url + '/user/' + user.id + '/habits' + ps
     return $http.get(url).then(returnData);

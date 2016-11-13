@@ -9,11 +9,8 @@ angular
       controller: 'HomeController',
       controllerAs: 'user',
       resolve: {
-        user: function($cookies){
-          return $cookies.getObject('currentUser');
-        },
-        habitData: function(habitFactory, user){
-          return habitFactory.getHabits(user);
+        habitData: function(habitFactory){
+          return habitFactory.getHabits();
         }
       }
     })
