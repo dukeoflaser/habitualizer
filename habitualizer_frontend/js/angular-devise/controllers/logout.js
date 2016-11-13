@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('LogoutController', function(Auth, $scope, $state) {
+  .controller('LogoutController', function(Auth, $scope, $state, $cookies) {
     var config = {
             headers: {
                 'X-HTTP-Method-Override': 'DELETE'
@@ -18,6 +18,6 @@ angular
 
 
         $scope.$on('devise:logout', function(event, oldCurrentUser) {
-            // ...
+          $cookies.remove('currentUser');
         });
   });

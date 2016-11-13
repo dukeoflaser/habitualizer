@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('RegistrationController', function(Auth, $scope, $state) {
+  .controller('RegistrationController', function(Auth, $scope, $state, $cookies) {
     var vm = this;
 
     vm.submit = function(credentials){
@@ -15,6 +15,7 @@ angular
     }
 
     $scope.$on('devise:new-registration', function(event, user) {
+        $cookies.putObject('currentUser', user);
         $state.go('user.home');
     });
   });

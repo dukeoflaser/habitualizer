@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('LoginController', function(Auth, $scope, $state) {
+  .controller('LoginController', function(Auth, $scope, $state, $cookies) {
     var vm = this;
 
     vm.submit = function(credentials) {
@@ -24,5 +24,6 @@ angular
 
     $scope.$on('devise:new-session', function(event, currentUser) {
         // user logged in by Auth.login({...})
+        $cookies.putObject('currentUser', currentUser);
     });
   });

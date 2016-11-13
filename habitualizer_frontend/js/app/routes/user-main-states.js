@@ -8,9 +8,12 @@ angular
       templateUrl: 'js/app/views/home.html',
       controller: 'HomeController',
       resolve: {
-        user: ['Auth', function(Auth){
-          return Auth.currentUser();
-        }],
+        // user: ['Auth', function(Auth){
+        //   return Auth.currentUser();
+        // }],
+        user: function($cookies){
+          return $cookies.getObject('currentUser');
+        },
         habitData: function(habitFactory, user){
           return habitFactory.getHabits(user);
         }
