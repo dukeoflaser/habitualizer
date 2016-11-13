@@ -1,14 +1,14 @@
 angular
   .module('app')
-  .controller('EditHabitController', function($scope, habitData, habitFactory, formProcessor) {
+  .controller('EditHabitController', function(habitData, formProcessor) {
+    var vm = this;
+    var habit = habitData.habit;
 
-    var hbt = habitData.habit;
+    vm.habit = habit;
+    vm.habit.cue_attributes = habit.cue;
+    vm.habit.reward_attributes = habit.reward;
 
-    $scope.habit = hbt;
-    $scope.habit.cue_attributes = hbt.cue;
-    $scope.habit.reward_attributes = hbt.reward;
-
-    $scope.submit = function(submission){
+    vm.submit = function(submission){
       formProcessor.processHabitUpdate(submission);
     }
 

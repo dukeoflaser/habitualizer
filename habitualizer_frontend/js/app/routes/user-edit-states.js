@@ -13,6 +13,7 @@ angular
       url: '/habit/:id',
       templateUrl: 'js/app/views/habits/edit.html',
       controller: 'EditHabitController',
+      controllerAs: 'user',
       resolve: {
         habitData: function($stateParams, habitFactory){
           return habitFactory.getHabit($stateParams.id);

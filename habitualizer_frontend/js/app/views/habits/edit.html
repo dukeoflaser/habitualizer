@@ -1,24 +1,24 @@
-<!-- <pre>This is the EDIT habits view.</pre> -->
+
 <h4>Update a Habit. Good or Bad.</h4><br />
 
 <form name="editHabitForm">
   <label for="habitName">Habit Name: </label><br />
-  <input type="text" name="habitName" required="required" ng-model="habit.name" /><br /><br />
+  <input type="text" name="habitName" required="required" ng-model="user.habit.name" /><br /><br />
   <div ng-if="editHabitForm.habitName.$touched && editHabitForm.habitName.$error.required">
     Good or bad, you must give your habit a name.
   </div><br />
 
   <label for="complete">Complete? </label>
-  <input type="checkbox" name="complete" ng-model="habit.complete" /><br />
+  <input type="checkbox" name="complete" ng-model="user.habit.complete" /><br />
 
   <label for="cueName">Cue Name: </label><br />
-  <input type="text" name="cueName" required="required" ng-model="habit.cue_attributes.name"/><br /><br />
+  <input type="text" name="cueName" required="required" ng-model="user.habit.cue_attributes.name"/><br /><br />
   <div ng-if="editHabitForm.cueName.$touched && editHabitForm.cueName.$error.required">
     You need to provide a cue for your habit. That's the whole point of this app . . . .
   </div><br />
 
   <label for="cueType">Cue Type: </label><br>
-  <select name="cueType" ng-model="habit.cue_attributes.nature">
+  <select name="cueType" ng-model="user.habit.cue_attributes.nature">
     <option value="Location">Location</option>
     <option value="Time">Time</option>
     <option value="People">People</option>
@@ -27,11 +27,11 @@
   </select><br /><br />
 
   <label for="reward">What motivates you?</label><br>
-  <input type="text" name="reward" required="required" ng-model="habit.reward_attributes.craving" /><br /><br />
+  <input type="text" name="reward" required="required" ng-model="user.habit.reward_attributes.craving" /><br /><br />
   <div ng-if="editHabitForm.reward.$touched && editHabitForm.reward.$error.required">
     What motivates you? What do you think is the driving force behind this habit? You MUST have one.
   </div><br />
 
-  <input type="submit" ng-click="submit(habit)" value="Save" ng-disabled="editHabitForm.$invalid" class="btn btn-theme03" />
+  <input type="submit" ng-click="user.submit(user.habit)" value="Save" ng-disabled="editHabitForm.$invalid" class="btn btn-theme03" />
 </form>
 <br />
