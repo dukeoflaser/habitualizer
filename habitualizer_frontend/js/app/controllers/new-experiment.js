@@ -1,34 +1,35 @@
 angular
   .module('app')
-  .controller('NewExperimentController', function($scope, rewardsData, habitData, experimentFactory, formProcessor) {
+  .controller('NewExperimentController', function(rewardsData, habitData, experimentFactory, formProcessor) {
+    var vm = this;
 
     var habits = habitData.habits;
     if (habits) {
 
       var lastHabit = habits[habits.length - 1];
 
-      $scope.habits = habits;
-      $scope.lastHabit = lastHabit;
-      $scope.experiment = {};
+      vm.habits = habits;
+      vm.lastHabit = lastHabit;
+      vm.experiment = {};
 
-      $scope.habitName = lastHabit.name;
-      $scope.experiment.habit_id = lastHabit.id;
-      $scope.currentReward = lastHabit.reward.craving;
+      vm.habitName = lastHabit.name;
+      vm.experiment.habit_id = lastHabit.id;
+      vm.currentReward = lastHabit.reward.craving;
 
-      $scope.rewards = rewardsData.rewards;
+      vm.rewards = rewardsData.rewards;
 
-      $scope.selectHabit = function(habit){
-        $scope.currentReward = habit.reward.craving;
-        $scope.searchHabit.name = habit.name;
-        $scope.habitName = habit.name;
-        $scope.experiment.habit_id = habit.id;
+      vm.selectHabit = function(habit){
+        vm.currentReward = habit.reward.craving;
+        vm.searchHabit.name = habit.name;
+        vm.habitName = habit.name;
+        vm.experiment.habit_id = habit.id;
       }
 
-      $scope.selectReward = function(reward){
-        $scope.experiment.substitute_attributes = reward;
+      vm.selectReward = function(reward){
+        vm.experiment.substitute_attributes = reward;
       }
 
-      $scope.submit = function(submission){
+      vm.submit = function(submission){
         formProcessor.processExpCreate(submission);
       }
 
