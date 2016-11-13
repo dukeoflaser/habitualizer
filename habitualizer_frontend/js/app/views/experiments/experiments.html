@@ -1,7 +1,5 @@
-
-<!-- This is the experiments page. -->
-<h3>Email: {{ email }}</h3>
-<ul ng-repeat="exp in experiments">
+<h3>Email: {{ user.email }}</h3>
+<ul ng-repeat="exp in user.experiments">
   <li><a ui-sref="user.show.experiment({ id: {{ exp.id }} })">Habit: {{ exp.habit.name }}</a></li>
   <li>Substitution: {{ exp.substitute.craving }}</li>
   <li>Successful? {{ exp.successful }}</li>

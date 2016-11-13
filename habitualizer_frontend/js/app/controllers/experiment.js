@@ -1,8 +1,9 @@
 angular
   .module('app')
-  .controller('ExperimentController', function($scope, user, experimentData) {
+  .controller('ExperimentController', function($scope, experimentData) {
+    var vm = this;
 
-    $scope.email = user.email;
-    $scope.experiments = experimentData.experiments;
+    vm.email = $scope.$parent.currentUser.email;
+    vm.experiments = experimentData.experiments;
 
   });
