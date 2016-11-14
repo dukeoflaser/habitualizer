@@ -10,6 +10,11 @@ angular
       resolve: {
         user: function($cookies){
           return $cookies.getObject('currentUser');
+        },
+        check: function($state, user){
+          if(user === undefined){
+            $state.go('root');
+          }
         }
       }
     });
