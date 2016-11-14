@@ -1,6 +1,5 @@
 angular
   .module('app', ['Devise', 'ui.router', 'ngMessages', 'ngCookies'])
-  .config(function(AuthProvider, $locationProvider){
+  .config(function(AuthProvider){
     AuthProvider.baseUrl('http://localhost:3000');
-    $locationProvider.html5Mode(true);
   });
