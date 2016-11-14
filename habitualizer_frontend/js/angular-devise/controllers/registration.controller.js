@@ -1,7 +1,6 @@
 angular
   .module('app')
-  .controller('RegistrationController', function(Auth, $scope, $state, $cookies, user) {
-    if (user === undefined) {
+  .controller('RegistrationController', function(Auth, $scope, $state, $cookies) {
       var vm = this;
 
       vm.submit = function(credentials){
@@ -19,6 +18,4 @@ angular
           $cookies.putObject('currentUser', user);
           $state.go('user.home');
       });
-    } else { $state.go('user.home'); }
-
   });

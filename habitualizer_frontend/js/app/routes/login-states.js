@@ -6,9 +6,17 @@ angular
     .state('root', {
       url: '/',
       templateUrl: 'js/app/views/welcome.html',
-      onEnter: function(baseFactory) {
-        baseFactory.redirectIfLoggedIn();
+      resolve: {
+        user: function($cookies){
+          return $cookies.getObject('currentUser');
+        },
+        check: function($state, user){
+          if(user){
+            $state.go('user.home');
+          }
+        }
       }
+
     })
 
     .state('login', {
@@ -19,6 +27,11 @@ angular
       resolve: {
         user: function($cookies){
           return $cookies.getObject('currentUser');
+        },
+        check: function($state, user){
+          if(user){
+            $state.go('user.home');
+          }
         }
       }
     })
@@ -31,6 +44,11 @@ angular
       resolve: {
         user: function($cookies){
           return $cookies.getObject('currentUser');
+        },
+        check: function($state, user){
+          if(user){
+            $state.go('user.home');
+          }
         }
       }
     });

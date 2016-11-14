@@ -1,7 +1,6 @@
 angular
   .module('app')
-  .controller('LoginController', function(Auth, $scope, $state, $cookies, user) {
-    if (user === undefined) {
+  .controller('LoginController', function(Auth, $scope, $state, $cookies) {
       var vm = this;
 
       vm.submit = function(credentials) {
@@ -27,5 +26,4 @@ angular
           // user logged in by Auth.login({...})
           $cookies.putObject('currentUser', currentUser);
       });
-    } else { $state.go('user.home'); }
   });
