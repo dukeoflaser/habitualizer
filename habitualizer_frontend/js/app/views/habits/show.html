@@ -1,8 +1,6 @@
 <hb-habit-panel habit="user.habit"></hb-habit-panel>
-
-<ul>
-  <li ng-if="validActivity">Activity: {{  user.habit.activity.description }}</li>
-</ul>
+<hb-plan-panel habit="user.habit" ng-if="user.validActivity"></hb-plan-panel>
+  
 <h3>Habit Experiments:</h3>
 <ul ng-repeat="experiment in user.habit.experiments">
   <li>Substitute: {{ experiment.substitute_id }}</li>
