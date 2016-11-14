@@ -6,6 +6,8 @@ angular
     .state('root', {
       url: '/',
       templateUrl: 'js/app/views/welcome.html'
+      controller: 'RootController',
+      controllerAs: 'root'
     })
 
     .state('login', {
