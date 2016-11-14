@@ -1,5 +1,10 @@
 var HabitPanel = {
-  url: 'js/app/components/habit-panel/habit-panel.html'
+  templateUrl: 'js/app/components/habit-panel/habit-panel.html',
+  scope: {},
+  bindings: {
+    habit: '='
+  },
+  controllerAs: 'user'
 }
 
 angular

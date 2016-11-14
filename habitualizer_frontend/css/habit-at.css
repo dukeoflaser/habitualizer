@@ -3,3 +3,66 @@ body{
   margin: 0 auto !important;
   float: none !important;
 }
+.white-panel p {
+  margin-top: 10px;
+}
+
+.white-panel .green {
+	background: #48cfad;
+  color: #ffffff;
+	padding: 3px;
+	margin-bottom: 15px;
+  height: 50px;
+}
+
+.white-panel .blue {
+	background: #68dff0;
+  color: #ffffff;
+	padding: 3px;
+	margin-bottom: 15px;
+  height: 50px;
+}
+
+.white-panel .pink {
+	background: #ed5565;
+  color: #ffffff;
+	padding: 3px;
+	margin-bottom: 15px;
+  height: 50px;
+}
+
+.white-panel .grey {
+	background: #6f6f6f;
+  color: #ffffff;
+	padding: 3px;
+	margin-bottom: 15px;
+  height: 50px;
+}
+
+.white-panel .purple {
+	background: #ac92ec;
+  color: #ffffff;
+	padding: 3px;
+	margin-bottom: 15px;
+  height: 50px;
+}
+
+.icon {
+  font-size: 51px;
+}
+
+.no_bottom_margin {
+  margin-bottom: 0px;
+}
+
+.pn {
+  height: 270px;
+}
+
+.pn:hover {
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+p.goleft {
+  margin-left: 0px;
+}

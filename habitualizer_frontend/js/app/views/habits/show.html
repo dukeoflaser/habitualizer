@@ -1,12 +1,7 @@
-<h3>Habit Info:</h3>
+<hb-habit-panel habit="user.habit"></hb-habit-panel>
+
 <ul>
-  <li>Complete? {{  user.habit.complete }}</li>
-  <li>Name: {{  user.habit.name }}</li>
-  <li>Cue: {{  user.habit.cue.name }}</li>
-  <li>Cue Type: {{  user.habit.cue.nature }}</li>
-  <li>Reward: {{  user.habit.reward.craving }}</li>
   <li ng-if="validActivity">Activity: {{  user.habit.activity.description }}</li>
-  <li>Created: {{ user.habit.created_at | date : mediumDate }}</li>
 </ul>
 <h3>Habit Experiments:</h3>
 <ul ng-repeat="experiment in user.habit.experiments">
