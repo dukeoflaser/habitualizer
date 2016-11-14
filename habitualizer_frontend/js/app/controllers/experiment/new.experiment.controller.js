@@ -19,6 +19,7 @@ angular
       vm.rewards = rewardsData.rewards;
 
       vm.selectHabit = function(habit){
+        console.log(habit);
         vm.currentReward = habit.reward.craving;
         vm.searchHabit.name = habit.name;
         vm.habitName = habit.name;
