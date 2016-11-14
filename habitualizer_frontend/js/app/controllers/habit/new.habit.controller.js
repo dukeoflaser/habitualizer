@@ -1,8 +1,9 @@
 function NewHabitController($scope, cuesData, rewardsData, habitFactory, formProcessor) {
   var vm = this;
+  var currentUser = $scope.$parent.$parent.currentUser;
 
   vm.habit = {}
-  vm.habit.user_id = $scope.$parent.$parent.currentUser.id
+  if (currentUser) vm.habit.user_id = currentUser.id
 
   vm.cues = cuesData.cues;
   vm.rewards = rewardsData.rewards;
