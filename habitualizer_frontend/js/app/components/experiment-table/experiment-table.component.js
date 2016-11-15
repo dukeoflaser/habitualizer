@@ -4,9 +4,12 @@ var ExperimentTable = {
     rewards: '<',
     experiments: '<'
   },
-  controller: function() {
+  controller: function(formProcessor) {
     var vm = this;
-    console.log(this.experiments);
+
+    vm.delete = function(submission) {
+      formProcessor.processExpDelete(submission);
+    }
 
   },
   controllerAs: 'user'
