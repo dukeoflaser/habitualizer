@@ -17,6 +17,15 @@ angular
       resolve: {
         habitData: function($stateParams, habitFactory){
           return habitFactory.getHabit($stateParams.id);
+        },
+        experimentData: function(habitData, experimentFactory){
+          var exps = [];
+
+          habitData.habit.experiments.forEach(function(exp, i){
+            exps.push(experimentFactory.getExperiment(exp.id));
+          });
+
+          return exps;
         }
       }
     })
