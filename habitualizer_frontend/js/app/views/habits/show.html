@@ -6,11 +6,7 @@
                ng-if="user.validActivity">
 </hb-plan-panel>
 
-<h3>Habit Experiments:</h3>
-<ul ng-repeat="experiment in user.habit.experiments">
-  <li>Substitute: {{ experiment.substitute_id }}</li>
-  <li>Successful? {{ experiment.successful }}</li>
-</ul>
+<hb-experiment-table experiments="user.experiments"></hb-experiment-table>
 
 <h4 ng-if="!user.habit.complete"><a ui-sref="user.edit.habit({ id:{{ user.habit.id }} })">Edit this habit.</a></h4>
 <h4 ng-if="!user.habit.complete"><a href="" ng-click="user.delete(user.habit)">Delete this habit.</a></h4>

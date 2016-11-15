@@ -1,8 +1,9 @@
-function ShowHabitController($scope, habitData, formProcessor) {
+function ShowHabitController($scope, habitData, experiments, formProcessor) {
   var vm = this;
 
   vm.habit = habitData.habit;
   vm.email = $scope.$parent.$parent.currentUser.email;
+  vm.experiments = experiments;
   vm.phrase = 'I will ' +
   vm.habit.activity.description +
   ' because it provides me with ' +

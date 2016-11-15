@@ -18,11 +18,13 @@ angular
         habitData: function($stateParams, habitFactory){
           return habitFactory.getHabit($stateParams.id);
         },
-        experimentData: function(habitData, experimentFactory){
+        experiments: function(habitData, experimentFactory){
           var exps = [];
 
           habitData.habit.experiments.forEach(function(exp, i){
-            exps.push(experimentFactory.getExperiment(exp.id));
+            experimentFactory.getExperiment(exp.id).then(function(response){
+              exps.push(response.experiment);
+            });
           });
 
           return exps;
