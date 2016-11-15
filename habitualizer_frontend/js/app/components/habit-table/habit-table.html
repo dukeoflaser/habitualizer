@@ -6,9 +6,9 @@
     	  	  <hr>
               <thead>
               <tr>
-                  <th><i class="fa li_lab"></i> Habit</th>
+                  <th><i class="fa li_cup"></i> Habit</th>
                   <th><i class="fa fa-calendar-o"></i> Date</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-tree"></i> Status</th>
                   <th></th>
               </tr>
               </thead>
@@ -19,16 +19,15 @@
                 </td>
               </tr>
 
-              <tr ng-if="user.habits.length > 0" ng-repeat="habit in user.habits">
+              <tr ng-if="user.habits.length > 0" ng-repeat="habit in user.habits" ui-sref="user.show.habit({ id: {{ habit.id }} })">
 
-                  <td><p>{{ habit.name}}</p></td>
+                  <td><a href=''>{{ habit.name}}</a></td>
                   <td><p>{{ habit.created_at | date: 'mediumDate' }}</p></td>
                   <td>
                     <span ng-if="habit.activity" class="label label-success label-mini">Yes!</span>
                     <span ng-if="habit.activity == false" class="label label-danger label-mini">No.</span>
                   </td>
                   <td>
-                      <button ui-sref="user.show.habit({ id: {{ habit.id }} })" class="btn btn-success btn-xs"><i class="fa fa-chevron-circle-right"></i></button>
                       <button ui-sref="user.edit.habit({ id:{{ habit.id }} })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
                       <button ng-click="user.delete(habit.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                   </td>
