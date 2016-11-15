@@ -1,4 +1,4 @@
-body{
+body {
   max-width: 768px;
   margin: 0 auto !important;
   float: none !important;
@@ -74,3 +74,9 @@ background: rgb(0, 0, 0) transparent;
 background: rgba(0, 0, 0, 0.5);
     text-align: center;
 }
+
+.has-pattern {
+  background-image: url('../assets/img/pattern.png');
+  background-repeat: repeat;
+  background-position: left top;
+  }
