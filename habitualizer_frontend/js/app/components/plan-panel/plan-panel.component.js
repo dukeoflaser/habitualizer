@@ -1,8 +1,12 @@
 var PlanPanel = {
   templateUrl: 'js/app/components/plan-panel/plan-panel.html',
-  scope: {},
   bindings: {
-    habit: '='
+    habit: '<',
+    email: '<',
+    phrase: '<'
+  },
+  controller: function(){
+    // how do I access 'habit' in here?
   },
   controllerAs: 'user'
 }

@@ -12,7 +12,7 @@ body{
   color: #ffffff;
 	padding: 3px;
 	margin-bottom: 15px;
-  height: 50px;
+  height: 60px;
 }
 
 .white-panel .blue {
@@ -20,7 +20,7 @@ body{
   color: #ffffff;
 	padding: 3px;
 	margin-bottom: 15px;
-  height: 50px;
+  height: 60px;
 }
 
 .white-panel .pink {
@@ -28,7 +28,7 @@ body{
   color: #ffffff;
 	padding: 3px;
 	margin-bottom: 15px;
-  height: 50px;
+  height: 60px;
 }
 
 .white-panel .grey {
@@ -36,7 +36,7 @@ body{
   color: #ffffff;
 	padding: 3px;
 	margin-bottom: 15px;
-  height: 50px;
+  height: 60px;
 }
 
 .white-panel .purple {
@@ -44,7 +44,7 @@ body{
   color: #ffffff;
 	padding: 3px;
 	margin-bottom: 15px;
-  height: 50px;
+  height: 60px;
 }
 
 .icon {
@@ -65,4 +65,12 @@ body{
 
 p.goleft {
   margin-left: 0px;
+}
+
+.twitter-panel {
+  /* default fallback */
+background: rgb(0, 0, 0) transparent;
+/* nice browsers */
+background: rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
