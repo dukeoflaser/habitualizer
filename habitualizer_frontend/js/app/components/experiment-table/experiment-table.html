@@ -19,16 +19,17 @@
                 </td>
               </tr>
 
-              <tr ng-if="user.experiments.length > 0" ng-repeat="experiment in user.experiments">
+              <tr ng-if="user.experiments.length > 0"
+                  ng-repeat="experiment in user.experiments"
+                  ui-sref="user.show.experiment({ id: {{ experiment.id }} })">
 
-                  <td><p>{{ experiment.substitute.craving }}</p></td>
+                  <td><a href=''>{{ experiment.substitute.craving }}</a></td>
                   <td><p>{{ experiment.created_at | date: 'mediumDate' }}</p></td>
                   <td>
                     <span ng-if="experiment.successful" class="label label-success label-mini">Yes!</span>
                     <span ng-if="experiment.successful == false" class="label label-danger label-mini">No.</span>
                   </td>
                   <td>
-                      <button ui-sref="user.show.experiment({ id: {{ experiment.id }} })" class="btn btn-success btn-xs"><i class="fa fa-chevron-circle-right"></i></button>
                       <button ui-sref="user.edit.experiment({ id:{{ experiment.id }} })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
                       <button ng-click="user.delete(experiment.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                   </td>
