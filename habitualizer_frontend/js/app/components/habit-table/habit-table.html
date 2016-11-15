@@ -1,0 +1,42 @@
+<div class="row mt">
+  <div class="col-md-12">
+      <div class="content-panel">
+          <table class="table table-striped table-advance table-hover">
+    	  	  <h4><i class="fa fa-angle-right"></i> Habits</h4>
+    	  	  <hr>
+              <thead>
+              <tr>
+                  <th><i class="fa li_lab"></i> Habit</th>
+                  <th><i class="fa fa-calendar-o"></i> Date</th>
+                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-if="user.habits.length == 0">
+                <td colspan="4">
+                  <p>You do not have any habits yet.</p>
+                </td>
+              </tr>
+
+              <tr ng-if="user.habits.length > 0" ng-repeat="habit in user.habits">
+
+                  <td><p>{{ habit.name}}</p></td>
+                  <td><p>{{ habit.created_at | date: 'mediumDate' }}</p></td>
+                  <td>
+                    <span ng-if="habit.activity" class="label label-success label-mini">Yes!</span>
+                    <span ng-if="habit.activity == false" class="label label-danger label-mini">No.</span>
+                  </td>
+                  <td>
+                      <button ui-sref="user.show.habit({ id: {{ habit.id }} })" class="btn btn-success btn-xs"><i class="fa fa-chevron-circle-right"></i></button>
+                      <button ui-sref="user.edit.habit({ id:{{ habit.id }} })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                      <button ng-click="user.delete(habit.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                  </td>
+              </tr>
+
+
+              </tbody>
+          </table>
+      </div><!-- /content-panel -->
+  </div><!-- /col-md-12 -->
+</div><!-- /row -->
