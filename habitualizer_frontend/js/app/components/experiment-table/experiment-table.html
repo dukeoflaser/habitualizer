@@ -1,38 +1,42 @@
 <div class="row mt">
-                  <div class="col-md-12">
-                      <div class="content-panel">
-                          <table class="table table-striped table-advance table-hover">
-	                  	  	  <h4><i class="fa fa-angle-right"></i> Experiments</h4>
-	                  	  	  <hr>
-                              <thead>
-                              <tr>
-                                  <th><i class="fa li_lab"></i> Experiment</th>
-                                  <th><i class="fa fa-calendar-o"></i> Date</th>
-                                  <th><i class=" fa fa-edit"></i> Successful?</th>
-                                  <th></th>
-                              </tr>
-                              </thead>
-                              <tbody>
+  <div class="col-md-12">
+      <div class="content-panel">
+          <table class="table table-striped table-advance table-hover">
+    	  	  <h4><i class="fa fa-angle-right"></i> Experiments</h4>
+    	  	  <hr>
+              <thead>
+              <tr>
+                  <th><i class="fa li_lab"></i> Experiment</th>
+                  <th><i class="fa fa-calendar-o"></i> Date</th>
+                  <th><i class=" fa fa-edit"></i> Successful?</th>
+                  <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-if="user.experiments.length == 0">
+                <td rowspan="4">
+                  <p>You have not experimented with this habit yet.</p>
+                </td>
+              </tr>
+
+              <tr ng-if="user.experiments.length > 0" ng-repeat="experiment in user.experiments">
+
+                  <td><p>{{ experiment.substitute.craving }}</p></td>
+                  <td><p>{{ experiment.created_at | date: 'mediumDate' }}</p></td>
+                  <td>
+                    <span ng-if="experiment.successful" class="label label-success label-mini">Yes!</span>
+                    <span ng-if="experiment.successful == false" class="label label-danger label-mini">No.</span>
+                  </td>
+                  <td>
+                      <button ui-sref="user.show.experiment({ id: {{ experiment.id }} })" class="btn btn-success btn-xs"><i class="fa fa-chevron-circle-right"></i></button>
+                      <button ui-sref="user.edit.experiment({ id:{{ experiment.id }} })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                      <button ng-click="user.delete(experiment.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                  </td>
+              </tr>
 
 
-                              <tr ng-repeat="experiment in user.experiments">
-
-                                  <td><p>{{ experiment.substitute.craving }}</p></td>
-                                  <td><p>{{ experiment.created_at | date: 'mediumDate' }}</p></td>
-                                  <td>
-                                    <span ng-if="experiment.successful" class="label label-success label-mini">Yes!</span>
-                                    <span ng-if="experiment.successful == false" class="label label-danger label-mini">No.</span>
-                                  </td>
-                                  <td>
-                                      <button ui-sref="user.show.experiment({ id: {{ experiment.id }} })" class="btn btn-success btn-xs"><i class="fa fa-chevron-circle-right"></i></button>
-                                      <button ui-sref="user.edit.experiment({ id:{{ experiment.id }} })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button ng-click="user.delete(experiment.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-
-
-                              </tbody>
-                          </table>
-                      </div><!-- /content-panel -->
-                  </div><!-- /col-md-12 -->
-              </div><!-- /row -->
+              </tbody>
+          </table>
+      </div><!-- /content-panel -->
+  </div><!-- /col-md-12 -->
+</div><!-- /row -->
