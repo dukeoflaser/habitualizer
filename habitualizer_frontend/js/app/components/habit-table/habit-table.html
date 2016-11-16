@@ -33,7 +33,7 @@
                       <button ng-click="user.delete(habit.id)" class="btn btn-theme04 btn-xs"><i class="fa fa-trash-o "></i></button>
                   </td>
 
-                  <td ng-if="habit.complete">
+                  <td ng-if="habit.complete" ui-sref="user.show.habit({ id: {{ habit.id }} })">
                     <span class="label label-success label-mini">COMPLETE</span>
                   </td>
               </tr>
