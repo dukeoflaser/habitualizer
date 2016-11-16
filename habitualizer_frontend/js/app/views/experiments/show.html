@@ -1,11 +1,12 @@
-<h3>Experiment Info</h3>
-<ul>
-  <li>Experiment for: {{ user.experiment.habit.name }}</li>
-  <li ng-if="activity.description">Current Associated Activity: {{ user.activity.description }}</li>
-  <li>Substitute: {{ user.experiment.substitute.craving }}</li>
+<hb-experiment-panel experiment="user.experiment"></hb-experiment-panel><br />
 
-  <li>Successful?: {{ user.experiment.successful }}</li>
-  <li>Created: {{ user.experiment.created_at | date : mediumDate }}</li>
-</ul>
-<a ui-sref="user.edit.experiment({ id:{{ user.experiment.id }} })">Edit this experiment</a>
-<a href="" ng-click="user.delete(user.experiment.id)">Delete this experiment.</a></h4>
+<div class="showback">
+  <div class="btn-group btn-group-justified">
+    <div class="btn-group">
+      <button class="btn btn-theme" ui-sref="user.edit.experiment({ id:{{ user.experiment.id }} })">Edit</button>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-theme04" href="" ng-click="user.delete(user.experiment.id)">Delete this experiment.</button>
+    </div>
+  </div>
+</div>
