@@ -11,7 +11,7 @@ function ShowHabitController($scope, habitData, experiments, currentExperiment, 
     vm.habit.activity.description +
     ' because it provides me with ' +
     vm.experiment.substitute.craving;
-    vm.plan = 'Replace ' + vm.habit.name +
+    vm.plan = 'Replace ' + vm.habit.reward.craving +
     ' with ' +
     vm.experiment.substitute.craving;
   }
