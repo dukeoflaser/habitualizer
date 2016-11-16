@@ -79,8 +79,37 @@ background: rgba(0, 0, 0, 0.5);
   background-image: url('../assets/img/pattern.png');
   background-repeat: repeat;
   background-position: left top;
-  }
+}
 
-  .label-success {
-      background-color: #48cfad;
-  }
+.label-success {
+  background-color: #48cfad;
+}
+
+.white-text {
+  color: #ffffff;
+}
+
+.weather-3 {
+  background: #6f6f6f;
+}
+
+#footer {
+   position: fixed;
+   left: 0px;
+   bottom: 0px;
+   width: 100%;
+}
+
+#nav-menu {
+   position: fixed;
+   left: 0px;
+   bottom: 30px;
+   width: 100%;
+}
+
+#header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
