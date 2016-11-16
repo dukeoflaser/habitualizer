@@ -19,17 +19,18 @@
                 </td>
               </tr>
 
-              <tr ng-if="user.habits.length > 0" ng-repeat="habit in user.habits" ui-sref="user.show.habit({ id: {{ habit.id }} })">
+              <tr ng-if="user.habits.length > 0" ng-repeat="habit in user.habits">
 
-                  <td><a href=''>{{ habit.name}}</a></td>
-                  <td><p>{{ habit.created_at | date: 'mediumDate' }}</p></td>
-                  <td>
-                    <span ng-if="habit.activity" class="label label-success label-mini">Yes!</span>
-                    <span ng-if="habit.activity == false" class="label label-danger label-mini">No.</span>
+                  <td ui-sref="user.show.habit({ id: {{ habit.id }} })">
+                    <a href=''>{{ habit.name}}</a></td>
+                  <td ui-sref="user.show.habit({ id: {{ habit.id }} })">
+                    <p>{{ habit.created_at | date: 'mediumDate' }}</p></td>
+                  <td ui-sref="user.show.habit({ id: {{ habit.id }} })">
+                    <span ng-if="habit.activity" class="label label-success label-mini">Plan of Action</span>
                   </td>
                   <td>
-                      <button ui-sref="user.edit.habit({ id:{{ habit.id }} })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                      <button ng-click="user.delete(habit.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                      <button ui-sref="user.edit.habit({ id:{{ habit.id }} })" class="btn btn-theme btn-xs"><i class="fa fa-pencil"></i></button>
+                      <button ng-click="user.delete(habit.id)" class="btn btn-theme04 btn-xs"><i class="fa fa-trash-o "></i></button>
                   </td>
               </tr>
 
