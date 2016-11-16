@@ -28,6 +28,9 @@ angular
           });
 
           return exps;
+        },
+        currentExperiment: function(habitData, experimentFactory){
+          return experimentFactory.getExperiment(habitData.habit.current_exp_id);
         }
       }
     })

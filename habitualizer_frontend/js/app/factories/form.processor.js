@@ -50,6 +50,7 @@ function formProcessor(habitFactory, experimentFactory, $state) {
         if(exp.successful == false) {
           habit.activity_attributes.description = "";
         }
+        habit.current_exp_id = exp.id;
         habitFactory.updateHabit(habit.id, { habit: habit })
           .then(gotoExp(data));
       } else {

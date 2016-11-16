@@ -3,7 +3,8 @@ var PlanPanel = {
   bindings: {
     habit: '<',
     email: '<',
-    phrase: '<'
+    phrase: '<',
+    plan: '<'
   },
   controller: function(){
     // how do I access 'habit' in here?
