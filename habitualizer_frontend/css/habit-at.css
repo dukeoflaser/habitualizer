@@ -1,5 +1,6 @@
 body {
   max-width: 768px;
+  min-width: 350px;
   margin: 0 auto !important;
   float: none !important;
 }
@@ -120,8 +121,4 @@ background: rgba(0, 0, 0, 0.5);
 
 .site-min-height {
     min-height: 400px;
-}
-
-.site-min-width {
-    min-height: 350px;
 }
