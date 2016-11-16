@@ -4,7 +4,7 @@
 
       <h4 class="mb"><i class="fa fa-angle-right"></i> Create a New Habit! Good or Bad.</h4>
 
-      <form  class="form-inline" name="newHabitForm">
+      <form  class="form-group" name="newHabitForm">
 
         <div class="form-group">
           <label class="sr-only" for="habitName">Habit Name:</label><br />
@@ -30,13 +30,11 @@
         <input type="hidden" ng-model="user.habit.user_id" />
 
         <div class="form-group">
-
           <label for="cueName" ng-if="user.habit.cue_attributes.nature == 'Location'">When I am . . . </label>
           <label for="cueName" ng-if="user.habit.cue_attributes.nature == 'Time'">When it is . . . </label>
           <label for="cueName" ng-if="user.habit.cue_attributes.nature == 'People'">When I am with . . . </label>
           <label for="cueName" ng-if="user.habit.cue_attributes.nature == 'Activity'">After I have . . . </label>
           <label for="cueName" ng-if="user.habit.cue_attributes.nature == 'Emotion'">When I am feeling . . . </label>
-
           <input name="cueName" required="require"
                  type="text" ng-model="user.habit.cue_attributes.name"
                  placeholder="Search or Create..." class="form-control"/><br />
@@ -72,7 +70,7 @@
           </table><br />
 
           <input type="submit" ng-click="user.submit(user.habit)" value="Save" ng-disabled="newHabitForm.$invalid" class="btn btn-theme03"/>
-      </div>
+        </div>
       </form>
     </div><!-- /form-panel -->
   </div><!-- /col-lg-12 -->
