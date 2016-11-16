@@ -4,6 +4,7 @@ function ShowHabitController($scope, habitData, experiments, currentExperiment, 
   vm.habit = habitData.habit;
   vm.email = $scope.$parent.$parent.currentUser.email;
   vm.experiments = experiments;
+
   if (currentExperiment) vm.experiment = currentExperiment.experiment;
 
   if (vm.habit.activity) {
