@@ -17,6 +17,12 @@ angular
       resolve: {
         habitData: function($stateParams, habitFactory){
           return habitFactory.getHabit($stateParams.id);
+        },
+        cuesData: function(cueFactory){
+          return cueFactory.getCues();
+        },
+        rewardsData: function(rewardFactory){
+          return rewardFactory.getRewards();
         }
       }
     })

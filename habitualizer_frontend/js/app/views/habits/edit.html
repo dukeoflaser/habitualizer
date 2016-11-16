@@ -56,7 +56,7 @@
 
       <table id="searchCues" ng-if="user.habit.cue_attributes.name"
              class="table table-striped table-advance table-hover">
-          <tr ng-repeat="cue in user.cues | filter:user.habit.cue_attributes" ng-show="$index < 10" ng-click="user.selectCue(cue)">
+          <tr ng-repeat="cue in user.cues | filter:user.habit.cue_attributes.name" ng-show="$index < 10" ng-click="user.selectCue(cue)">
             <td><a href=''>{{cue.name}}</a></td>
           </tr>
       </table><br /><br />
@@ -75,7 +75,7 @@
 
         <table id="searchRewards" ng-if="user.habit.reward_attributes.craving"
                class="table table-striped table-advance table-hover">
-          <tr ng-repeat="reward in user.rewards | filter:user.habit.reward_attributes" ng-show="$index < 10" ng-click="user.selectReward(reward)">
+          <tr ng-repeat="reward in user.rewards | filter:user.habit.reward_attributes.craving" ng-show="$index < 10" ng-click="user.selectReward(reward)">
             <td><a href=''>{{reward.craving}}</a></td>
           </tr>
         </table><br />
