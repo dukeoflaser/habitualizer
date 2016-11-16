@@ -113,3 +113,15 @@ background: rgba(0, 0, 0, 0.5);
   left: 0px;
   width: 100%;
 }
+
+#buffer {
+  height: 60px;
+}
+
+.site-min-height {
+    min-height: 650px;
+}
+
+.site-min-width {
+    min-height: 350px;
+}
