@@ -80,3 +80,7 @@ background: rgba(0, 0, 0, 0.5);
   background-repeat: repeat;
   background-position: left top;
   }
+
+  .label-success {
+      background-color: #48cfad;
+  }
