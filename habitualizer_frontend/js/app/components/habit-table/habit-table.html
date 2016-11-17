@@ -9,6 +9,8 @@
                   <th><i class="fa li_cup"></i> Habit</th>
                   <th><i class="fa fa-calendar-o"></i> Date</th>
                   <th><i class=" fa fa-tree"></i> Status</th>
+                  <th><i class=" fa fa-check"></i> Did It?</th>
+                  <th></th>
                   <th></th>
               </tr>
               </thead>
@@ -28,6 +30,15 @@
                   <td ui-sref="user.show.habit({ id: {{ habit.id }} })">
                     <span ng-if="habit.activity" class="label label-success label-mini">Plan of Action</span>
                   </td>
+                  <td>
+                    <button type="button" class="btn btn-xs btn-theme02" ng-click="user.increment(habit)">
+                      <i class="fa fa-thumbs-up"></i>
+                    </button>
+                    <button type="button" class="btn btn-xs btn-theme02" ng-click="user.decrement(habit)">
+                      <i class="fa fa-thumbs-down"></i>
+                    </button>
+                  </td>
+                  <td>{{ habit.likes }}</td>
                   <td ng-if="habit.complete == false">
                       <button ui-sref="user.edit.habit({ id:{{ habit.id }} })" class="btn btn-theme btn-xs"><i class="fa fa-pencil"></i></button>
                       <button ng-click="user.delete(habit)" class="btn btn-theme04 btn-xs"><i class="fa fa-trash-o "></i></button>
