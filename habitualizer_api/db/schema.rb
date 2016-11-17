@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116183421) do
+ActiveRecord::Schema.define(version: 20161117225157) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "description"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20161116183421) do
     t.integer  "cue_id"
     t.integer  "activity_id"
     t.integer  "current_exp_id"
+    t.integer  "likes",          default: 0
   end
 
   create_table "rewards", force: :cascade do |t|
