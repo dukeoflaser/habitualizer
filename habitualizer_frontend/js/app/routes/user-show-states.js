@@ -28,6 +28,11 @@ angular
           });
 
           return exps;
+        },
+        currentExperiment: function(habitData, experimentFactory){
+          if (habitData.habit.current_exp_id) {
+            return experimentFactory.getExperiment(habitData.habit.current_exp_id);
+          }
         }
       }
     })
