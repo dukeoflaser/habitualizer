@@ -6,6 +6,10 @@ angular
     .state('root', {
       url: '/',
       templateUrl: 'js/app/views/welcome.html',
+      controller: function($rootScope){
+        $rootScope.outside = true;
+        $rootScope.inside = false;
+      },
       resolve: {
         user: function($cookies){
           return $cookies.getObject('currentUser');
