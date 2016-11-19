@@ -2,6 +2,7 @@ class Habit < ApplicationRecord
   belongs_to :user
   belongs_to :cue
   has_many :experiments
+  has_many :notes
   belongs_to :reward
   belongs_to :activity
 
@@ -15,7 +16,6 @@ class Habit < ApplicationRecord
         @cue = Cue.create(name: atts['name'], nature: atts['nature'])
         self.cue = @cue
       end
-
   end
 
   def reward_attributes=(atts)
@@ -30,6 +30,10 @@ class Habit < ApplicationRecord
       self.update(activity: @activity)
   end
 
+  def note=(note)
+    @note = Note.create(contents: note)
+    self.notes << @note;
+  end
 
 
 end

@@ -19,14 +19,18 @@ var HabitTable = {
       }
     }
 
+    vm.saveHabit = function(habit){
+      habitFactory.updateHabit(habit.id, { habit: habit });
+    }
+
     vm.increment = function(habit){
       habit.likes += 1;
-      habitFactory.updateHabit(habit.id, { habit: habit });
+      vm.saveHabit(habit);
     }
 
     vm.decrement = function(habit){
       habit.likes -= 1;
-      habitFactory.updateHabit(habit.id, { habit: habit });
+      vm.saveHabit(habit);
     }
 
 
