@@ -144,3 +144,12 @@ background: rgba(0, 0, 0, 0.5);
 .table-striped-alt > tbody:nth-child(odd) > tr,
 .table-striped-alt > tbody:nth-child(odd) > th {
   background-color: #f9f9f9;
+}
+
+.note-yellow {
+  background-color: #fdfd96;
+}
+
+.note-row-background {
+  background: #f5f5f5;
+}

@@ -4,7 +4,7 @@ var HabitTable = {
     habits: '<'
   },
   templateUrl: 'js/app/components/habit-table/habit-table.html',
-  controller: function(formProcessor, habitFactory, noteCreator){
+  controller: function(formProcessor, habitFactory){
     var vm = this;
 
     this.habits.forEach(function(habit, i){

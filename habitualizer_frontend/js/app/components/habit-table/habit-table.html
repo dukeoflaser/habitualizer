@@ -17,7 +17,7 @@
               </thead>
               <tbody ng-if="user.habits.length == 0">
                 <tr>
-                  <td colspan="6">
+                  <td colspan="7">
                     <p>You do not have any habits yet.</p>
                   </td>
                 </tr>
@@ -26,7 +26,8 @@
                 <tr>
                   <td>
                     <button type="button" class="btn btn-xs btn-default" ng-click="user.noteClick(habit)">
-                      <i class="fa fa-plus"></i>
+                      <i ng-if="habit.noteDisplayed == false" class="fa fa-plus"></i>
+                      <i ng-if="habit.noteDisplayed == true" class="fa fa-minus"></i>
                     </button>
                   </td>
                   <td ui-sref="user.show.habit({ id: {{ habit.id }} })">
@@ -54,8 +55,11 @@
                     <span class="label label-success label-mini">COMPLETE</span>
                   </td>
                 </tr>
-                <tr ng-if="habit.noteDisplayed">
-                  <td colspan="7">Write a note here!</td>
+                <tr ng-if="habit.noteDisplayed" class="note-row-background">
+                  <td colspan="5"><textarea name="note" rows="8" cols="40" class="note-yellow" ng-model="habit.note"></textarea></td>
+                  <td colspan="2">
+                    <button class="btn btn-sm btn-theme03">Save Note</button>
+                  </td>
                 </tr>
               </tbody>
           </table>
