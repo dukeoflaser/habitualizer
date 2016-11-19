@@ -6,23 +6,28 @@
     	  	  <hr>
               <thead>
               <tr>
+                  <th><i class="fa li_pen"></i> Note</th>
                   <th><i class="fa li_cup"></i> Habit</th>
                   <th><i class="fa fa-calendar-o"></i> Date</th>
-                  <th><i class=" fa fa-tree"></i> Status</th>
-                  <th><i class=" fa fa-check"></i> Did It?</th>
+                  <th><i class="fa fa-tree"></i> Status</th>
+                  <th><i class="fa fa-check"></i> Did It?</th>
                   <th></th>
                   <th></th>
               </tr>
               </thead>
               <tbody>
-              <tr ng-if="user.habits.length == 0">
-                <td colspan="4">
+              <tr ng-if="!user.habits">
+                <td colspan="6">
                   <p>You do not have any habits yet.</p>
                 </td>
               </tr>
 
-              <tr ng-if="user.habits.length > 0" ng-repeat="habit in user.habits">
-
+              <tr ng-if="user.habits.length > 0" ng-repeat="habit in user.habits" ng-attr-id="{{ 'habitRow-' + habit.id }}">
+                  <td>
+                    <button type="button" class="btn btn-xs btn-default" ng-click="user.noteClick(habit)">
+                      <i class="fa fa-plus"></i>
+                    </button>
+                  </td>
                   <td ui-sref="user.show.habit({ id: {{ habit.id }} })">
                     <a href=''>{{ habit.name}}</a></td>
                   <td ui-sref="user.show.habit({ id: {{ habit.id }} })">
@@ -48,6 +53,7 @@
                     <span class="label label-success label-mini">COMPLETE</span>
                   </td>
               </tr>
+
 
 
               </tbody>

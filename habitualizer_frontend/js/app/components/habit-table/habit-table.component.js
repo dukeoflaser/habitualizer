@@ -4,9 +4,13 @@ var HabitTable = {
     habits: '<'
   },
   templateUrl: 'js/app/components/habit-table/habit-table.html',
-  controller: function(formProcessor, habitFactory){
+  controller: function(formProcessor, habitFactory, noteCreator){
     var vm = this;
 
+    vm.noteClick = function(habit) {
+      noteCreator.noteDisplayer(habit);
+    }
+    
     vm.increment = function(habit){
       habit.likes += 1;
       habitFactory.updateHabit(habit.id, { habit: habit });
