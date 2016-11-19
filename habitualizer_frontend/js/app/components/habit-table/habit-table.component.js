@@ -7,10 +7,14 @@ var HabitTable = {
   controller: function(formProcessor, habitFactory, noteCreator){
     var vm = this;
 
+    this.habits.forEach(function(habit, i){
+      habit.noteDisplayed = false;
+    });
+
     vm.noteClick = function(habit) {
       noteCreator.noteDisplayer(habit);
     }
-    
+
     vm.increment = function(habit){
       habit.likes += 1;
       habitFactory.updateHabit(habit.id, { habit: habit });

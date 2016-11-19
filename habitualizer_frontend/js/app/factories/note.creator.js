@@ -4,11 +4,9 @@ function noteCreator() {
     noteDisplayer: noteDisplayer
   }
 
-  var noteDisplayed = false;
-
   function noteDisplayer(habit) {
-    if (noteDisplayed != true) {
-      noteDisplayed = true;
+    if (habit.noteDisplayed != true) {
+      habit.noteDisplayed = true;
 
       var target = document.getElementById('habitRow-' + habit.id);
       var newRow = document.createElement('tr');
