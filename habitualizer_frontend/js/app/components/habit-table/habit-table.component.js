@@ -12,7 +12,11 @@ var HabitTable = {
     });
 
     vm.noteClick = function(habit) {
-      noteCreator.noteDisplayer(habit);
+      if (habit.noteDisplayed != true) {
+        habit.noteDisplayed = true;
+      } else {
+        habit.noteDisplayed = false;
+      }
     }
 
     vm.increment = function(habit){

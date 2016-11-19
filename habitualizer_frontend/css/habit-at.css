@@ -140,3 +140,7 @@ background: rgba(0, 0, 0, 0.5);
     text-decoration: none;
     background: rgba(0, 0, 0, 0.3);
 }
+
+.table-striped-alt > tbody:nth-child(odd) > tr,
+.table-striped-alt > tbody:nth-child(odd) > th {
+  background-color: #f9f9f9;
