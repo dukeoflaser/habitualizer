@@ -26,8 +26,14 @@ function ShowHabitController($scope, habitData, experiments, currentExperiment, 
   }
 
   vm.deleteNote = function(note) {
-    noteFactory.deleteNote(note);
+    noteFactory.deleteNote(note).then(function(){
+      note.displayed = false;
+    });
   }
+
+  vm.habit.notes.forEach(function(note, i) {
+    note.displayed = true;
+  });
 }
 
 angular
