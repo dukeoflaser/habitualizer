@@ -1,6 +1,6 @@
-function ShowHabitController($scope, habitData, experiments, currentExperiment, formProcessor) {
+function ShowHabitController($scope, habitData, experiments, currentExperiment, formProcessor, noteFactory) {
   var vm = this;
-
+  console.log(habitData);
   vm.habit = habitData.habit;
   vm.email = $scope.$parent.$parent.currentUser.email;
   vm.experiments = experiments;
@@ -23,6 +23,10 @@ function ShowHabitController($scope, habitData, experiments, currentExperiment, 
 
   vm.delete = function(submission) {
     formProcessor.processHabitDelete(submission);
+  }
+
+  vm.deleteNote = function(note) {
+    noteFactory.deleteNote(note);
   }
 }
 

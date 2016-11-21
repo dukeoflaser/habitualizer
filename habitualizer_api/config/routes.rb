@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :experiments, only: [:show, :create, :update, :destroy]
   resources :habits, only: [:show, :create, :update, :destroy]
   resources :rewards, only: [:index, :show, :create, :update, :destroy]
+  resources :notes, only: [:destroy]
 
 end

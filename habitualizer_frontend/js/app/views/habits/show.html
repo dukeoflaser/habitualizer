@@ -11,6 +11,18 @@
   </div>
 </div>
 
+<div class="showback" ng-if="user.habit.notes.length > 0">
+  <h4><i class="fa fa-angle-right"></i> Notes</h4>
+  <div class="alert alert-warning">
+    <ul>
+      <li ng-repeat="note in user.habit.notes">
+        <i class="fa fa-times" ng-click="user.deleteNote(note)"> </i> {{ note.contents }}
+        <br /><br />
+      </li>
+    </ul>
+  </div>
+</div>
+
 <hb-plan-panel habit="user.habit"
                email="user.email"
                phrase="user.phrase"
