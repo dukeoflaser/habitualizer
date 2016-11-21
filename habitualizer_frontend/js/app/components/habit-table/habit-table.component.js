@@ -4,11 +4,12 @@ var HabitTable = {
     habits: '<'
   },
   templateUrl: 'js/app/components/habit-table/habit-table.html',
-  controller: function(formProcessor, habitFactory){
+  controller: function(formProcessor, habitFactory, $timeout){
     var vm = this;
 
-    this.habits.forEach(function(habit, i){
+    vm.habits.forEach(function(habit, i){
       habit.noteDisplayed = false;
+      habit.message = '';
     });
 
     vm.noteClick = function(habit) {
@@ -20,7 +21,15 @@ var HabitTable = {
     }
 
     vm.saveHabit = function(habit){
-      habitFactory.updateHabit(habit.id, { habit: habit });
+      habitFactory.updateHabit(habit.id, { habit: habit }).then(function(){
+        habit.message = 'Your note has been saved.'
+        habit.note = '';
+
+        $timeout(function(){
+          habit.message = '';
+        }, 5000);
+      });
+
     }
 
     vm.increment = function(habit){

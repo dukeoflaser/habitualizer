@@ -56,7 +56,9 @@
                   </td>
                 </tr>
                 <tr ng-if="habit.noteDisplayed" class="note-row-background">
-                  <td colspan="5"><textarea name="note" rows="8" cols="40" class="note-yellow" ng-model="habit.note"></textarea></td>
+                  <td colspan="2"><textarea name="note" rows="8" cols="40" class="note-yellow" ng-model="habit.note"></textarea></td>
+                  <td colspan="2"><p class="alert alert-success" ng-if="habit.message">{{ habit.message }}</p></td>
+                  <td></td>
                   <td colspan="2">
                     <button class="btn btn-sm btn-theme03" ng-click="user.saveHabit(habit)">Save Note</button>
                   </td>
