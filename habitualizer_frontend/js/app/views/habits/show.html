@@ -11,13 +11,12 @@
   </div>
 </div>
 
-<div class="showback" ng-if="user.habit.notes.length > 0">
+<div class="showback" ng-if="user.notePanel">
   <h4><i class="fa fa-angle-right"></i> Notes</h4>
   <div class="alert alert-warning">
     <ul>
       <li ng-repeat="note in user.habit.notes" ng-if="note.displayed">
-        <i class="fa fa-times" ng-click="user.deleteNote(note)"> </i> {{ note.contents }}
-        <br /><br />
+        <i class="fa fa-times x" ng-click="user.deleteNote(note)"> </i> {{ note.contents }}
       </li>
     </ul>
   </div>
