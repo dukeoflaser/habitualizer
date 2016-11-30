@@ -5,6 +5,7 @@ function ShowHabitController($scope, habitData, experiments, currentExperiment, 
   vm.email = $scope.$parent.$parent.currentUser.email;
   vm.experiments = experiments;
   vm.notePanel = false;
+  
   checkForNotes();
 
   if (currentExperiment) vm.experiment = currentExperiment.experiment;
@@ -28,16 +29,15 @@ function ShowHabitController($scope, habitData, experiments, currentExperiment, 
   }
 
   vm.deleteNote = function(note) {
-    noteFactory.deleteNote(note).then(function(response){
-      console.log('From THen ON...');
+    noteFactory.deleteNote(note).then(function(){
       note.displayed = false;
-      console.log(note);
-      vm.habit.notes.forEach(function(n, i, obj){
+
+      vm.habit.notes.forEach(function(n, i, arr){
         if (note.id == n.id) {
-          console.log('match');
-          obj.splice(i, 1);
+          arr.splice(i, 1);
         }
       });
+
       checkForNotes();
     });
   }
@@ -47,12 +47,9 @@ function ShowHabitController($scope, habitData, experiments, currentExperiment, 
   });
 
   function checkForNotes() {
-    console.log(vm.habit.notes);
-    if (vm.habit.notes.length === 0) {
-      console.log('set to false');
-      vm.notePanel = false;
 
-      console.log(vm.notePanel);
+    if (vm.habit.notes.length === 0) {
+      vm.notePanel = false;
     } else {
       vm.notePanel = true;
     }
