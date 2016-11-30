@@ -5,19 +5,23 @@ function ShowHabitController($scope, habitData, experiments, currentExperiment, 
   vm.email = $scope.$parent.$parent.currentUser.email;
   vm.experiments = experiments;
   vm.notePanel = false;
-  
+
   checkForNotes();
 
-  if (currentExperiment) vm.experiment = currentExperiment.experiment;
+  if (currentExperiment) {
+    vm.experiment = currentExperiment.experiment;
+    var reward = vm.experiment.substitute.craving;
+  } else {
+    var reward = 'something more inspiring';
+  }
 
   if (vm.habit.activity) {
     vm.phrase = 'I will ' +
     vm.habit.activity.description +
-    ' because it provides me with ' +
-    vm.experiment.substitute.craving;
+    ' because it provides me with ' + reward;
+
     vm.plan = 'Replace ' + vm.habit.reward.craving +
-    ' with ' +
-    vm.experiment.substitute.craving;
+    ' with ' + reward;
   }
 
   if(vm.habit.activity && vm.habit.activity.description != '') {
