@@ -22,7 +22,7 @@
                   </td>
                 </tr>
               </tbody>
-              <tbody ng-if="user.habits.length > 0" ng-repeat="habit in user.habits" ng-attr-id="{{ 'habitRow-' + habit.id }}">
+              <tbody ng-if="user.habits.length > 0" ng-repeat="habit in user.habits | orderBy:'-'" ng-attr-id="{{ 'habitRow-' + habit.id }}">
                 <tr>
                   <td>
                     <button type="button" class="btn btn-xs btn-default" ng-click="user.noteClick(habit)">

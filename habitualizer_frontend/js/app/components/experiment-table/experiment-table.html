@@ -20,7 +20,7 @@
               </tr>
 
               <tr ng-if="user.experiments.length > 0"
-                  ng-repeat="experiment in user.experiments">
+                  ng-repeat="experiment in user.experiments | orderBy:'-'">
 
                   <td ui-sref="user.show.experiment({ id: {{ experiment.id }} })">
                     <a href=''>{{ experiment.substitute.craving }}</a>
